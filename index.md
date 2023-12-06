@@ -1,6 +1,9 @@
-# PHYS/ASTR 7730 - Statistical and Computational Methods
+## PHYS/ASTR 7730 - Statistical and Computational Methods in Physics & Astronomy
 
 ### Spring 2024 Draft Syllabus
+
+> [!NOTE]
+> The course description and prerequisites listed below are up-to-date and supersede the version on the U's course catalog.
 
 #### Course Information
 - Instructor: [Yao-Yuan Mao](https://yymao.github.io/), University of Utah.
