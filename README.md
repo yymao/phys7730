@@ -2,11 +2,11 @@
 title: "PHYS/ASTR 7730 | Yao-Yuan Mao"
 ---
 
-## PHYS/ASTR 7730: Statistical and Computational Methods in Physics & Astronomy
+## PHYS/ASTR 7730: Statistical and Computational Methods in Physics and Astronomy
 
 ### Spring 2024 Draft Syllabus
 
-> 💡 <span style="color: #5eb95e;">**The course description and prerequisites listed below are up-to-date and supersede the version on the U's course catalog.**</span>
+💡 <span style="color: #4e964e;">**The course description and prerequisites listed below are up-to-date and supersede the version on the U's course catalog.**</span>
 
 #### Course Information
 - Instructor: [Yao-Yuan Mao](https://yymao.github.io/), University of Utah.
@@ -31,7 +31,7 @@ to be able to complete assignments and projects independently.
 
 #### Weekly Schedule
 
-> ⚠️ <span style="color: #dd514c;">**The following shedule and topics are tentative and subject to change!**</span>
+⚠️ <span style="color: #dd514c;">**The following shedule and topics are tentative and subject to change!**</span>
 
 | Week # | Monday | Wednesday |
 |--------|--------|-----------|
