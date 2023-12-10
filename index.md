@@ -34,21 +34,21 @@ to be able to complete assignments and projects independently.
 
 ⚠️ <span style="color: #dd514c;">**The following shedule and topics are tentative and subject to change!**</span>
 
-| Week # | Monday | Wednesday |
-|--------|--------|-----------|
-| Week 01 | Course intro; setup; Python recap | Theory of stochastic processes |
-| Week 02 | MLK Day | Simulating stochastic processes |
-| Week 03 | MCMC methods (e.g., integration) | Importance sampling |
-| Week 04 | MCMC simulations | Annealing, metropolis algorithm, Ising model |
-| Week 05 | Bayesian Analysis | MCMC Inference 1 |
-| Week 06 | MCMC Inference 2 | ***Hands-on Practice*** |
-| Week 07 | ***Final project topic selection*** | ***Mid-semester evaluation 1*** | 
-|  | *Spring Break* | *Spring Break* |
-| Week 08 | Introduction to ML methods | Dimensionality reduction |
-| Week 09 | Unsupervised: Density Estimation | Unsupervised: Clustering |
-| Week 10 | Supervised: Regression | Linear models |
-| Week 11 | Supervised: Classification | Decision Trees & Ensemble methods |
-| Week 12 | Additional ML methods: SVM, GP | Model selection and evaluation |
-| Week 13 | ***Hands-on Practice*** | ***Mid-semester evaluation 2*** |
-| Week 14 | Special topic: Large simulations | Special topic: High-performance computing |
-| Week 15 | ***Final project presentation*** | ***Final project presentation*** |
+| Week # | Dates | Monday | Wednesday |
+|--------|-------|--------|-----------|
+| Week 01 | Jan 08, 10 | Course intro; setup; Python recap | Theory of stochastic processes |
+| Week 02 | Jan ~15~, 17 | *MLK Day* | Simulating stochastic processes |
+| Week 03 | Jan 22, 24 | MCMC methods (e.g., integration) | Importance sampling |
+| Week 04 | Jan 29, 31 | MCMC simulations | Annealing, metropolis algorithm, Ising model |
+| Week 05 | Feb 05, 07 | Bayesian Analysis | MCMC Inference 1 |
+| Week 06 | Feb 12, 14 | MCMC Inference 2 | ***Hands-on Practice*** |
+| Week 07 | Feb ~19~, 21 | *Presidents Day* | ***Mid-semester evaluation 1*** | 
+| Week 08 | Feb 26, 28 | Introduction to ML methods  | Dimensionality reduction | 
+|         | Mar ~4~, ~6~ | *Spring Break* | *Spring Break* |
+| Week 09 | Mar 11, 13 | Unsupervised: Density Estimation | Unsupervised: Clustering |
+| Week 10 | Mar 18, 20 | Supervised: Regression | Linear models |
+| Week 11 | Mar 25, 27 | Supervised: Classification | Decision Trees & Ensemble methods |
+| Week 12 | Apr 01, 03 | Additional ML methods: SVM, GP | Model selection and evaluation |
+| Week 13 | Apr 08, 10 | Special topic: High-performance computing | ***Hands-on Practice*** |
+| Week 14 | Apr 15, 17 | ***Final project presentation*** | ***Final project presentation*** | 
+| Week 15 | Apr 22, ~24~ | ***Mid-semester evaluation 2*** | *Reading Day* | 
