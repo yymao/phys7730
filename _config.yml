@@ -12,10 +12,6 @@ exclude_patterns: ["backup"]
 execute:
   execute_notebooks: force
 
-# Add a bibtex file so that we can create citations
-bibtex_bibfiles:
-  - references.bib
-
 # Information about where the book exists on the web
 repository:
   url: https://github.com/yymao/phys7730  # Online location of your book
@@ -26,7 +22,7 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
-  baseurl: "https://yymao.github.io/phys7730"
+  baseurl: https://yymao.github.io/phys7730/
 
 parse:
   myst_enable_extensions:
