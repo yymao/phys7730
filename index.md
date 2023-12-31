@@ -21,4 +21,4 @@ Students are assumed to be comfortable in programming and have an introductory-l
 - Instructor: [Yao-Yuan Mao](https://yymao.github.io/)
 - Days / Times: Mon & Wed / 3:00PM - 4:45PM
 - Location: [PHYS](https://map.utah.edu/?code=PHYS) 205
-- Course policies: Please refer to the [Canvas page](https://utah.instructure.com/courses/887663) (uNID login required).
+- Course policies: Please refer to the [Canvas page](https://utah.instructure.com/courses/934218) (uNID login required).

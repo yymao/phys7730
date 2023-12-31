@@ -6,5 +6,6 @@ root: index
 title: Home
 parts:
 - chapters:
+  - url: https://utah.instructure.com/courses/934218
+    title: Canvas (Spring 2024)
   - file: schedule
-  #- file: setup
