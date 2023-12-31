@@ -2,7 +2,9 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
-chapters:
-- file: syllabus
-
+root: index
+title: Home
+parts:
+- chapters:
+  - file: schedule
+  #- file: setup

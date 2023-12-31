@@ -23,6 +23,7 @@ html:
   use_issues_button: true
   use_repository_button: true
   baseurl: https://yymao.github.io/phys7730/
+  extra_footer: "Statistical and Computational Methods in Physics and Astronomy"
 
 parse:
   myst_enable_extensions:
