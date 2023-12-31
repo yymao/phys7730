@@ -1,4 +1,10 @@
-# PHYS/ASTR 7730: Statistical and Computational Methods in Physics and Astronomy
+# Home
+
+This website hosts the course materials and labs for PHYS/ASTR 7730,
+**Statistical and Computational Methods in Physics and Astronomy**, taught by
+Yao-Yuan Mao at University of Utah, starting from Spring 2024.
+
+## Course Description
 
 This course will discuss a few widely applicable statistical and computational methods of analyzing and
 modeling phenomena in astrophysics, biophysics, and physics in general. The learning objective is to apply
@@ -12,9 +18,7 @@ Students are assumed to be comfortable in programming and have an introductory-l
 
 ## Spring 2024 Course Information
 
-- Instructor: [Yao-Yuan Mao](https://yymao.github.io/), University of Utah
+- Instructor: [Yao-Yuan Mao](https://yymao.github.io/)
 - Days / Times: Mon & Wed / 3:00PM - 4:45PM
-- Locations: [PHYS](https://map.utah.edu/?code=PHYS) 205
-
-```{tableofcontents}
-```
+- Location: [PHYS](https://map.utah.edu/?code=PHYS) 205
+- Course policies: Please refer to the [Canvas page](https://utah.instructure.com/courses/887663) (uNID login required).

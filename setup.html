@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>PHYS/ASTR 7730: Statistical and Computational Methods in Physics and Astronomy &#8212; PHYS/ASTR 7730</title>
+    <title>Set up your computing environment &#8212; PHYS/ASTR 7730</title>
   
   
   
@@ -62,11 +62,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
-    <link rel="canonical" href="https://yymao.github.io/phys7730/intro.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'setup';</script>
+    <link rel="canonical" href="https://yymao.github.io/phys7730/setup.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Syllabus" href="syllabus.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -142,7 +141,7 @@ const thebe_selector_output = ".output, .cell_output"
 
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="index.html">
   
   
   
@@ -162,14 +161,14 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
-                    PHYS/ASTR 7730: Statistical and Computational Methods in Physics and Astronomy
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Home
                 </a>
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schedule.html">Weekly Schedule</a></li>
 </ul>
 
     </div>
@@ -241,7 +240,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/yymao/phys7730/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/yymao/phys7730/issues/new?title=Issue%20on%20page%20%2Fsetup.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -271,7 +270,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/setup.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -355,7 +354,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>PHYS/ASTR 7730: Statistical and Computational Methods in Physics and Astronomy</h1>
+    <h1>Set up your computing environment</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -365,7 +364,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spring-2024-course-information">Spring 2024 Course Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-python">Use Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-python-on-your-computer">Install Python on your computer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-chpc">Use CHPC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-google-colab">Use Google Colab</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-other-programming-languages">Use other programming languages</a></li>
 </ul>
             </nav>
         </div>
@@ -377,28 +382,26 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="phys-astr-7730-statistical-and-computational-methods-in-physics-and-astronomy">
-<h1>PHYS/ASTR 7730: Statistical and Computational Methods in Physics and Astronomy<a class="headerlink" href="#phys-astr-7730-statistical-and-computational-methods-in-physics-and-astronomy" title="Permalink to this heading">#</a></h1>
-<p>This course will discuss a few widely applicable statistical and computational methods of analyzing and
-modeling phenomena in astrophysics, biophysics, and physics in general. The learning objective is to apply
-the methods learned in this course to connect experimental or observational data with underlying physical
-processes through numerical simulations and statistical analyses.
-Topics that will be covered in this course include stochastic process simulations, Monte Carlo methods,
-Bayesian analysis, and basic machine learning algorithms. This is a graduate-level course. The course
-will use Python as the programming language for demonstration and use many examples in physics and astronomy.
-Students are assumed to be comfortable in programming and have an introductory-level knowledge in physics.</p>
-<section id="spring-2024-course-information">
-<h2>Spring 2024 Course Information<a class="headerlink" href="#spring-2024-course-information" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Instructor: <a class="reference external" href="https://yymao.github.io/">Yao-Yuan Mao</a>, University of Utah</p></li>
-<li><p>Days / Times: Mon &amp; Wed / 3:00PM - 4:45PM</p></li>
-<li><p>Locations: <a class="reference external" href="https://map.utah.edu/?code=PHYS">PHYS</a> 205</p></li>
-</ul>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="syllabus.html">Syllabus</a></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="set-up-your-computing-environment">
+<h1>Set up your computing environment<a class="headerlink" href="#set-up-your-computing-environment" title="Permalink to this heading">#</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This page is still under construction.</p>
 </div>
+<section id="use-python">
+<h2>Use Python<a class="headerlink" href="#use-python" title="Permalink to this heading">#</a></h2>
+<section id="install-python-on-your-computer">
+<h3>Install Python on your computer<a class="headerlink" href="#install-python-on-your-computer" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="use-chpc">
+<h3>Use CHPC<a class="headerlink" href="#use-chpc" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="use-google-colab">
+<h3>Use Google Colab<a class="headerlink" href="#use-google-colab" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="use-other-programming-languages">
+<h2>Use other programming languages<a class="headerlink" href="#use-other-programming-languages" title="Permalink to this heading">#</a></h2>
 </section>
 </section>
 
@@ -432,15 +435,6 @@ Students are assumed to be comfortable in programming and have an introductory-l
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="right-next"
-       href="syllabus.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Syllabus</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -456,7 +450,13 @@ Students are assumed to be comfortable in programming and have an introductory-l
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spring-2024-course-information">Spring 2024 Course Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-python">Use Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-python-on-your-computer">Install Python on your computer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-chpc">Use CHPC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-google-colab">Use Google Colab</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-other-programming-languages">Use other programming languages</a></li>
 </ul>
   </nav></div>
 
@@ -494,6 +494,9 @@ By Yao-Yuan Mao (University of Utah)
   
   <div class="footer-item">
     
+<div class="extra_footer">
+  Statistical and Computational Methods in Physics and Astronomy
+</div>
   </div>
   
 </div>
