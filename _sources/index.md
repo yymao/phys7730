@@ -2,7 +2,7 @@
 
 This website hosts the course materials and labs for PHYS/ASTR 7730,
 **Statistical and Computational Methods in Physics and Astronomy**, taught by
-Yao-Yuan Mao at University of Utah, starting from Spring 2024.
+Yao-Yuan Mao at the University of Utah, starting from Spring 2024.
 
 ## Course Description
 
@@ -15,10 +15,28 @@ Bayesian analysis, and basic machine learning algorithms. This is a graduate-lev
 will use Python as the programming language for demonstration and use many examples in physics and astronomy.
 Students are assumed to be comfortable in programming and have an introductory-level knowledge in physics.
 
+## Prerequisites
+
+No required course prerequisites, but students are expected to be comfortable in coding (preferably in Python)
+to be able to complete assignments and projects independently.
 
 ## Spring 2024 Course Information
 
+### Classes
+
+- Meeting Days: Mondays & Wednesdays
+- Meeting Time: 3:00PM - 4:45PM
+- Meeting Location: [South Physics (PHYS)](https://map.utah.edu/?code=PHYS) 205
+
+### Instructor Information
+
 - Instructor: [Yao-Yuan Mao](https://yymao.github.io/)
-- Days / Times: Mon & Wed / 3:00PM - 4:45PM
-- Location: [PHYS](https://map.utah.edu/?code=PHYS) 205
-- Course policies: Please refer to the [Canvas page](https://utah.instructure.com/courses/934218) (uNID login required).
+- Instructor Office: [INSCC](https://map.utah.edu/?code=INSCC) 314
+- Instructor Email: yymao [at] astro [dot] utah [dot] edu
+- Office hours: TBD
+
+### Useful Links
+
+- [Canvas page](https://utah.instructure.com/courses/934218) (uNID login required): Canvas will be used for announcements, official policies, assignment submission, and grading.
+- [Course policies](policies)
+- [Weekly schedule](schedule)
