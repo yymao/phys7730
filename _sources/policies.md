@@ -27,9 +27,8 @@ Please note that we will use Python as the programming language for demonstratio
 
 ## Course Materials and Schedule
 
-Please visit the course website (this site) for all course materials and [weekly schedule](schedule).
-
-There is no required textbook for this course. Access to required reading will be posted on the course website (this site). 
+There is no required textbook for this course.
+Access to required reading, labs, and other course materials will be posted on the course website (this site).
 
 ## Course Components and Grading
 
