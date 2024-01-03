@@ -9,8 +9,9 @@ If there is any discrepancy between this page and the Canvas page, the latter ta
 
 :::{note}
 The following sections detail the plan, structure, requirements, and expectations of this course.
-This syllabus is not a binding legal contract. I will endeavor to follow as closely to the posted policies as possible,
-and any adjustments to these policies will be communicated timely and clearly to the class.
+They are meant to serve as an outline and guide for our course.
+Please note that these course policies may be adjusted.
+Any adjustment will be communicated to you in a timely fashion.
 :::
 
 ## Learning Objectives
