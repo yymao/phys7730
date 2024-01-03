@@ -1,6 +1,6 @@
 # Weekly Schedule
 
-:::{important}
+:::{note}
 While I will do my best to follow this schedule, the schedule is still subject to change.
 Any changes will be communicated to you in a timely fashion.
 :::
