@@ -27,6 +27,7 @@ to be able to complete assignments and projects independently.
 - Meeting Days: Mondays & Wednesdays
 - Meeting Time: 3:00PM - 4:45PM
 - Meeting Location: [South Physics (PHYS)](https://map.utah.edu/?code=PHYS) 205
+- Credit Hours: 4
 
 ### Instructor Information
 
