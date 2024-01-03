@@ -1,12 +1,28 @@
 # Course Policies
 
-:::{seealso}
+:::{important}
 The official course policies for PHYS/ASTR 7730 (Spring 2024) are posted on
 [Canvas](https://utah.instructure.com/courses/934218/assignments/syllabus) (login required).
-
-Below is a copy of the course policies for your convenience.
+Below is a copy of the policies for your convenience.
 If there is any discrepancy between this page and the Canvas page, the latter takes precedence.
 :::
+
+:::{note}
+The following sections detail the plan, structure, requirements, and expectations of this course.
+This syllabus is not a binding legal contract. I will endeavor to follow as closely to the posted policies as possible,
+and any adjustments to these policies will be communicated timely and clearly to the class.
+:::
+
+## Learning Objectives
+
+This course is a graduate-level course focusing on a selection of widely applicable statistical and computational methods in physics and astronomy. The main learning objectives of this course are:
+
+- Being able to identify statistical or computational methods that are potentially applicable for a research problem in physics and astronomy; 
+- Being able to design or set up statistical tests, computational models, and/or simulations to tackle the said problem;
+- Being able to interpret the results, assess the method's effectiveness, and revise the method as needed;
+- Being able to examine and experiment with other statistical or computational methods that may not be covered in this class.
+
+Please note that we will use Python as the programming language for demonstration and use many examples in physics and astronomy. Students are assumed to be comfortable in programming and have an introductory-level knowledge in physics.
 
 ## Course Materials and Schedule
 
@@ -17,6 +33,8 @@ There is no required textbook for this course. Access to required reading will b
 ## Course Components and Grading
 
 This course has multiple components: lectures, in-class discussions, pre-lecture reading, homework, mock exam, and presentations --- each of these is designed to help you learn the materials better. You are expected to participate in/work on all of the course components. However, if there is anything that is preventing you from participating in the coursework or learning effectively, please talk to the instructor so that we can find creative solutions. 
+
+If you would like to request accommodations (either with or without a letter from the [Center for Disability & Access](https://disability.utah.edu/)), please reach out to the instructor at your earliest convenience.
 
 Your grade will be determined from all of the components, with the following weights:
 
@@ -68,7 +86,7 @@ A lab component will be included in each class. These labs involve hands-on prac
 
 The homework assignments of this course will simply be completing those labs, and there won't be additional homework assignments. 
 
-Each homework assignment (lab) will be due in exactly one week, at the class start time (so a lab from a Monday class will due at 3pm on the following Monday). The lab will be announced in class on the course website. Once you complete the lab (which is the homework assignment), you should submit it on Canvas. 
+Each homework assignment (lab) will be due in exactly one week, at the class start time (so a lab from a Monday class will due at 3pm on the following Monday). The lab will be announced in class on the course website (this site). Once you complete the lab (which is the homework assignment), you should submit it on Canvas. 
 
 Each homework assignment will be graded on a 5-point scale, with 4 points on completeness, and 1 point on quality. In other words, if you complete the entire lab, you will receive at least 4 points (even if you made mistakes), and you can receive up to 5 points depending on the quality of your answers. You may receive less than 4 points if you do not complete the entire lab. 
 
@@ -92,7 +110,7 @@ Your score for each meeting will be weighted equally. The lowest 4 scores will b
 
 ### Quality of Engagement
 
-You will earn a higher score on the quality of engagement when you come prepared! For example, spending time thinking about the questions in the pre-lecture reading assignment will help you engage better. It's important to note that the quality of engagement is not graded based on how much you spoke in class nor on the correctness your contribution was. It is graded based on how much you contribute to the learning experiences of yourself, other students, and the instructor (yes, the instructor learns from you all too!). High quality engagement usually prompts further reflection, thinking, and discussion. 
+You will earn a higher score on the quality of engagement when you come prepared! For example, spending time thinking about the questions in the pre-lecture reading assignments can help you engage better. It's important to note that the quality of engagement is *not* graded based on how much you spoke in class or how correct you were. It is graded based on **how much you contribute to the learning experiences** of yourself, other students, and the instructor (yes, the instructor learns from you all too!). High quality engagement usually prompts further reflection, thinking, and discussion.
 
 ## Mock Exam and Presentation
 
