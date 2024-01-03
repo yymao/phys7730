@@ -14,6 +14,7 @@ Please note that these course policies may be adjusted.
 Any adjustment will be communicated to you in a timely fashion.
 :::
 
+(sec:learning-objectives)=
 ## Learning Objectives
 
 This course is a graduate-level course focusing on a selection of widely applicable statistical and computational methods in physics and astronomy. The main learning objectives of this course are:

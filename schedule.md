@@ -9,7 +9,7 @@ Any changes will be communicated to you in a timely fashion.
 
 | Week # | Dates | Monday | Wednesday |
 |--------|-------|--------|-----------|
-| Week 01 | Jan 08, 10 | Course intro and setup; Python recap | Probability theory & random variables |
+| Week 01 | Jan 08, 10 | Course intro and [setup](setup); Python recap | Probability theory & random variables |
 | Week 02 | Jan ~~15~~, 17 | *MLK Day* | Summary statistics |
 | Week 03 | Jan 22, 24 | Classical inference | Monte Carlo method; importance sampling |
 | Week 04 | Jan 29, 31 | Theory of stochastic processes | Simulating stochastic processes |

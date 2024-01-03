@@ -10,3 +10,4 @@ parts:
     title: Canvas (login required)
   - file: policies
   - file: schedule
+  - file: setup
