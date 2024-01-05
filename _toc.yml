@@ -10,4 +10,13 @@ parts:
     title: Canvas (login required)
   - file: policies
   - file: schedule
+  - file: references
   - file: setup
+
+- caption: Readings
+  chapters:
+  - glob: readings/*
+
+- caption: Labs
+  chapters:
+  - glob: labs/*

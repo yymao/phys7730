@@ -36,3 +36,6 @@ parse:
     - strikethrough
     - substitution
     - tasklist
+
+bibtex_bibfiles:
+    - references.bib

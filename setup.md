@@ -7,7 +7,7 @@ While you can use any programming language, I strongly recommend Python for a fe
 - In this course, examples and some partial code of the labs will be provided in Python only.
 
 If you already have a working Python environment, it may already be sufficient for this course.
-However, you might still want to [create a new environment]((sec:new-environment)) in case you need to install new packages
+However, you might still want to [create a new environment](sec:new-environment) in case you need to install new packages
 for this course and you don't want them to interfere with your original environment.
 The instructions below will guide you to install conda and create a new Python environment.
 
