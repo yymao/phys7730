@@ -5,7 +5,7 @@ title: PHYS/ASTR 7730
 author: Yao-Yuan Mao (University of Utah)
 copyright: "2024"
 logo: logo.png
-exclude_patterns: ["backup", ".gitignore"]
+exclude_patterns: ["backup", "wip", ".gitignore", "build.sh"]
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html

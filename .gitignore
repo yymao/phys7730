@@ -1,2 +1,3 @@
-_build
-backup
+_build/
+backup/
+wip/
