@@ -1,0 +1,6 @@
+div.answer{
+  background-color: var(--pst-color-on-background);
+  border-radius: 0.25rem;
+  padding: 0.6rem 0.8rem !important;
+  font-style: italic;
+}
