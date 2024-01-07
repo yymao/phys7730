@@ -73,6 +73,8 @@ Pre-lecture reading will be assigned via Canvas. You will need to complete the a
 - ask you if you have any questions about what you read;
 - ask you simple questions that are related to what you read. 
 
+Each pre-lecture reading assignment will be due in **at Noon** on the class meeting day for which the reading assignment is for (that is, a reading assignment for a Monday class will due at Noon on that Monday, 3 hours before class meets). I'll typically announce the reading assignments one week in advance.
+
 Each pre-lecture reading assignment will be graded on a 5-point scale, with 4 points on completeness, and 1 point on quality. In other words, if you complete all the questions, you will receive at least 4 points, and can receive up to 5 points depending on the quality of your answers. You may receive less than 4 points if you do not complete all the questions.  
 
 Late submission within a week (regardless of how late you were within the week) will receive a 25% deduction on the points you receive. Late submission beyond a week will receive no points.
@@ -87,7 +89,7 @@ A lab component will be included in each class. These labs involve hands-on prac
 
 The homework assignments of this course will simply be completing those labs, and there won't be additional homework assignments. 
 
-Each homework assignment (lab) will be due in exactly one week, at the class start time (so a lab from a Monday class will due at 3pm on the following Monday). The lab will be announced in class on the course website (this site). Once you complete the lab (which is the homework assignment), you should submit it on Canvas. 
+Each homework assignment (lab) will be due in one week **at Noon** (so a lab from a Monday class will due at Noon on the following Monday). The lab will be announced in class on the course website (this site). Once you complete the lab (which is the homework assignment), you should submit it on Canvas. 
 
 Each homework assignment will be graded on a 5-point scale, with 4 points on completeness, and 1 point on quality. In other words, if you complete the entire lab, you will receive at least 4 points (even if you made mistakes), and you can receive up to 5 points depending on the quality of your answers. You may receive less than 4 points if you do not complete the entire lab. 
 
