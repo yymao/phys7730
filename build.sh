@@ -1,8 +1,4 @@
-#!/bin/bash
-
-CONDABIN='/home/yymao/miniforge3/bin/conda'
-eval "$($CONDABIN shell.bash hook)"
-conda activate book
+#!/bin/sh
 
 while [ $# -gt 0 ]; do
     case $1 in
@@ -19,8 +15,11 @@ while [ $# -gt 0 ]; do
     shift
 done
 
-NAME=$(basename $(pwd))
+CONDABIN='/home/yymao/miniforge3/bin/conda'
+eval "$($CONDABIN shell.bash hook)"
+conda activate book
 
+NAME=$(basename $(pwd))
 cd ..
 
 if [ ! -z "$CLEAN" ] ; then
@@ -46,4 +45,3 @@ if [ ! -z "$PUSH" ] ; then
     esac
   done
 fi
-
