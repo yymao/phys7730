@@ -42,13 +42,17 @@ You will need to activate the base conda environment for the `conda` command to 
 
 (sec:new-environment)=
 ### Create a new environment
-Once `conda` is available on your machine, you can go ahead and create a new environment for this course by running:
+Once `conda` is available on your machine, you can go ahead and create a new environment for this course.
+
+First, download [this environment definition file](https://yymao.github.io/phys7730/environment.yml).
+
+Once it's downloaded, you can run:
 
 ```sh
-conda create -n 7730 -c conda-forge --override-channels ipython jupyterlab matplotlib-base numpy pandas scikit-learn scipy
+conda env create -f /path/to/environment.yml
 ```
 
-Once it's done, you can run the following to activate this new environment:
+Once the package installation is done, you can run the following to activate this new environment:
 ```sh
 conda activate 7730
 ```
