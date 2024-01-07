@@ -17,7 +17,7 @@ done
 
 CONDABIN='/home/yymao/miniforge3/bin/conda'
 eval "$($CONDABIN shell.bash hook)"
-conda activate book
+conda activate 7730
 
 NAME=$(basename $(pwd))
 cd ..
@@ -33,7 +33,7 @@ cd $NAME
 PAGE='_build/html/index.html'
 
 if [ ! -z "$VIEW" ] ; then
-  xdg-open $PAGE &> /dev/null
+  xdg-open $PAGE >/dev/null 2>&1
 fi
 
 if [ ! -z "$PUSH" ] ; then
