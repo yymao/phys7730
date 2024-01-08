@@ -30,8 +30,7 @@ to be able to complete assignments and projects independently.
 
 ### Classes
 
-- Meeting Days: Mondays & Wednesdays
-- Meeting Time: 3:00PM - 4:45PM
+- Meeting Time & Days: 3:00–4:45 pm on Mondays & Wednesdays
 - Meeting Location: [South Physics (PHYS)](https://map.utah.edu/?code=PHYS) 205
 - Credit Hours: 4
 
@@ -40,7 +39,7 @@ to be able to complete assignments and projects independently.
 - Instructor: [Yao-Yuan Mao](https://yymao.github.io/)
 - Instructor Office: [INSCC](https://map.utah.edu/?code=INSCC) 314
 - Instructor Email: yymao<span>@</span>astro<span>.</span>utah<span>.</span>edu
-- Office hours: TBD
+- Office hours: 1:45–2:45 pm on Mondays
 
 ### Useful Links
 
