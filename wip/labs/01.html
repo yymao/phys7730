@@ -63,6 +63,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'wip/labs/01';</script>
     <link rel="canonical" href="https://yymao.github.io/phys7730/wip/labs/01.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -349,10 +351,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-inverse-transform-sampling">A. Inverse transform sampling</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#post-implementation-questions-part-a">Post-implementation Questions - Part A</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-inverse-transform-sampling">A. Inverse transform sampling</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-rejection-sampling">B. Rejection sampling</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-sampling-random-rotations">C. Sampling random rotations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#post-implementation-questions-part-c">Post-implementation Questions - Part C</a></li>
@@ -375,53 +374,43 @@ document.write(`
 <section id="a-inverse-transform-sampling">
 <h2>A. Inverse transform sampling<a class="headerlink" href="#a-inverse-transform-sampling" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Generate 2,000 random numbers sampled from a standard Gaussian distribution.</p></li>
-<li><p>Make a histrogram of those numbers you generated from Step 1.</p></li>
-<li><p>Overplot the probability density function (PDF) of a standard Gaussian distribution.
-Normalize the PDF appropriately so that it matches the histrogram.</p></li>
+<li><p>Write a function to generate random variates sampled from an exponential distribution.
+Its probability density function is <span class="math notranslate nohighlight">\(p(x; \lambda) = \lambda e^{-\lambda x}\)</span>, defined for all <span class="math notranslate nohighlight">\(x \leq 0\)</span>.
+Use the inverse transform sampling method with the built-in standard uniform random number generator.</p></li>
+<li><p>Generate 1,000 random variates using your function and another 1,000 using <code class="docutils literal notranslate"><span class="pre">np.random.default_rng().exponential</span></code>.
+In both cases, set <span class="math notranslate nohighlight">\(\lambda = 2\)</span> (note that the <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter in the numpy function is defined as <span class="math notranslate nohighlight">\(1/\lambda\)</span>).
+Make a “q-q plot” between these two samples.</p></li>
 </ol>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <ul class="simple">
-<li><p>Consider using:</p></li>
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html"><code class="docutils literal notranslate"><span class="pre">scipy.stats.norm</span></code></a></p></li>
-<li><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html"><code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.hist</span></code></a></p></li>
+<li><p>For Step 2, consider using:</p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.quantile.html"><code class="docutils literal notranslate"><span class="pre">numpy.quantile</span></code></a></p></li>
 </ul>
 </aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Put your implementation for Part A here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">exponential_rvs</span><span class="p">(</span><span class="n">l</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+    <span class="n">uniform_rvs</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+    <span class="c1"># Put your implementation for Part A, Step 1 here</span>
+
+<span class="c1"># Put your implementation for Part A, Step 2 here</span>
 </pre></div>
 </div>
 </div>
 </div>
-<section id="post-implementation-questions-part-a">
-<h3>Post-implementation Questions - Part A<a class="headerlink" href="#post-implementation-questions-part-a" title="Permalink to this heading">#</a></h3>
-<ol class="arabic">
-<li><p>What is the normalizing factor you have to use in Step 3? Can you determine its value a priori?</p>
-<div class="answer docutils container">
-<p>// Put your answers here</p>
-</div>
-</li>
-</ol>
-</section>
 </section>
 <section id="b-rejection-sampling">
 <h2>B. Rejection sampling<a class="headerlink" href="#b-rejection-sampling" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Read in <a class="reference external" href="https://yymao.github.io/phys7730/data/lab00b-scatter-plot.csv">this csv file</a>.</p></li>
-<li><p>Make a scatter plot for quantities <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>. Use two different colors for entries with differnet <code class="docutils literal notranslate"><span class="pre">type</span></code> values.</p></li>
-<li><p>For each type, calculate the Spearman correlation coefficient between <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p></li>
+<li><p>Write a function to generate points that are sampled uniformly at random within the circle <span class="math notranslate nohighlight">\(x^2 + y^2 = 1\)</span> on the 2D <span class="math notranslate nohighlight">\(xy\)</span> plane.
+Use the rejection sampling method with the built-in standard uniform random number generator.</p></li>
+<li><p>Use your function to generate 1,000 points and make a scatter plot. Do they look uniformly at random within the circle?</p></li>
+<li><p>Write a test to convince yourself that your implementation is correct.</p></li>
 </ol>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<ul class="simple">
-<li><p>Consider using:</p></li>
-<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html"><code class="docutils literal notranslate"><span class="pre">pandas.read_csv</span></code></a></p></li>
-<li><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html"><code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.scatter</span></code></a></p></li>
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.spearman.html"><code class="docutils literal notranslate"><span class="pre">scipy.stats.spearman</span></code></a></p></li>
-</ul>
-</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Put your implementation for Part B here</span>
@@ -541,10 +530,7 @@ please convert the notebook into HTML format by running the following:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-inverse-transform-sampling">A. Inverse transform sampling</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#post-implementation-questions-part-a">Post-implementation Questions - Part A</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-inverse-transform-sampling">A. Inverse transform sampling</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-rejection-sampling">B. Rejection sampling</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-sampling-random-rotations">C. Sampling random rotations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#post-implementation-questions-part-c">Post-implementation Questions - Part C</a></li>

@@ -376,9 +376,9 @@ document.write(`
 <h2>A. Gaussian distribution<a class="headerlink" href="#a-gaussian-distribution" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Generate 2,000 random numbers sampled from a standard Gaussian distribution.</p></li>
-<li><p>Make a histrogram of those numbers you generated from Step 1.</p></li>
-<li><p>Overplot the probability density function (PDF) of a standard Gaussian distribution.
-Normalize the PDF appropriately so that it matches the histrogram.</p></li>
+<li><p>Make a histogram of those numbers you generated from Step 1.</p></li>
+<li><p>Overplot the probability density function (pdf) of a standard Gaussian distribution.
+Normalize the pdf appropriately so that it matches the histogram.</p></li>
 </ol>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -410,7 +410,7 @@ Normalize the PDF appropriately so that it matches the histrogram.</p></li>
 <h2>B. Scatter Plot<a class="headerlink" href="#b-scatter-plot" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Read in <a class="reference external" href="https://yymao.github.io/phys7730/data/lab00b-scatter-plot.csv">this csv file</a>.</p></li>
-<li><p>Make a scatter plot for quantities <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>. Use two different colors for entries with differnet <code class="docutils literal notranslate"><span class="pre">type</span></code> values.</p></li>
+<li><p>Make a scatter plot for quantities <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>. Use two different colors for entries with different <code class="docutils literal notranslate"><span class="pre">type</span></code> values.</p></li>
 <li><p>For each type, calculate the Spearman correlation coefficient between <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p></li>
 </ol>
 <aside class="margin sidebar">
@@ -438,7 +438,7 @@ The upper left (indices 0,0) and lower right (indices -1,-1) corners will always
 Note that one cannot move diagonally in a maze.</p>
 <ol class="arabic simple">
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">generate_maze</span></code> function (see below) to generate a maze.</p></li>
-<li><p>Visualize the maze as a image.</p></li>
+<li><p>Visualize the maze as an image.</p></li>
 <li><p>Determine if the maze is solvable using <code class="docutils literal notranslate"><span class="pre">scipy.ndimage.label</span></code>
 (Note: You only need to check whether the maze is solvable; you don’t need to find the solving path.)</p></li>
 <li><p>Repeat Steps 1 and 3 many times and estimate the probability of the maze being solvable.</p></li>
@@ -470,7 +470,7 @@ Note that one cannot move diagonally in a maze.</p>
 <section id="post-implementation-questions-part-c">
 <h3>Post-implementation Questions - Part C<a class="headerlink" href="#post-implementation-questions-part-c" title="Permalink to this heading">#</a></h3>
 <ol class="arabic">
-<li><p>How does the probability of the maze being solvable changes with the value of <code class="docutils literal notranslate"><span class="pre">wall_prob</span></code>? Can you make a plot showing this dependence?</p>
+<li><p>How does the probability of the maze being solvable change with the value of <code class="docutils literal notranslate"><span class="pre">wall_prob</span></code>? Can you make a plot showing this dependence?</p>
 <div class="answer docutils container">
 <p>// Put your answers here</p>
 </div>
@@ -489,7 +489,7 @@ please convert the notebook into HTML format by running the following:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>nbconvert<span class="w"> </span>--to<span class="w"> </span>html<span class="w"> </span>/path/to/labs/00.ipynb<span class="w"> </span>
 </pre></div>
 </div>
-<p>Then, upload the resulting HTML file to Canvas fpr the corresponding assigment.</p>
+<p>Then, upload the resulting HTML file to Canvas for the corresponding assignment.</p>
 </div>
 </section>
 </section>

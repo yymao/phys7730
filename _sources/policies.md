@@ -147,6 +147,20 @@ Your presentation will be evaluated as follows -- with a total of 10 points: 
 - 1 point for validating, interpreting, and discussing the results you obtained
 - 1 point for engaging in the Q&A
 
+## Policies on Collaboration and the Use of AI Tools and Other Resources
+
+With the exception of the exam part of the mock midterm exam, you can discuss and collaborate with other students in this class. However, each of you must write your own answers / code independently. For example, you can discuss how to implement something, but you must carry out the implementation separately.
+
+If you have an extensive discussion with other students on a problem, to the extent that your answers will likely be similar even when you implement separately, you must specify in your submission that your answer comes from a collaboration with [student names].
+
+If you consult or have discussion with any other person outside the class on a problem, and the consultation or discussion influences your answer, you should always specify so in your submission.
+
+You can also use online resources. Generally you should cite the resources you consulted. If you are using or modifying the code example from the official documentation of a package for the purpose of using that package, it is ok to omit the citation. When in doubt, cite your sources.
+
+If you use any online resources that are not publicly available (for example, contents behind a paywall or requiring login), you must provide a copy of the used resources in addition to citing them.
+
+If you use any generative artificial intelligence (AI) tools, such as ChatGPT, Brad, etc, you must specify in your submission: the tool you used, the prompt you used, and the original response the AI tools replied (in addition to your final submission, which is likely a modification of the original response).
+
 ## University Policies
 
 Please refer to the
