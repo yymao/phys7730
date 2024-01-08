@@ -149,7 +149,7 @@ Your presentation will be evaluated as follows -- with a total of 10 points: 
 
 ## Policies on Collaboration and the Use of AI Tools and Other Resources
 
-With the exception of the exam part of the mock midterm exam, you can discuss and collaborate with other students in this class. However, each of you must write your own answers / code independently. For example, you can discuss how to implement something, but you must carry out the implementation separately.
+With the exception of the exam part of the mock midterm exam, you can discuss and collaborate with other students in this class. However, **each of you must write your own answers/code independently**. For example, you can discuss how to implement something, but you must carry out the implementation separately.
 
 If you have an extensive discussion with other students on a problem, to the extent that your answers will likely be similar even when you implement separately, you must specify in your submission that your answer comes from a collaboration with [student names].
 
