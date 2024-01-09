@@ -8,6 +8,7 @@ dependencies:
   - python=3.11
   - ipython
   - jupyterlab
+  - jupyterlab-myst
   - matplotlib-base
   - nbconvert-core
   - numpy
