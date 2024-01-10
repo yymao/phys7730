@@ -4,3 +4,7 @@ div.answer{
   padding: 0.6rem 0.8rem !important;
   font-style: italic;
 }
+
+.bd-main .bd-content .bd-article-container .bd-article {
+    padding-bottom: 4rem;
+}

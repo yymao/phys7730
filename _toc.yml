@@ -19,4 +19,4 @@ parts:
 
 - caption: Labs
   chapters:
-  - glob: labs/*
+  - glob: labs/*.ipynb
