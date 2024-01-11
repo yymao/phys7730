@@ -101,15 +101,26 @@ Each homework assignment (lab) should take about 1-2 hours to complete. 
 
 ## In-class Participation and Discussion
 
-Your participation in the discussion and lecture will constitute a significant part (40%) of your final grade. For each meeting, your participation will be graded on a 5-point scale with the following rubrics:
+*(Updated Jan 10th)*
 
-- 2 points for timely and full attendance (less than 2 points will be given for partial attendance)
-- 2 points for fully engaging in the discussion / class activities (less than 2 points will be given for partial engagement)
+The participation in the discussion and lecture will constitute a significant part (40%) of your final grade. For each meeting, your participation will be graded on a 3-point scale with the following rubrics:
+
+- 1 point for timely and full attendance (fractional points may be given for partial attendance)
+- 1 point for fully engaging in the discussion / class activities (fractional points may be given for partial engagement)
 - 1 point for the quality of engagement (see below for details)
 
-Under this rubrics, if you show up in class (for the full period) and is fully engaged, you will get a minimum of 4 points, and up to 5 points, for each class.
+Under these rubrics, if you show up in class (for the full period) and are fully engaged, you will get a minimum of 2 points, and up to 3 points, for each class.
 
-Your score for each meeting will be weighted equally. The lowest 4 scores will be dropped. 
+The semester will be divided into 4 “grading periods”, with each grading period contributes 10% of the of your final grade. Excluding mock midterm and final presentations, each grading period will have 5 meetings (except for the first grading period, which has 6). You can earn a maximum of 10 points in each grading period. Here are the list of grading periods and their meeting dates:
+
+- Period 1: Jan 10, 17, 22, 24, 29, 31 (6 meetings)
+- Period 2: Feb 5, 7, 12, 14, 26 (5 meetings)
+- Period 3: Mar 11, 13, 18, 25, 27 (5 meetings)
+- Period 4: Apr 1, 3, 8, 10, 22 (5 meetings) 
+
+For example, consider a grading period that has 5 meetings. If you showed up and fully engaged in all 5 meetings, but did not get any quality of engagement points at all, you would still earn the full 10 points (2\*5) for that grading period. If instead you got 2.5 points for 4 of the 5 meetings but missed the last meeting, you would still earn the full 10 points (2.5\*4) for that grading period. 
+
+Under this scheme, no meetings will be “dropped”. You will just collect points until you reach 10 points in each grading period. 
 
 ### Quality of Engagement
 
