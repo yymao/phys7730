@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Reading 2: Summary statistics &#8212; PHYS/ASTR 7730</title>
+    <title>Reading 2: Summary Statistics &#8212; PHYS/ASTR 7730</title>
   
   
   
@@ -69,7 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://yymao.github.io/phys7730/readings/02.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Lab 0: Python Recap" href="../labs/00.html" />
+    <link rel="next" title="Reading 3: Classical Inference I: Maximum Likelihood Estimation" href="03.html" />
     <link rel="prev" title="Reading 1: Probability and Random Variables" href="01.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-US"/>
@@ -190,7 +190,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Readings</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01.html">Reading 1: Probability and Random Variables</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Reading 2: Summary statistics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Reading 2: Summary Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03.html">Reading 3: Classical Inference I: Maximum Likelihood Estimation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -349,7 +350,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Reading 2: Summary statistics</h1>
+    <h1>Reading 2: Summary Statistics</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -374,12 +375,12 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="reading-2-summary-statistics">
-<h1>Reading 2: Summary statistics<a class="headerlink" href="#reading-2-summary-statistics" title="Permalink to this heading">#</a></h1>
+<h1>Reading 2: Summary Statistics<a class="headerlink" href="#reading-2-summary-statistics" title="Permalink to this heading">#</a></h1>
 <p><em>For the class on Wednesday, January 17th</em></p>
 <section id="reading-assignments">
 <h2>Reading assignments<a class="headerlink" href="#reading-assignments" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Read the following sections of <span id="id1">[<a class="reference internal" href="../references.html#id2" title="Kevin P. Murphy. Probabilistic Machine Learning: An introduction. MIT Press, 2022. (Click “Draft pdf file” under “Key links” to download the textbook). URL: https://probml.github.io/pml-book/book1.html.">Mur22</a>]</span> (sections based on the 2023-06-21 draft PDF file)</p>
+<li><p>Read the following sections of <span id="id1">[<a class="reference internal" href="../references.html#id2" title="Kevin P. Murphy. Probabilistic Machine Learning: An introduction. MIT Press, 2022. (Direct link to the 2023-06-21 draft PDF file: https://github.com/probml/pml-book/releases/download/2023-06-21/book1.pdf). URL: https://probml.github.io/pml-book/book1.html.">Mur22</a>]</span> (sections based on the 2023-06-21 draft PDF file)</p>
 <ul class="simple">
 <li><p>Sec. 2.2.5 “Moments of a distribution”, and all of its subsections (2.2.5.1–2.2.5.4)</p></li>
 <li><p>Sec. 2.2.6 “Limitations of summary statistics”</p></li>
@@ -397,8 +398,8 @@ document.write(`
 <ol class="arabic simple">
 <li><p>List any concepts that confuse you from your reading. Explain why they confuse you.
 If nothing confuses you, briefly summarize what you have learned from this reading assignment.</p></li>
-<li><p>Sec. 3.1.4 of <span id="id2">[<a class="reference internal" href="../references.html#id2" title="Kevin P. Murphy. Probabilistic Machine Learning: An introduction. MIT Press, 2022. (Click “Draft pdf file” under “Key links” to download the textbook). URL: https://probml.github.io/pml-book/book1.html.">Mur22</a>]</span> discusses a few examples of spurious correlation due to hidden common causes.
-Try explaining this phenomenon using the concept of conditional independence (see Sec. 2.1.3.6 of <span id="id3">[<a class="reference internal" href="../references.html#id2" title="Kevin P. Murphy. Probabilistic Machine Learning: An introduction. MIT Press, 2022. (Click “Draft pdf file” under “Key links” to download the textbook). URL: https://probml.github.io/pml-book/book1.html.">Mur22</a>]</span>).</p></li>
+<li><p>Sec. 3.1.4 of <span id="id2">[<a class="reference internal" href="../references.html#id2" title="Kevin P. Murphy. Probabilistic Machine Learning: An introduction. MIT Press, 2022. (Direct link to the 2023-06-21 draft PDF file: https://github.com/probml/pml-book/releases/download/2023-06-21/book1.pdf). URL: https://probml.github.io/pml-book/book1.html.">Mur22</a>]</span> discusses a few examples of spurious correlation due to hidden common causes.
+Try explaining this phenomenon using the concept of conditional independence (see Sec. 2.1.3.6 of <span id="id3">[<a class="reference internal" href="../references.html#id2" title="Kevin P. Murphy. Probabilistic Machine Learning: An introduction. MIT Press, 2022. (Direct link to the 2023-06-21 draft PDF file: https://github.com/probml/pml-book/releases/download/2023-06-21/book1.pdf). URL: https://probml.github.io/pml-book/book1.html.">Mur22</a>]</span>).</p></li>
 </ol>
 </section>
 <section id="discussion-preview">
@@ -409,12 +410,12 @@ Try explaining this phenomenon using the concept of conditional independence (se
 You need <em>not</em> submit your answers as part of this assignment.</p>
 </div>
 <ol class="arabic simple">
-<li><p>Sec. 2.2.5 of <span id="id4">[<a class="reference internal" href="../references.html#id2" title="Kevin P. Murphy. Probabilistic Machine Learning: An introduction. MIT Press, 2022. (Click “Draft pdf file” under “Key links” to download the textbook). URL: https://probml.github.io/pml-book/book1.html.">Mur22</a>]</span> discusses the mean and variance of a distribution, and Sec. 2.2.6 mentions mean and variance of data points.
+<li><p>Sec. 2.2.5 of <span id="id4">[<a class="reference internal" href="../references.html#id2" title="Kevin P. Murphy. Probabilistic Machine Learning: An introduction. MIT Press, 2022. (Direct link to the 2023-06-21 draft PDF file: https://github.com/probml/pml-book/releases/download/2023-06-21/book1.pdf). URL: https://probml.github.io/pml-book/book1.html.">Mur22</a>]</span> discusses the mean and variance of a distribution, and Sec. 2.2.6 mentions mean and variance of data points.
 These two concepts: summary statistics of a distribution (random variable) vs. summary statistics of data points (samples) are closely related but distinct in nature.
 Discuss how they differ.</p></li>
 <li><p>Give some examples in physics and astronomy (or your field of study)
 of events (or random variables) that are <em>uncorrelated</em> but <em>dependent</em>
-(cf. Sec. 3.1.3 of <span id="id5">[<a class="reference internal" href="../references.html#id2" title="Kevin P. Murphy. Probabilistic Machine Learning: An introduction. MIT Press, 2022. (Click “Draft pdf file” under “Key links” to download the textbook). URL: https://probml.github.io/pml-book/book1.html.">Mur22</a>]</span>).</p></li>
+(cf. Sec. 3.1.3 of <span id="id5">[<a class="reference internal" href="../references.html#id2" title="Kevin P. Murphy. Probabilistic Machine Learning: An introduction. MIT Press, 2022. (Direct link to the 2023-06-21 draft PDF file: https://github.com/probml/pml-book/releases/download/2023-06-21/book1.pdf). URL: https://probml.github.io/pml-book/book1.html.">Mur22</a>]</span>).</p></li>
 <li><p>You are trying to measure the resistance of a resistor.
 You put the resistor in a simple DC circuit, and then measure both the voltage across the resistor and the current through the resistor.
 You then use the Ohm’s law <span class="math notranslate nohighlight">\(V=IR\)</span> to calculate the resistance.
@@ -464,11 +465,11 @@ What assumptions do you have to make for this estimation? How would you improve 
       </div>
     </a>
     <a class="right-next"
-       href="../labs/00.html"
+       href="03.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lab 0: Python Recap</p>
+        <p class="prev-next-title">Reading 3: Classical Inference I: Maximum Likelihood Estimation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
