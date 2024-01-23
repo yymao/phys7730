@@ -21,6 +21,7 @@ jobs:
         miniforge-version: latest
         use-only-tar-bz2: true
     - name: Build the book
+      shell: bash -el {0}
       run: |
         jupyter-book build --all .
     - name: GitHub Pages action
