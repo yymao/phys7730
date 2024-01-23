@@ -389,16 +389,21 @@ Hints for the implementation of Question 1<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <ul>
-<li><p class="sd-card-text">From class you should obtain the expression for <span class="math notranslate nohighlight">\(\sigma_p\)</span>.
-You can then rewrite the inequality as <span class="math notranslate nohighlight">\(\hat{p} - 2 \sigma_p &gt; 0.5 \)</span>,
-such that the left hand side only depends on <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<li><p class="sd-card-text">From class we obtained the expression for <span class="math notranslate nohighlight">\(\sigma_p\)</span> in terms of <span class="math notranslate nohighlight">\(N\)</span> and <span class="math notranslate nohighlight">\(K\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+    \sigma_p = \sqrt{\frac{K(N-K)}{N^3}}
+  \]</div>
+<p class="sd-card-text">We can then rewrite the inequality as <span class="math notranslate nohighlight">\(\hat{p} - 2 \sigma_p &gt; 0.5 \)</span>.
+Plug in the corresponding expressions for <span class="math notranslate nohighlight">\(\hat{p}\)</span> and <span class="math notranslate nohighlight">\(\sigma_p\)</span>
+such that the left-hand side of the inequality only depends on <span class="math notranslate nohighlight">\(N\)</span> and <span class="math notranslate nohighlight">\(K\)</span>.</p>
 <p class="sd-card-text">Here’s a (not efficient, but easy to understand) way to find the minimal value of <span class="math notranslate nohighlight">\(K\)</span>
 for the inequality to hold.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="k">for</span> <span class="n">K</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-    <span class="k">if</span> <span class="o">...</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">:</span>  <span class="c1"># TODO: replace ... with the expression of \hat{p} - 2 \sigma_p but in terms of K and N</span>
+    <span class="k">if</span> <span class="o">...</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">:</span>  <span class="c1"># TODO: replace ... with the expression of \hat{p} - 2 \sigma_p but in terms of N and K</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
         <span class="k">break</span>
 </pre></div>
