@@ -41,6 +41,7 @@ jobs:
     - name: Update conda environment
       if: steps.cache-conda-envs.outputs.cache-hit != 'true'
       run: |
+         mamba clean -i -y
          mamba env update -n ${{ steps.my-vars.outputs.env-name }} -f ${{ steps.my-vars.outputs.env-file }}
     #- name: Build the book
     #  shell: bash -el {0}
