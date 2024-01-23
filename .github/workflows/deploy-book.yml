@@ -9,10 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+    - name: Cache conda
+      uses: actions/cache@v3
+      with:
+        path: ~/conda_pkgs_dir
+        key: ${{ runner.os }}-conda-${{ hashFiles('assets/environment.yml') }}
     - uses: conda-incubator/setup-miniconda@v3
       with:
+        activate-environment: "7730"
         environment-file: assets/environment.yml
         miniforge-version: latest
+        use-only-tar-bz2: true
     - name: Build the book
       run: |
         jupyter-book build --all .
