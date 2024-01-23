@@ -41,6 +41,7 @@ jobs:
       run: |
          mamba env update -n ${{ steps.my-vars.outputs.env-name }} -f ${{ steps.my-vars.outputs.env-file }}
     - name: Build the book
+      shell: bash -el {0}
       run: |
         jupyter-book build --all .
     - name: Push to GitHub Pages
