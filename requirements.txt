@@ -1,9 +1,5 @@
-ipython
 jupyter-book >=0.15
-jupyterlab
-jupyterlab-myst
 matplotlib
-nbconvert
 numpy <2
 pandas
 scikit-learn
