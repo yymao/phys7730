@@ -10,44 +10,15 @@ jobs:
     permissions:
       contents: write
     steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'pip'
     - uses: actions/checkout@v4
-    - name: Set variables
-      id: my-vars
-      run: |
-        ENV_FNAME=assets/environment.yml
-        sed -i '/^ *$/d' $ENV_FNAME
-        echo "  - jupyter-book >0.14" >> $ENV_FNAME
-        ENV_HASH=$(/bin/sha256sum $ENV_FNAME)
-        echo "today=$(/bin/date -u '+%Y%m%d')" >> $GITHUB_OUTPUT
-        echo "env-file=$ENV_FNAME" >> $GITHUB_OUTPUT
-        echo "env-hash=${ENV_HASH%% *}" >> $GITHUB_OUTPUT
-        echo "env-name=7730" >> $GITHUB_OUTPUT
-    - name: Cache conda packages
-      uses: actions/cache@v4
-      with:
-        path: ~/conda_pkgs_dir
-        key: conda-packages
-    - uses: conda-incubator/setup-miniconda@v3
-      with:
-        activate-environment: ${{ steps.my-vars.outputs.env-name }}
-        miniforge-version: latest
-        use-only-tar-bz2: true
-    - name: Cache conda environments
-      uses: actions/cache@v4
-      id: cache-conda-envs
-      with:
-        path: ${{ env.CONDA }}/envs
-        key: conda-envs1-${{ steps.my-vars.outputs.today }}-${{ steps.my-vars.outputs.env-hash }}
-    - name: Update conda environment
-      if: steps.cache-conda-envs.outputs.cache-hit != 'true'
-      run: |
-         mamba clean -i
-         mamba search jupyter-book
-         mamba env update -n ${{ steps.my-vars.outputs.env-name }} -f ${{ steps.my-vars.outputs.env-file }}
-    #- name: Build the book
-    #  shell: bash -el {0}
-    #  run: |
-    #    jupyter-book build --all .
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+    - name: Build the book
+      run: jupyter-book build --all .
     #- name: Push to GitHub Pages
     #  uses: peaceiris/actions-gh-pages@v3
     #  with:
