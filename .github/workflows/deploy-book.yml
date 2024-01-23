@@ -8,23 +8,35 @@ jobs:
   deploy-book:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Cache conda
-      uses: actions/cache@v3
+    - name: Cache conda packages
+      uses: actions/cache@v4
       with:
         path: ~/conda_pkgs_dir
-        key: ${{ runner.os }}-conda-${{ hashFiles('assets/environment.yml') }}
+        key: conda-pkgs-${{ hashFiles('assets/environment.yml') }}
     - uses: conda-incubator/setup-miniconda@v3
       with:
         activate-environment: "7730"
-        environment-file: assets/environment.yml
         miniforge-version: latest
         use-only-tar-bz2: true
+    - name: Get date
+      id: get-date
+      run: echo "today=$(/bin/date -u '+%Y%m%d')" >> $GITHUB_OUTPUT
+    - name: Cache conda environments
+      uses: actions/cache@v4
+      id: cache-conda-envs
+      with:
+        path: ${{ env.CONDA }}/envs
+        key: conda-envs-${{ steps.get-date.outputs.today }}-${{ hashFiles('assets/environment.yml') }}
+    - name: Update conda environment
+      if: steps.cache-conda-envs.outputs.cache-hit != 'true'
+      run: mamba env update -n 7730 -f assets/environment.yml
+    - uses: actions/checkout@v4
     - name: Build the book
       shell: bash -el {0}
       run: |
+        conda activate 7730
         jupyter-book build --all .
-    - name: GitHub Pages action
+    - name: Push to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
