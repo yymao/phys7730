@@ -8,33 +8,36 @@ jobs:
   deploy-book:
     runs-on: ubuntu-latest
     steps:
+    - name: Set variables
+      id: my-vars
+      run: |
+        echo "today=$(/bin/date -u '+%Y%m%d')" >> $GITHUB_OUTPUT
+        echo "envfile='assets/environment.yml'" >> $GITHUB_OUTPUT
+        echo "envname='7730'" >> $GITHUB_OUTPUT
+    - uses: actions/checkout@v4
     - name: Cache conda packages
       uses: actions/cache@v4
       with:
         path: ~/conda_pkgs_dir
-        key: conda-pkgs-${{ hashFiles('assets/environment.yml') }}
+        key: conda-pkgs-${{ hashFiles(steps.my-vars.outputs.envfile) }}
     - uses: conda-incubator/setup-miniconda@v3
       with:
-        activate-environment: "7730"
+        activate-environment: ${{ steps.my-vars.outputs.envname }}
         miniforge-version: latest
         use-only-tar-bz2: true
-    - name: Get date
-      id: get-date
-      run: echo "today=$(/bin/date -u '+%Y%m%d')" >> $GITHUB_OUTPUT
     - name: Cache conda environments
       uses: actions/cache@v4
       id: cache-conda-envs
       with:
         path: ${{ env.CONDA }}/envs
-        key: conda-envs-${{ steps.get-date.outputs.today }}-${{ hashFiles('assets/environment.yml') }}
+        key: conda-envs-${{ steps.get-date.outputs.today }}-${{ hashFiles(steps.my-vars.outputs.envfile) }}
     - name: Update conda environment
       if: steps.cache-conda-envs.outputs.cache-hit != 'true'
-      run: mamba env update -n 7730 -f assets/environment.yml
-    - uses: actions/checkout@v4
+      run: mamba env update -n ${{ steps.my-vars.outputs.envname }} -f ${{ steps.my-vars.outputs.envfile }}
     - name: Build the book
       shell: bash -el {0}
       run: |
-        conda activate 7730
+        conda activate ${{ steps.my-vars.outputs.envname }}
         jupyter-book build --all .
     - name: Push to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
