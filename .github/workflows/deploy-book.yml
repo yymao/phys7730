@@ -16,7 +16,7 @@ jobs:
       run: |
         ENV_FNAME=assets/environment.yml
         sed -i '/^ *$/d' $ENV_FNAME
-        echo "  - jupyter-book" >> $ENV_FNAME
+        echo "  - jupyter-book >=0.15" >> $ENV_FNAME
         ENV_HASH=$(/bin/sha256sum $ENV_FNAME)
         echo "today=$(/bin/date -u '+%Y%m%d')" >> $GITHUB_OUTPUT
         echo "env-file=$ENV_FNAME" >> $GITHUB_OUTPUT
@@ -37,7 +37,7 @@ jobs:
       id: cache-conda-envs
       with:
         path: ${{ env.CONDA }}/envs
-        key: conda-envs-${{ steps.my-vars.outputs.today }}-${{ steps.my-vars.outputs.env-hash }}
+        key: conda-envs1-${{ steps.my-vars.outputs.today }}-${{ steps.my-vars.outputs.env-hash }}
     - name: Update conda environment
       if: steps.cache-conda-envs.outputs.cache-hit != 'true'
       run: |
