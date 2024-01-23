@@ -1,18 +1,18 @@
 # environment.yml for 7730
-
 name: "7730"
 channels:
   - conda-forge
   - nodefaults
 dependencies:
-  - python=3.11
+  - python =3.11
   - ipython
   - jupyterlab
   - jupyterlab-myst
   - matplotlib-base
   - nbconvert-core
-  - numpy
+  - numpy <2
   - pandas
   - pip
   - scikit-learn
   - scipy
+  - jupyter-book
