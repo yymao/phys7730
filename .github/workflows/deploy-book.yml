@@ -16,7 +16,7 @@ jobs:
       run: |
         ENV_FNAME=assets/environment.yml
         sed -i '/^ *$/d' $ENV_FNAME
-        echo "  - jupyter-book >=0.15" >> $ENV_FNAME
+        echo "  - jupyter-book >0.14" >> $ENV_FNAME
         ENV_HASH=$(/bin/sha256sum $ENV_FNAME)
         echo "today=$(/bin/date -u '+%Y%m%d')" >> $GITHUB_OUTPUT
         echo "env-file=$ENV_FNAME" >> $GITHUB_OUTPUT
@@ -42,13 +42,12 @@ jobs:
       if: steps.cache-conda-envs.outputs.cache-hit != 'true'
       run: |
          mamba env update -n ${{ steps.my-vars.outputs.env-name }} -f ${{ steps.my-vars.outputs.env-file }}
-         mamba update --all -y -n ${{ steps.my-vars.outputs.env-name }}
-    - name: Build the book
-      shell: bash -el {0}
-      run: |
-        jupyter-book build --all .
-    - name: Push to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./_build/html
+    #- name: Build the book
+    #  shell: bash -el {0}
+    #  run: |
+    #    jupyter-book build --all .
+    #- name: Push to GitHub Pages
+    #  uses: peaceiris/actions-gh-pages@v3
+    #  with:
+    #    github_token: ${{ secrets.GITHUB_TOKEN }}
+    #    publish_dir: ./_build/html

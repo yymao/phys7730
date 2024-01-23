@@ -2,6 +2,9 @@
 
 while [ $# -gt 0 ]; do
   case $1 in
+    -a|--all)
+      ALL="--all"
+      ;;
     -c|--clean)
       CLEAN=1
       ;;
@@ -19,13 +22,10 @@ CONDABIN='/home/yymao/miniforge3/bin/conda'
 eval "$($CONDABIN shell.bash hook)"
 conda activate 7730
 
-NAME=$(basename $(pwd))
-cd ..
 if [ ! -z "$CLEAN" ] ; then
-  jupyter-book clean $NAME
+  jupyter-book clean .
 fi
-jupyter-book build $NAME
-cd $NAME
+jupyter-book build $ALL .
 
 PAGE='_build/html/index.html'
 if [ ! -z "$VIEW" ] ; then
