@@ -13,8 +13,8 @@ jobs:
       id: my-vars
       run: |
         ENV_FNAME=assets/environment.yml
-        sed -i '/^ *$/d' #ENV_FNAME
-        echo "  - jupyter-book" >> #ENV_FNAME
+        sed -i '/^ *$/d' $ENV_FNAME
+        echo "  - jupyter-book" >> $ENV_FNAME
         ENV_HASH=$(/bin/sha256sum $ENV_FNAME)
         echo "today=$(/bin/date -u '+%Y%m%d')" >> $GITHUB_OUTPUT
         echo "env-file=$ENV_FNAME" >> $GITHUB_OUTPUT
