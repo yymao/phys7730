@@ -11,15 +11,18 @@ jobs:
     - name: Set variables
       id: my-vars
       run: |
+        ENV_FNAME=assets/environment.yml
+        ENV_HASH=$(/bin/sha256sum $ENV_FNAME)
         echo "today=$(/bin/date -u '+%Y%m%d')" >> $GITHUB_OUTPUT
-        echo "envfile='assets/environment.yml'" >> $GITHUB_OUTPUT
-        echo "envname='7730'" >> $GITHUB_OUTPUT
+        echo "envfile=$ENV_FNAME" >> $GITHUB_OUTPUT
+        echo "envhash=${ENV_HASH## *}" >> $GITHUB_OUTPUT
+        echo "envname=7730" >> $GITHUB_OUTPUT
     - uses: actions/checkout@v4
     - name: Cache conda packages
       uses: actions/cache@v4
       with:
         path: ~/conda_pkgs_dir
-        key: conda-pkgs-${{ hashFiles(steps.my-vars.outputs.envfile) }}
+        key: conda-pkgs-${{ steps.my-vars.outputs.envhash }}
     - uses: conda-incubator/setup-miniconda@v3
       with:
         activate-environment: ${{ steps.my-vars.outputs.envname }}
@@ -30,7 +33,7 @@ jobs:
       id: cache-conda-envs
       with:
         path: ${{ env.CONDA }}/envs
-        key: conda-envs-${{ steps.get-date.outputs.today }}-${{ hashFiles(steps.my-vars.outputs.envfile) }}
+        key: conda-envs-${{ steps.my-vars.outputs.today }}-${{ steps.my-vars.outputs.envhash }}
     - name: Update conda environment
       if: steps.cache-conda-envs.outputs.cache-hit != 'true'
       run: mamba env update -n ${{ steps.my-vars.outputs.envname }} -f ${{ steps.my-vars.outputs.envfile }}
