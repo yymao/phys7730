@@ -12,20 +12,16 @@ jobs:
     - name: Set variables
       id: my-vars
       run: |
-        ENV_FNAME=assets/environment.yml
-        ENV_HASH=$(/bin/sha256sum $ENV_FNAME)
         echo "today=$(/bin/date -u '+%Y%m%d')" >> $GITHUB_OUTPUT
-        echo "envfile=$ENV_FNAME" >> $GITHUB_OUTPUT
-        echo "envhash=${ENV_HASH## *}" >> $GITHUB_OUTPUT
-        echo "envname=7730" >> $GITHUB_OUTPUT
+        echo "env-name=7730" >> $GITHUB_OUTPUT
     - name: Cache conda packages
       uses: actions/cache@v4
       with:
         path: ~/conda_pkgs_dir
-        key: conda-pkgs-${{ steps.my-vars.outputs.envhash }}
+        key: conda-packages
     - uses: conda-incubator/setup-miniconda@v3
       with:
-        activate-environment: ${{ steps.my-vars.outputs.envname }}
+        activate-environment: ${{ steps.my-vars.outputs.env-name }}
         miniforge-version: latest
         use-only-tar-bz2: true
     - name: Cache conda environments
@@ -33,14 +29,14 @@ jobs:
       id: cache-conda-envs
       with:
         path: ${{ env.CONDA }}/envs
-        key: conda-envs-${{ steps.my-vars.outputs.today }}-${{ steps.my-vars.outputs.envhash }}
+        key: conda-envs-${{ steps.my-vars.outputs.today }}-${{ hashFiles('assets/environment.yml') }}
     - name: Update conda environment
       if: steps.cache-conda-envs.outputs.cache-hit != 'true'
-      run: mamba env update -n ${{ steps.my-vars.outputs.envname }} -f ${{ steps.my-vars.outputs.envfile }}
-    - name: Build the book
-      shell: bash -el {0}
       run: |
-        conda activate ${{ steps.my-vars.outputs.envname }}
+         mamba env update -n ${{ steps.my-vars.outputs.env-name }} -f assets/environment.yml
+         mamba install -y jupyter-book
+    - name: Build the book
+      run: |
         jupyter-book build --all .
     - name: Push to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
