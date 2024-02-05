@@ -1,5 +1,4 @@
 jupyter-book == 1.*
-docutils >= 0.20
 matplotlib == 3.*
 numpy == 1.*
 scipy == 1.*

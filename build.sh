@@ -20,7 +20,7 @@ done
 
 CONDABIN='/home/yymao/miniforge3/bin/conda'
 eval "$($CONDABIN shell.bash hook)"
-conda activate 7730
+conda activate book
 
 if [ ! -z "$CLEAN" ] ; then
   jupyter-book clean .
