@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Lab 7: Ising Model &#8212; PHYS/ASTR 7730</title>
+    <title>Lab 8: MCMC Algorithms and Considerations &#8212; PHYS/ASTR 7730</title>
   
   
   
@@ -60,12 +60,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'labs/07';</script>
-    <link rel="canonical" href="https://yymao.github.io/phys7730/labs/07.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'labs/08';</script>
+    <link rel="canonical" href="https://yymao.github.io/phys7730/labs/08.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Lab 8: MCMC Algorithms and Considerations" href="08.html" />
-    <link rel="prev" title="Lab 6: Random walk and Brownian motion" href="06.html" />
+    <link rel="prev" title="Lab 7: Ising Model" href="07.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-US"/>
   </head>
@@ -209,8 +208,8 @@
 <li class="toctree-l1"><a class="reference internal" href="04.html">Lab 4: Classical Inference II: Estimating and Comparing Distributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05.html">Lab 5: Importance Sampling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06.html">Lab 6: Random walk and Brownian motion</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 7: Ising Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08.html">Lab 8: MCMC Algorithms and Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07.html">Lab 7: Ising Model</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 8: MCMC Algorithms and Considerations</a></li>
 </ul>
 
     </div>
@@ -254,7 +253,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/yymao/phys7730/issues/new?title=Issue%20on%20page%20%2Flabs/07.html&body=Your%20issue%20content%20here." target="_blank"
+<a href="https://github.com/yymao/phys7730/issues/new?title=Issue%20on%20page%20%2Flabs/08.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button"
    title="Open an issue"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -280,7 +279,7 @@
       
       
       
-      <li><a href="../_sources/labs/07.ipynb" target="_blank"
+      <li><a href="../_sources/labs/08.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -364,7 +363,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lab 7: Ising Model</h1>
+    <h1>Lab 8: MCMC Algorithms and Considerations</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -374,11 +373,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-for-simulating-a-2d-ising-model">Code for simulating a 2D Ising Model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-energy-and-magnetization-calculations">A. Energy and Magnetization Calculations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-how-the-sweep-method-works">Demo: how the sweep method works</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-critical-temperature">B. Critical Temperature</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-experiment">C. Experiment!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-metropolis-hastings-vs-gibbs-sampling-methods">A. Metropolis-Hastings vs. Gibbs Sampling Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-time-to-equilibrate-burn-in">B. Time to Equilibrate (Burn-in)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-autocorrelation">C. Autocorrelation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-question">Final question</a></li>
 </ul>
             </nav>
@@ -391,18 +388,15 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lab-7-ising-model">
-<h1>Lab 7: Ising Model<a class="headerlink" href="#lab-7-ising-model" title="Link to this heading">#</a></h1>
-<p><em>For the class on Monday, February 5th</em></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-8-mcmc-algorithms-and-considerations">
+<h1>Lab 8: MCMC Algorithms and Considerations<a class="headerlink" href="#lab-8-mcmc-algorithms-and-considerations" title="Link to this heading">#</a></h1>
+<p><em>For the class on Wednesday, February 7th</em></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>In this lab, questions are embedded in the implementation steps, but are always shown in bold.
 Don’t forget to answer the questions.</p>
 </div>
-<section id="code-for-simulating-a-2d-ising-model">
-<h2>Code for simulating a 2D Ising Model<a class="headerlink" href="#code-for-simulating-a-2d-ising-model" title="Link to this heading">#</a></h2>
-<p>The following cell defines the <code class="docutils literal notranslate"><span class="pre">IsingModel2D</span></code> class, which implements a numerical representation of a 2D Ising Model
-and the associated MCMC simulation methods.</p>
+<p>The following cell defines the same <code class="docutils literal notranslate"><span class="pre">IsingModel2D</span></code> class that we introduced in <a class="reference internal" href="07.html"><span class="doc std std-doc">Lab 7</span></a>.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -527,82 +521,56 @@ and the associated MCMC simulation methods.</p>
 </div>
 </details>
 </div>
-</section>
-<section id="a-energy-and-magnetization-calculations">
-<h2>A. Energy and Magnetization Calculations<a class="headerlink" href="#a-energy-and-magnetization-calculations" title="Link to this heading">#</a></h2>
-<p>The following cell shows a 3-by-3 two-dimensional Ising model with a specific initial condition.</p>
-<p>The yellow/light color in the image represents a spin of <span class="math notranslate nohighlight">\(+1\)</span>, and the purple/dark color represents a spin of <span class="math notranslate nohighlight">\(-1\)</span>.</p>
-<ol class="arabic">
-<li><p><strong>Calculate the average magnetization</strong> <span class="math notranslate nohighlight">\(\frac{1}{N} \sum_i \sigma_i\)</span>.</p></li>
-<li><p><strong>Calculate the energy from pairs associated with the central cell [with indices (1,1)]</strong>:</p>
-<div class="math notranslate nohighlight">
-\[ 
-    - \sum_{j \in D} \sigma_i \sigma_j \text{, where } i=(1,1) \text{ and } D = \text{neighbors of } i 
-    \]</div>
-</li>
-<li><p><strong>If the spin of the central cell flips from <span class="math notranslate nohighlight">\(+1\)</span> to <span class="math notranslate nohighlight">\(-1\)</span>, how much will the total energy of the system change?</strong></p></li>
-<li><p><strong>How do your answers to (2) and (3) relate to each other? Briefly explain.</strong></p></li>
-<li><p>Verify your answers with the code below. <strong>Does the result agree with your calculations?</strong></p></li>
+<section id="a-metropolis-hastings-vs-gibbs-sampling-methods">
+<h2>A. Metropolis-Hastings vs. Gibbs Sampling Methods<a class="headerlink" href="#a-metropolis-hastings-vs-gibbs-sampling-methods" title="Link to this heading">#</a></h2>
+<p>If we start a 2D Ising model with the “cold” initial condition, and set <span class="math notranslate nohighlight">\(\beta\)</span> to a value lower than the critical value (corresponding to a temperature higher than the critical temperature,
+the Metropolis-Hastings algorithm could fail if the value of <span class="math notranslate nohighlight">\(\beta\)</span> is too low.</p>
+<ol class="arabic simple">
+<li><p>In the code cell below, try a few difference small values of <span class="math notranslate nohighlight">\(\beta\)</span> and <strong>describe what you observe.</strong>
+Specifically, how do the value of <span class="math notranslate nohighlight">\(\beta\)</span>, the acceptance rate, and the resulting lattice relate to each other?
+<strong>Make some plots to demonstrate your answer.</strong></p></li>
+<li><p>Repeat Step 1 but use the Gibbs sampling method by setting <code class="docutils literal notranslate"><span class="pre">transition_prob='gibbs'</span></code> when calling the <code class="docutils literal notranslate"><span class="pre">sweep</span></code> method.
+<strong>Describe what you observe.</strong></p></li>
 </ol>
 <hr class="docutils" />
 <p><em>// Write your answers to Part A here</em></p>
 <hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do not edit this cell</span>
-<span class="n">m</span> <span class="o">=</span> <span class="n">IsingModel2D</span><span class="p">(</span><span class="n">side_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">initial_values</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here&#39;s the starting point for Step 1</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">IsingModel2D</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">initial_values</span><span class="o">=</span><span class="s2">&quot;cold&quot;</span><span class="p">)</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">acceptance</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">sweep</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">nsweeps</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">acceptance</span><span class="p">)</span>
 <span class="n">m</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f1232470068e4277768bf8585f4d8338d330f9ddb26aef3490b09df63fdbb54e.png" src="../_images/f1232470068e4277768bf8585f4d8338d330f9ddb26aef3490b09df63fdbb54e.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.696832
+</pre></div>
+</div>
+<img alt="../_images/dc356c57acfad0364f2a324b2cf736b4b849e9b5d05b67b9f962d3661f27f7b7.png" src="../_images/dc356c57acfad0364f2a324b2cf736b4b849e9b5d05b67b9f962d3661f27f7b7.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uncomment and run the following codes to verify your answers</span>
-
-<span class="c1">#print(&quot;1. Average magnetization:&quot;, m.calc_magnetization())</span>
-
-<span class="c1">#print(&quot;2. Local energy of site (1,1):&quot;, m.calc_local_energy(site_index=(1,1)))</span>
-
-<span class="c1">#print(&quot;3. Total energy before flip:&quot;, m.calc_total_energy())</span>
-<span class="c1">#m.flip(site_index=(1,1))</span>
-<span class="c1">#print(&quot;3. Total energy after flip:&quot;, m.calc_total_energy())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Include your implementation for Part A here</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="demo-how-the-sweep-method-works">
-<h2>Demo: how the sweep method works<a class="headerlink" href="#demo-how-the-sweep-method-works" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">IsingModel2D</span><span class="p">(</span><span class="n">side_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">initial_values</span><span class="o">=</span><span class="s2">&quot;hot&quot;</span><span class="p">)</span>
-<span class="n">m</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="n">m</span><span class="o">.</span><span class="n">sweep</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">nsweeps</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">m</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/5265b8439243c68fd7630aa56708702a0917e00c5650989b518e8e4efa1526c1.png" src="../_images/5265b8439243c68fd7630aa56708702a0917e00c5650989b518e8e4efa1526c1.png" />
-<img alt="../_images/630d82b1764cd7b3822d806d48aa9f149f93db01b84e7cc7fa4e3a20249b241c.png" src="../_images/630d82b1764cd7b3822d806d48aa9f149f93db01b84e7cc7fa4e3a20249b241c.png" />
-</div>
-</div>
-</section>
-<section id="b-critical-temperature">
-<h2>B. Critical Temperature<a class="headerlink" href="#b-critical-temperature" title="Link to this heading">#</a></h2>
-<p>We will run a simulation and gradually lower the temperature, in order to observe how the magnetization changes with temperature.</p>
+<section id="b-time-to-equilibrate-burn-in">
+<h2>B. Time to Equilibrate (Burn-in)<a class="headerlink" href="#b-time-to-equilibrate-burn-in" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Set up a 25-by-25 lattice with the “hot” initial condition.</p></li>
-<li><p>We will vary <code class="docutils literal notranslate"><span class="pre">beta</span></code> (<span class="math notranslate nohighlight">\(\beta = kT\)</span>) from 0.1 to 0.9, with a step of 0.02.</p></li>
-<li><p>For each value of <code class="docutils literal notranslate"><span class="pre">beta</span></code>, we will run 20 “sweeps”.</p></li>
-<li><p>We will measure the average magnetization (averaged over sites) for each value of <code class="docutils literal notranslate"><span class="pre">beta</span></code>, after the 20 sweeps ran.</p></li>
-<li><p>Make a plot of the average magnetization as a function of <code class="docutils literal notranslate"><span class="pre">beta</span></code> (<span class="math notranslate nohighlight">\(m\)</span>-<span class="math notranslate nohighlight">\(\beta\)</span> relation).</p></li>
-<li><p><strong>Describe what you observe. Does the magnetization show a sudden change at a certain value of <span class="math notranslate nohighlight">\(\beta\)</span>?</strong></p></li>
+<li><p>Set up a 30-by-30 lattice with the “hot” initial condition.</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">beta</span></code> to 0.55.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">sweep</span></code> 1,000 times, but each time with <code class="docutils literal notranslate"><span class="pre">nsweeps=1</span></code>. After each run, record the average magnetization.</p></li>
+<li><p>Make a plot of average magnetization as a function of number of sweeps have run.</p></li>
+<li><p><strong>Describe what you observe. Does the magnetization reach a plateau? How long does it take to reach a plateau?</strong></p></li>
+<li><p>Repeat [Steps 1-4] but with <code class="docutils literal notranslate"><span class="pre">beta</span></code> set to 0.45.</p></li>
 </ol>
 <hr class="docutils" />
 <p><em>// Write your answers to Part B here</em></p>
@@ -615,18 +583,30 @@ and the associated MCMC simulation methods.</p>
 </div>
 </div>
 </section>
-<section id="c-experiment">
-<h2>C. Experiment!<a class="headerlink" href="#c-experiment" title="Link to this heading">#</a></h2>
-<p>Choose <em>at least one</em> of the following to experiment, and observe how the <span class="math notranslate nohighlight">\(m\)</span>-<span class="math notranslate nohighlight">\(\beta\)</span> relation changes:</p>
-<ul class="simple">
-<li><p>as the external field strength changes (choose a few values from 0 to 2; set <code class="docutils literal notranslate"><span class="pre">ext_field</span></code> when <code class="docutils literal notranslate"><span class="pre">sweep</span></code> is called)</p></li>
-<li><p>as the lattice size changes (choose a few numbers between 5 and 100; set <code class="docutils literal notranslate"><span class="pre">side_size</span></code> when setting up the model)</p></li>
-<li><p>as the boundary condition changes (try <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">-1</span></code>, <code class="docutils literal notranslate"><span class="pre">[1,1,-1,-1]</span></code>, <code class="docutils literal notranslate"><span class="pre">[1,-1,1,-1]</span></code>; set <code class="docutils literal notranslate"><span class="pre">boundaries</span></code> when setting up the model)</p></li>
-</ul>
-<p><strong>Describe what you observe.</strong></p>
+<section id="c-autocorrelation">
+<h2>C. Autocorrelation<a class="headerlink" href="#c-autocorrelation" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Set up a 30-by-30 lattice with the “hot” initial condition.</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">beta</span></code> to 0.45.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">sweep</span></code> 1,000 times, but each time with <code class="docutils literal notranslate"><span class="pre">nsweeps=1</span></code>. After first 100 sweeps, start to record the average magnetization.</p></li>
+<li><p>Calculate the average of the 900 average magnetization. We’ll call this <span class="math notranslate nohighlight">\(\langle m \rangle_c\)</span>.</p></li>
+<li><p>Subtract <span class="math notranslate nohighlight">\(\langle m \rangle_c\)</span> from the 900 magnetization you collected.</p></li>
+<li><p>Calculate the autocorrelation of magnetization (with average subtracted) using the <code class="docutils literal notranslate"><span class="pre">autocorr</span></code> function (defined below)</p></li>
+<li><p><strong>Describe what you observe. Does the autocorrelation deacys? How fast does it decay?</strong></p></li>
+<li><p>Repeat [Steps 1-7] but with <code class="docutils literal notranslate"><span class="pre">beta</span></code> set to 0.55.</p></li>
+</ol>
 <hr class="docutils" />
 <p><em>// Write your answers to Part C here</em></p>
 <hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">autocorr</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">correlate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;full&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="n">result</span><span class="o">.</span><span class="n">size</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Include your implementation for Part C here</span>
@@ -646,7 +626,7 @@ and the associated MCMC simulation methods.</p>
 <p><strong>How to submit this notebook on Canvas?</strong></p>
 <p>Once you complete this lab and have all your code, text answers, and all the desired results after running the notebook properly displayed in this notebook,
 please convert the notebook into HTML format by running the following:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>nbconvert<span class="w"> </span>--to<span class="w"> </span>html<span class="w"> </span>/path/to/labs/07.ipynb<span class="w"> </span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>nbconvert<span class="w"> </span>--to<span class="w"> </span>html<span class="w"> </span>/path/to/labs/08.ipynb<span class="w"> </span>
 </pre></div>
 </div>
 <p>Then, upload the resulting HTML file to Canvas for the corresponding assignment.</p>
@@ -685,22 +665,13 @@ please convert the notebook into HTML format by running the following:</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="06.html"
+       href="07.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Lab 6: Random walk and Brownian motion</p>
+        <p class="prev-next-title">Lab 7: Ising Model</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="08.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lab 8: MCMC Algorithms and Considerations</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -718,11 +689,9 @@ please convert the notebook into HTML format by running the following:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-for-simulating-a-2d-ising-model">Code for simulating a 2D Ising Model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-energy-and-magnetization-calculations">A. Energy and Magnetization Calculations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-how-the-sweep-method-works">Demo: how the sweep method works</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-critical-temperature">B. Critical Temperature</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-experiment">C. Experiment!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-metropolis-hastings-vs-gibbs-sampling-methods">A. Metropolis-Hastings vs. Gibbs Sampling Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-time-to-equilibrate-burn-in">B. Time to Equilibrate (Burn-in)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-autocorrelation">C. Autocorrelation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-question">Final question</a></li>
 </ul>
   </nav></div>
