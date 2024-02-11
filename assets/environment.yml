@@ -6,6 +6,8 @@ channels:
   - nodefaults
 dependencies:
   - python =3.11
+  - corner
+  - emcee
   - ipython
   - jupyterlab
   - jupyterlab-myst
