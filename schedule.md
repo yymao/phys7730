@@ -16,12 +16,12 @@ Any changes will be communicated to you in a timely fashion.
 | Week 05 | Feb 05, 07 | The Ising model [[Reading 7](readings/07)][[Lab 7](labs/07)] | MCMC Algorithms and Considerations [[Reading 8](readings/08)][[Lab 8](labs/08)] |
 | Week 06 | Feb 12, 14 | Bayesian Analysis [[Reading 9](readings/09)][[Lab 9](labs/09)] | MCMC Inference [[Reading 10](readings/10)][[Lab 10](labs/10)] |
 | Week 07 | Feb ~~19~~, 21 | *Presidents Day* | ***Mock exam*** |
-| Week 08 | Feb 26, 28 | Introduction to ML methods  | ***Mock exam presentation*** |
+| Week 08 | Feb 26, 28 | Review of statistical inference | ***Mock exam presentation*** |
 |         | Mar ~~4~~, ~~6~~ | *Spring Break* | *Spring Break* |
-| Week 09 | Mar 11, 13 | Unsupervised: Density estimation | Unsupervised: Clustering |
-| Week 10 | Mar 18, 20 | Dimensionality reduction  | ***Final project pre-presentation*** |
-| Week 11 | Mar 25, 27 | Supervised: Regression | Supervised: Model fitting |
-| Week 12 | Apr 01, 03 | Supervised: Classification | Decision trees & Ensemble methods |
-| Week 13 | Apr 08, 10 | Additional ML methods | Model selection and evaluation |
+| Week 09 | Mar 11, 13 | Introduction to ML methods | Supervised: Regression  |
+| Week 10 | Mar 18, 20 | Model selection and evaluation  | ***Final project pre-presentation*** |
+| Week 11 | Mar 25, 27 | Supervised: Classification | Decision trees & Ensemble methods |
+| Week 12 | Apr 01, 03 | Unsupervised: Density estimation | Unsupervised: Clustering |
+| Week 13 | Apr 08, 10 | Dimensionality reduction | Neural networks |
 | Week 14 | Apr 15, 17 | ***Final project presentation*** | ***Final project presentation*** |
 | Week 15 | Apr 22, ~~24~~ | Special topic (TBD) | *Reading Day* |
