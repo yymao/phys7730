@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Hints for Lab 3: Classical Inference I: Maximum Likelihood Estimation &#8212; PHYS/ASTR 7730</title>
+    <title>Lab 9: Bayesian Analysis &#8212; PHYS/ASTR 7730</title>
   
   
   
@@ -60,10 +60,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'labs-extra/03';</script>
-    <link rel="canonical" href="https://yymao.github.io/phys7730/labs-extra/03.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'labs/09';</script>
+    <link rel="canonical" href="https://yymao.github.io/phys7730/labs/09.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Lab 8: MCMC Algorithms and Considerations" href="08.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-US"/>
   </head>
@@ -124,8 +125,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -201,17 +200,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../readings/10.html">Reading 10: MCMC Inference</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../labs/00.html">Lab 0: Python Recap</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/01.html">Lab 1: Sampling Random Variables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/02.html">Lab 2: Summary Statistics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/03.html">Lab 3: Classical Inference I: Maximum Likelihood Estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/04.html">Lab 4: Classical Inference II: Estimating and Comparing Distributions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/05.html">Lab 5: Importance Sampling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/06.html">Lab 6: Random walk and Brownian motion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/07.html">Lab 7: Ising Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/08.html">Lab 8: MCMC Algorithms and Considerations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/09.html">Lab 9: Bayesian Analysis</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00.html">Lab 0: Python Recap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01.html">Lab 1: Sampling Random Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02.html">Lab 2: Summary Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03.html">Lab 3: Classical Inference I: Maximum Likelihood Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04.html">Lab 4: Classical Inference II: Estimating and Comparing Distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05.html">Lab 5: Importance Sampling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06.html">Lab 6: Random walk and Brownian motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07.html">Lab 7: Ising Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08.html">Lab 8: MCMC Algorithms and Considerations</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 9: Bayesian Analysis</a></li>
 
 </ul>
 
@@ -256,7 +255,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/yymao/phys7730/issues/new?title=Issue%20on%20page%20%2Flabs-extra/03.html&body=Your%20issue%20content%20here." target="_blank"
+<a href="https://github.com/yymao/phys7730/issues/new?title=Issue%20on%20page%20%2Flabs/09.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button"
    title="Open an issue"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -282,7 +281,7 @@
       
       
       
-      <li><a href="../_sources/labs-extra/03.md" target="_blank"
+      <li><a href="../_sources/labs/09.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -292,7 +291,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -366,7 +365,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Hints for Lab 3: Classical Inference I: Maximum Likelihood Estimation</h1>
+    <h1>Lab 9: Bayesian Analysis</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -376,9 +375,22 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-coin-flips">A. Coin Flips</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-estimator-properties">B. Estimator Properties</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lab 9: Bayesian Analysis</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-comparing-samples">A. Comparing Samples</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-find-confidence-interval">Demo: Find confidence interval</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-coin-flips">B. Coin Flips</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-a-simple-case">B1. A simple case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-small-number-of-flips">B2. Small number of flips</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-impact-of-the-prior">B3. Impact of the prior</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-question">Final question</a></li>
+</ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -389,127 +401,131 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="hints-for-lab-3-classical-inference-i-maximum-likelihood-estimation">
-<h1>Hints for Lab 3: Classical Inference I: Maximum Likelihood Estimation<a class="headerlink" href="#hints-for-lab-3-classical-inference-i-maximum-likelihood-estimation" title="Link to this heading">#</a></h1>
-<p><em>For the class on Monday, January 22nd</em></p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>Go back to <a class="reference internal" href="../labs/03.html"><span class="doc std std-doc">Lab 3</span></a></p>
-</div>
-<section id="a-coin-flips">
-<h2>A. Coin Flips<a class="headerlink" href="#a-coin-flips" title="Link to this heading">#</a></h2>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Hints for the implementation of Question 1<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<ul>
-<li><p class="sd-card-text">From class we obtained the expression for <span class="math notranslate nohighlight">\(\sigma_p\)</span> in terms of <span class="math notranslate nohighlight">\(N\)</span> and <span class="math notranslate nohighlight">\(K\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
-    \sigma_p = \sqrt{\frac{K(N-K)}{N^3}}
-  \]</div>
-<p class="sd-card-text">We can then rewrite the inequality as <span class="math notranslate nohighlight">\(\hat{p} - 2 \sigma_p &gt; 0.5 \)</span>.
-Plug in the corresponding expressions for <span class="math notranslate nohighlight">\(\hat{p}\)</span> and <span class="math notranslate nohighlight">\(\sigma_p\)</span>
-such that the left-hand side of the inequality only depends on <span class="math notranslate nohighlight">\(N\)</span> and <span class="math notranslate nohighlight">\(K\)</span>.</p>
-<p class="sd-card-text">Here’s a (not efficient, but easy to understand) way to find the minimal value of <span class="math notranslate nohighlight">\(K\)</span>
-for the inequality to hold.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-9-bayesian-analysis">
+<h1>Lab 9: Bayesian Analysis<a class="headerlink" href="#lab-9-bayesian-analysis" title="Link to this heading">#</a></h1>
+<p><em>For the class on Monday, February 12th</em></p>
+<section id="a-comparing-samples">
+<h2>A. Comparing Samples<a class="headerlink" href="#a-comparing-samples" title="Link to this heading">#</a></h2>
+<p>We have two sets of data points.
+Data Set 1 has <span class="math notranslate nohighlight">\(N_X\)</span> points <span class="math notranslate nohighlight">\((X_1, X_2, ..., X_{N_X})\)</span>.
+Data Set 2 has <span class="math notranslate nohighlight">\(N_Y\)</span> points <span class="math notranslate nohighlight">\((Y_1, Y_2, ..., Y_{N_Y})\)</span>.</p>
+<p>We know both are sampled from an exponential distribution, but potentially with different values of <span class="math notranslate nohighlight">\(\lambda\)</span>.
+We want to test if these two data sets come from the same exponential distribution (i.e., same <span class="math notranslate nohighlight">\(\lambda\)</span>).</p>
+<p>Let’s say Data Set 1 is sampled from <span class="math notranslate nohighlight">\(\text{Exp}(\lambda_X=a+b)\)</span> and Data Set 2 from <span class="math notranslate nohighlight">\(\text{Exp}(\lambda_Y=a-b)\)</span>.</p>
+<ol class="arabic simple">
+<li><p>Write down the likelihood function in terms of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\({X_i}\)</span> and <span class="math notranslate nohighlight">\({Y_i}\)</span>.</p></li>
+<li><p>Let’s take <span class="math notranslate nohighlight">\(\text{Gamma}(\alpha=2, \beta=2) = 4ae^{-2a}\)</span> as the prior for <span class="math notranslate nohighlight">\(a\)</span>,
+and <span class="math notranslate nohighlight">\(\mathcal{N}(\mu=0, \sigma=1) = \frac{1}{\sqrt{2\pi}}e^{-b^2/2}\)</span> as the prior for <span class="math notranslate nohighlight">\(b\)</span>.
+Write down the posterior function (up to a normalizing constant) in terms of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\({X_i}\)</span> and <span class="math notranslate nohighlight">\({Y_i}\)</span>.</p></li>
+</ol>
+<hr class="docutils" />
+<p><em>// Write your answers to Part A here</em></p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="demo-find-confidence-interval">
+<h1>Demo: Find confidence interval<a class="headerlink" href="#demo-find-confidence-interval" title="Link to this heading">#</a></h1>
+<p>The code below demonstrates how to numerically find the 95% confidence interval
+around 0 for the standard normal distribution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">cumulative_simpson</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
 
-<span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="k">for</span> <span class="n">K</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-    <span class="k">if</span> <span class="o">...</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">:</span>  <span class="c1"># TODO: replace ... with the expression of \hat{p} - 2 \sigma_p but in terms of N and K</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
-        <span class="k">break</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">30001</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">y_int</span> <span class="o">=</span> <span class="n">cumulative_simpson</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;calculated value:&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">y_int</span><span class="p">,</span> <span class="mf">0.95</span><span class="o">/</span><span class="mi">2</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;      true value:&quot;</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">isf</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="mf">0.95</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
-</li>
-</ul>
 </div>
-</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Hints for the implementation of Question 2<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<ul>
-<li><p class="sd-card-text">To simulate the number of heads for 100 coin flips, you can simply run</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="n">n_flips</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># number of coin flips</span>
-<span class="n">p_heads</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># heads probability</span>
-<span class="n">n_heads</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n_flips</span><span class="p">,</span> <span class="n">p_heads</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">n_heads</span><span class="p">)</span>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>calculated value: 1.9600000000000002
+      true value: 1.959963984540054
 </pre></div>
 </div>
-<p class="sd-card-text">Note that each time you run the code above, <code class="docutils literal notranslate"><span class="pre">n_heads</span></code> has a different value.</p>
-</li>
-<li><p class="sd-card-text">The above would be one “simulation”. Repeat this simulation 10,000 time and collect the <code class="docutils literal notranslate"><span class="pre">n_heads</span></code> from each simulation.</p></li>
-<li><p class="sd-card-text">You can then use <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.percentile.html"><code class="docutils literal notranslate"><span class="pre">np.percentile</span></code></a> to calculate
-the percentile corresponding to <span class="math notranslate nohighlight">\(2\sigma\)</span> among the 10,000 <code class="docutils literal notranslate"><span class="pre">n_heads</span></code> values.</p></li>
-</ul>
 </div>
-</details></section>
-<section id="b-estimator-properties">
-<h2>B. Estimator Properties<a class="headerlink" href="#b-estimator-properties" title="Link to this heading">#</a></h2>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Hints for “How to verify” 1<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<ul>
-<li><p class="sd-card-text">Here’s a snippet to get you started with the code structure:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="o">...</span>  <span class="c1"># TODO: set the true value of a</span>
-<span class="n">b</span> <span class="o">=</span> <span class="o">...</span>  <span class="c1"># TODO: set the true value of b</span>
-<span class="n">N</span> <span class="o">=</span> <span class="o">...</span>  <span class="c1"># TODO: set the number of x&#39;s</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
-<span class="n">a_mle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># this would be \hat{a}</span>
-<span class="n">b_mle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># this would be \hat{b}</span>
-
-<span class="c1"># TODO: repeat the above with different values of N and see how a_mle and b_mle change as N increases</span>
+</div>
+<section id="b-coin-flips">
+<h2>B. Coin Flips<a class="headerlink" href="#b-coin-flips" title="Link to this heading">#</a></h2>
+<p>Assume this coin shows heads with a probability of <span class="math notranslate nohighlight">\(p\)</span>, and tails with a probability of <span class="math notranslate nohighlight">\(1-p\)</span>.</p>
+<section id="b1-a-simple-case">
+<h3>B1. A simple case<a class="headerlink" href="#b1-a-simple-case" title="Link to this heading">#</a></h3>
+<p>We flipped the coin <span class="math notranslate nohighlight">\(N=100\)</span> times and got <span class="math notranslate nohighlight">\(K=60\)</span> heads.</p>
+<ol class="arabic simple">
+<li><p>Plot the posterior of <span class="math notranslate nohighlight">\(p\)</span> assuming a uniform prior.</p></li>
+<li><p>What is the maximum a posteriori probability (MAP) estimate?</p></li>
+<li><p>What is the 95% confidence interval of your estimate of <span class="math notranslate nohighlight">\(p\)</span>?</p></li>
+<li><p>Is your result from (3) consistent with what you obtained in Lab 3, Part A?</p></li>
+</ol>
+<hr class="docutils" />
+<p><em>// Write your answers to Part B1 here</em></p>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Include your implementation for Part B1 here</span>
 </pre></div>
 </div>
-</li>
-</ul>
 </div>
-</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Hints for “How to verify” 2<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<ul>
-<li><p class="sd-card-text">Here’s a snippet to get you started with the code structure:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="o">...</span>  <span class="c1"># TODO: set the true value of a</span>
-<span class="n">b</span> <span class="o">=</span> <span class="o">...</span>  <span class="c1"># TODO: set the true value of b</span>
-<span class="n">N</span> <span class="o">=</span> <span class="o">...</span>  <span class="c1"># TODO: set the number of x&#39;s</span>
-<span class="n">K</span> <span class="o">=</span> <span class="o">...</span>  <span class="c1"># TODO: set the number of simulations</span>
-
-<span class="n">a_mle_avg</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">b_mle_avg</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
-    <span class="n">a_mle_avg</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">b_mle_avg</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">a_mle_avg</span> <span class="o">/=</span> <span class="n">K</span>  <span class="c1"># this would be $E(\hat{a})$</span>
-<span class="n">b_mle_avg</span> <span class="o">/=</span> <span class="n">K</span>  <span class="c1"># this would be $E(\hat{b})$</span>
-
-<span class="c1"># TODO: repeat the above with different values of K and see how a_mle_avg and b_mle_avg change as K increases</span>
+</div>
+</section>
+<section id="b2-small-number-of-flips">
+<h3>B2. Small number of flips<a class="headerlink" href="#b2-small-number-of-flips" title="Link to this heading">#</a></h3>
+<p>We flipped a coin <span class="math notranslate nohighlight">\(N=3\)</span> times and got <span class="math notranslate nohighlight">\(K=0\)</span> heads (no heads).</p>
+<ol class="arabic simple">
+<li><p>Plot the posterior of <span class="math notranslate nohighlight">\(p\)</span> assuming a uniform prior.</p></li>
+<li><p>What is the maximum a posteriori probability (MAP) estimate?</p></li>
+<li><p>What is the 95% confidence interval of your estimate of <span class="math notranslate nohighlight">\(p\)</span>?</p></li>
+<li><p>Make a predition for the number of heads you would obtain if you flip this particular coin 100 times.</p></li>
+</ol>
+<hr class="docutils" />
+<p><em>// Write your answers to Part B2 here</em></p>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Include your implementation for Part B2 here</span>
 </pre></div>
 </div>
-</li>
-</ul>
 </div>
-</details></section>
+</div>
+</section>
+<section id="b3-impact-of-the-prior">
+<h3>B3. Impact of the prior<a class="headerlink" href="#b3-impact-of-the-prior" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Repeat B1 and B2 (all steps in both sections), but replace the prior with <span class="math notranslate nohighlight">\(\text{Beta}(\alpha=2, \beta=2) = 6 p(1-p)\)</span>.</p></li>
+<li><p>Do your answers with this new prior agree with what you expect? Briefly explain.</p></li>
+</ol>
+<hr class="docutils" />
+<p><em>// Write your answers to Part B3 here</em></p>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Include your implementation for Part B3 here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="final-question">
+<h2>Final question<a class="headerlink" href="#final-question" title="Link to this heading">#</a></h2>
+<p>Roughly how much time did you spend on this lab (<em>not</em> including the time you spent in class)?</p>
+<hr class="docutils" />
+<p><em>// Write your answers here</em></p>
+<hr class="docutils" />
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>How to submit this notebook on Canvas?</strong></p>
+<p>Once you complete this lab and have all your code, text answers, and all the desired results after running the notebook properly displayed in this notebook,
+please convert the notebook into HTML format by running the following:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>nbconvert<span class="w"> </span>--to<span class="w"> </span>html<span class="w"> </span>/path/to/labs/09.ipynb<span class="w"> </span>
+</pre></div>
+</div>
+<p>Then, upload the resulting HTML file to Canvas for the corresponding assignment.</p>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -525,7 +541,7 @@ Hints for “How to verify” 2<div class="sd-summary-down docutils">
         },
         kernelOptions: {
             name: "python3",
-            path: "./labs-extra"
+            path: "./labs"
         },
         predefinedOutput: true
     }
@@ -542,6 +558,15 @@ Hints for “How to verify” 2<div class="sd-summary-down docutils">
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="08.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 8: MCMC Algorithms and Considerations</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
@@ -558,9 +583,22 @@ Hints for “How to verify” 2<div class="sd-summary-down docutils">
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-coin-flips">A. Coin Flips</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-estimator-properties">B. Estimator Properties</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lab 9: Bayesian Analysis</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-comparing-samples">A. Comparing Samples</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-find-confidence-interval">Demo: Find confidence interval</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-coin-flips">B. Coin Flips</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-a-simple-case">B1. A simple case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-small-number-of-flips">B2. Small number of flips</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-impact-of-the-prior">B3. Impact of the prior</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-question">Final question</a></li>
+</ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
