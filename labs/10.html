@@ -1,0 +1,793 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-US" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 10: MCMC Inference &#8212; PHYS/ASTR 7730</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystyle.css?v=5f62bfb6" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=e39023b8"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'labs/10';</script>
+    <link rel="canonical" href="https://yymao.github.io/phys7730/labs/10.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Lab 9: Bayesian Analysis" href="09.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-US"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="PHYS/ASTR 7730 - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="PHYS/ASTR 7730 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Home
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://utah.instructure.com/courses/934218">Canvas (login required)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies.html">Course Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Weekly Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Set up your computing environment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Readings</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../readings/01.html">Reading 1: Probability and Random Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readings/02.html">Reading 2: Summary Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readings/03.html">Reading 3: Classical Inference I: Maximum Likelihood Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readings/04.html">Reading 4: Classical Inference II: Estimating and Comparing Distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readings/05.html">Reading 5: Monte Carlo Method and Importance Sampling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readings/06.html">Reading 6: Stochastic Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readings/07.html">Reading 7: The Ising Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readings/08.html">Reading 8: MCMC Algorithms and Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readings/09.html">Reading 9: Bayesian Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readings/10.html">Reading 10: MCMC Inference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00.html">Lab 0: Python Recap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01.html">Lab 1: Sampling Random Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02.html">Lab 2: Summary Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03.html">Lab 3: Classical Inference I: Maximum Likelihood Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04.html">Lab 4: Classical Inference II: Estimating and Comparing Distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05.html">Lab 5: Importance Sampling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06.html">Lab 6: Random walk and Brownian motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07.html">Lab 7: Ising Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08.html">Lab 8: MCMC Algorithms and Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09.html">Lab 9: Bayesian Analysis</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 10: MCMC Inference</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/yymao/phys7730/issues/new?title=Issue%20on%20page%20%2Flabs/10.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button"
+   title="Open an issue"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/labs/10.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 10: MCMC Inference</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-comparing-samples-with-emcee">A. Comparing Samples, with emcee</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-the-posterior-function">A1. The posterior function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a2-run-mcmc-with-emcee">A2. Run MCMC with emcee!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a3-inspect-your-mcmc-run">A3. Inspect your MCMC run</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-for-a3">Question for A3</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a4-make-a-corner-plot-for-the-two-parameters-a-b">A4. Make a corner plot for the two parameters (a, b)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-for-a4">Question for A4</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a5-repeat-the-analysis-with-uniform-priors">A5. Repeat the analysis with uniform priors</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-for-a5">Question for A5</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a6-repeat-the-analysis-with-different-initial-guesses">A6. Repeat the analysis with different initial guesses</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-for-a6">Question for A6</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-question">Final question</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-10-mcmc-inference">
+<h1>Lab 10: MCMC Inference<a class="headerlink" href="#lab-10-mcmc-inference" title="Link to this heading">#</a></h1>
+<p><em>For the class on Monday, February 12th</em></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You may find <a class="reference external" href="https://emcee.readthedocs.io/en/stable/tutorials/line/">this tutorial of emcee</a> helpful!</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you don’t have emcee and corner installed, you’ll want to install them first.
+Run the following in a terminal <strong>after you activate the environment you use for this course</strong>.
+(If running in a notebook, add <code class="docutils literal notranslate"><span class="pre">!</span></code> at the very beginning of the line.)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>emcee<span class="w"> </span>corner
+</pre></div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make sure these are install</span>
+<span class="kn">import</span> <span class="nn">emcee</span><span class="o">,</span> <span class="nn">corner</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="a-comparing-samples-with-emcee">
+<h2>A. Comparing Samples, with emcee<a class="headerlink" href="#a-comparing-samples-with-emcee" title="Link to this heading">#</a></h2>
+<section id="a1-the-posterior-function">
+<h3>A1. The posterior function<a class="headerlink" href="#a1-the-posterior-function" title="Link to this heading">#</a></h3>
+<p>With the prior and likelihood functions you obtained from Lab 9, Part A,
+populate the functions <code class="docutils literal notranslate"><span class="pre">log_prior_a</span></code>, <code class="docutils literal notranslate"><span class="pre">log_prior_b</span></code> and <code class="docutils literal notranslate"><span class="pre">log_likelihood</span></code> below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Include your implementation for Part A1 here</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">log_prior_a</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="c1"># TODO: implement this function</span>
+    <span class="k">return</span>
+
+
+<span class="k">def</span> <span class="nf">log_prior_b</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+    <span class="c1"># TODO: implement this function</span>
+    <span class="k">return</span>
+
+
+<span class="k">def</span> <span class="nf">log_likelihood</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">x_sum</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">y_sum</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+    <span class="c1"># TODO: impelement this function</span>
+    <span class="k">return</span>
+
+
+<span class="k">def</span> <span class="nf">log_posterior</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">parameters</span>
+    <span class="k">return</span> <span class="n">log_likelihood</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="o">+</span> <span class="n">log_prior_a</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="n">log_prior_b</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a2-run-mcmc-with-emcee">
+<h3>A2. Run MCMC with emcee!<a class="headerlink" href="#a2-run-mcmc-with-emcee" title="Link to this heading">#</a></h3>
+<p>The following cell runs the MCMC with emcee using 40 walkers and 5,000 steps per walker.
+The initial guesses are set to a narrow gaussian distribution around the MLE estimator.</p>
+<p>Uncomment the last line of the cell below and run it!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For A2. Uncomment the last line run this cell</span>
+<span class="kn">import</span> <span class="nn">emcee</span>
+
+<span class="c1">#########</span>
+<span class="c1"># do not change the following two lines</span>
+<span class="n">data_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mf">0.51</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">data_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">753</span><span class="p">)</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mf">0.49</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="c1">#########</span>
+
+<span class="n">nwalkers</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">nsteps</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="n">ndim</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># we have two parameters, a and b</span>
+<span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">data_x</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">data_x</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_y</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">data_y</span><span class="p">)]</span>  <span class="c1"># nx, x_sum, ny, y_sum</span>
+
+<span class="c1"># generate initial guess</span>
+<span class="n">a0</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data_x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data_y</span><span class="p">))</span> <span class="o">*</span> <span class="mf">0.5</span>
+<span class="n">b0</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data_x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data_y</span><span class="p">)</span>
+<span class="n">p0_center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">a0</span><span class="p">,</span> <span class="n">b0</span><span class="p">])</span>
+<span class="n">p0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">p0_center</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">((</span><span class="n">p0_center</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">nwalkers</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span>
+<span class="c1"># remove any invalid initial guesses</span>
+<span class="n">p0</span> <span class="o">=</span> <span class="n">p0</span><span class="p">[(</span><span class="n">p0</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">p0</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">p0</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">p0</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)]</span>
+<span class="n">p0</span> <span class="o">=</span> <span class="n">p0</span><span class="p">[:</span><span class="n">nwalkers</span><span class="p">]</span>
+
+<span class="n">sampler</span> <span class="o">=</span> <span class="n">emcee</span><span class="o">.</span><span class="n">EnsembleSampler</span><span class="p">(</span><span class="n">nwalkers</span><span class="p">,</span> <span class="n">ndim</span><span class="p">,</span> <span class="n">log_posterior</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+<span class="c1">#sampler.run_mcmc(p0, nsteps, progress=True);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a3-inspect-your-mcmc-run">
+<h3>A3. Inspect your MCMC run<a class="headerlink" href="#a3-inspect-your-mcmc-run" title="Link to this heading">#</a></h3>
+<p>Do the following inspection for your MCMC run.</p>
+<ol class="arabic simple">
+<li><p>Check the acceptance rate for each walker (use <code class="docutils literal notranslate"><span class="pre">sampler.acceptance_fraction</span></code>).</p></li>
+<li><p>Check the autocorrelation time for each parameter (use <code class="docutils literal notranslate"><span class="pre">sampler.get_autocorr_time()</span></code>).</p></li>
+<li><p>Plot one chain for each parameter (Use <code class="docutils literal notranslate"><span class="pre">sampler.get_chain()</span></code>)</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Include your implementation for Part A3, Q1 here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Include your implementation for Part A3, Q2 here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Include your implementation for Part A3, Q3 here</span>
+
+
+<span class="c1"># Uncomment the following two lines to get started</span>
+<span class="c1">#walker_index = 21</span>
+<span class="c1">#chain_a, chain_b = sampler.get_chain()[:,walker_index,:].T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="question-for-a3">
+<h4>Question for A3<a class="headerlink" href="#question-for-a3" title="Link to this heading">#</a></h4>
+<p>Briefly discuss what you observed above. Do the results from these checks make sense to you? Do you think the MCMC was done correctly?</p>
+<hr class="docutils" />
+<p><em>// Write your answers to Part A3 here</em></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="a4-make-a-corner-plot-for-the-two-parameters-a-b">
+<h3>A4. Make a corner plot for the two parameters (a, b)<a class="headerlink" href="#a4-make-a-corner-plot-for-the-two-parameters-a-b" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Include your implementation for Part A4 here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="question-for-a4">
+<h4>Question for A4<a class="headerlink" href="#question-for-a4" title="Link to this heading">#</a></h4>
+<p>Briefly discuss what you observed. What conclusion would you draw from the distribution of a, b?</p>
+<hr class="docutils" />
+<p><em>// Write your answers to Part A4 here</em></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="a5-repeat-the-analysis-with-uniform-priors">
+<h3>A5. Repeat the analysis with uniform priors<a class="headerlink" href="#a5-repeat-the-analysis-with-uniform-priors" title="Link to this heading">#</a></h3>
+<p>We will do a MCMC run with a uniform prior instead.
+Repeat the analysis from A3 and A4 and see how the results change.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For A5 setup: Uncomment the last line run this cell</span>
+
+<span class="k">def</span> <span class="nf">log_posterior_uniform_priors</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">parameters</span>
+    <span class="k">return</span> <span class="n">log_likelihood</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+
+<span class="n">sampler_uniform_priors</span> <span class="o">=</span> <span class="n">emcee</span><span class="o">.</span><span class="n">EnsembleSampler</span><span class="p">(</span><span class="n">nwalkers</span><span class="p">,</span> <span class="n">ndim</span><span class="p">,</span> <span class="n">log_posterior_uniform_priors</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+<span class="c1">#sampler_uniform_priors.run_mcmc(p0, nsteps, progress=True);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For A5: Repeat the steps from A3 and A4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="question-for-a5">
+<h4>Question for A5<a class="headerlink" href="#question-for-a5" title="Link to this heading">#</a></h4>
+<p>Briefly discuss what you observed. How does the new prior change the result?</p>
+<hr class="docutils" />
+<p><em>// Write your answers to Part A5 here</em></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="a6-repeat-the-analysis-with-different-initial-guesses">
+<h3>A6. Repeat the analysis with different initial guesses<a class="headerlink" href="#a6-repeat-the-analysis-with-different-initial-guesses" title="Link to this heading">#</a></h3>
+<p>We will do another MCMC run with initial guesses centered around <span class="math notranslate nohighlight">\((a=2, b=-0.3)\)</span> instead.
+Repeat the analysis from A3 and A4 and see how the results change.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For A6 setup: Uncomment the last line run this cell</span>
+
+<span class="c1"># generate initial guess</span>
+<span class="n">a0</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">b0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.3</span>
+<span class="n">p0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">([</span><span class="n">a0</span><span class="p">,</span> <span class="n">b0</span><span class="p">],</span> <span class="p">[[(</span><span class="n">a0</span><span class="o">*</span><span class="mf">0.1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">b0</span><span class="o">*</span><span class="mf">0.1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">]],</span> <span class="n">size</span><span class="o">=</span><span class="n">nwalkers</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># remove any invalid initial guesses</span>
+<span class="n">p0</span> <span class="o">=</span> <span class="n">p0</span><span class="p">[(</span><span class="n">p0</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">p0</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">p0</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">p0</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)]</span>
+<span class="n">p0</span> <span class="o">=</span> <span class="n">p0</span><span class="p">[:</span><span class="n">nwalkers</span><span class="p">]</span>
+
+<span class="n">sampler_new_initial_guesses</span> <span class="o">=</span> <span class="n">emcee</span><span class="o">.</span><span class="n">EnsembleSampler</span><span class="p">(</span><span class="n">nwalkers</span><span class="p">,</span> <span class="n">ndim</span><span class="p">,</span> <span class="n">log_posterior</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+<span class="c1">#sampler_new_initial_guesses.run_mcmc(p0, nsteps, progress=True);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For A6: Repeat the steps from A3 and A4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="question-for-a6">
+<h4>Question for A6<a class="headerlink" href="#question-for-a6" title="Link to this heading">#</a></h4>
+<p>Briefly discuss what you observed. How does the new initial guesses change the result?</p>
+<hr class="docutils" />
+<p><em>// Write your answers to Part A6 here</em></p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="final-question">
+<h2>Final question<a class="headerlink" href="#final-question" title="Link to this heading">#</a></h2>
+<p>Roughly how much time did you spend on this lab (<em>not</em> including the time you spent in class)?</p>
+<hr class="docutils" />
+<p><em>// Write your answers here</em></p>
+<hr class="docutils" />
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>How to submit this notebook on Canvas?</strong></p>
+<p>Once you complete this lab and have all your code, text answers, and all the desired results after running the notebook properly displayed in this notebook,
+please convert the notebook into HTML format by running the following:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>nbconvert<span class="w"> </span>--to<span class="w"> </span>html<span class="w"> </span>/path/to/labs/10.ipynb<span class="w"> </span>
+</pre></div>
+</div>
+<p>Then, upload the resulting HTML file to Canvas for the corresponding assignment.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./labs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="09.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 9: Bayesian Analysis</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-comparing-samples-with-emcee">A. Comparing Samples, with emcee</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-the-posterior-function">A1. The posterior function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a2-run-mcmc-with-emcee">A2. Run MCMC with emcee!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a3-inspect-your-mcmc-run">A3. Inspect your MCMC run</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-for-a3">Question for A3</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a4-make-a-corner-plot-for-the-two-parameters-a-b">A4. Make a corner plot for the two parameters (a, b)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-for-a4">Question for A4</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a5-repeat-the-analysis-with-uniform-priors">A5. Repeat the analysis with uniform priors</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-for-a5">Question for A5</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a6-repeat-the-analysis-with-different-initial-guesses">A6. Repeat the analysis with different initial guesses</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-for-a6">Question for A6</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-question">Final question</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yao-Yuan Mao (University of Utah)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Statistical and Computational Methods in Physics and Astronomy
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
