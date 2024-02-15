@@ -437,7 +437,7 @@ Run the following in a terminal <strong>after you activate the environment you u
 <h2>A. Comparing Samples, with emcee<a class="headerlink" href="#a-comparing-samples-with-emcee" title="Link to this heading">#</a></h2>
 <section id="a1-the-posterior-function">
 <h3>A1. The posterior function<a class="headerlink" href="#a1-the-posterior-function" title="Link to this heading">#</a></h3>
-<p>With the prior and likelihood functions you obtained from Lab 9, Part A,
+<p>With the prior and likelihood functions you obtained from <a class="reference internal" href="09.html"><span class="doc std std-doc">Lab 9</span></a>, Part A,
 populate the functions <code class="docutils literal notranslate"><span class="pre">log_prior_a</span></code>, <code class="docutils literal notranslate"><span class="pre">log_prior_b</span></code> and <code class="docutils literal notranslate"><span class="pre">log_likelihood</span></code> below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -446,6 +446,8 @@ populate the functions <code class="docutils literal notranslate"><span class="p
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="k">def</span> <span class="nf">log_prior_a</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
     <span class="c1"># TODO: implement this function</span>
     <span class="k">return</span>
 
