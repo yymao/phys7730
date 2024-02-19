@@ -5,7 +5,7 @@ title: PHYS/ASTR 7730
 author: Yao-Yuan Mao (University of Utah)
 copyright: "2024"
 logo: logo.png
-exclude_patterns: ["backup", "build.sh", ".gitignore"]
+exclude_patterns: ["excluded", "build.sh", ".gitignore"]
 
 parse:
   myst_enable_extensions:
