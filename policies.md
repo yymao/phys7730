@@ -128,7 +128,7 @@ You will earn a higher score on the quality of engagement when you come prepared
 
 ## Mock Exam and Presentation
 
-The mock exam will a timed, closed-book exam. It is a "mock" exam because it will be graded on attempt only. After the mock exam, students will be split into groups, and each group will be assigned one question to solve (open book, open discussion). On the group presentation day, each group will present their solutions to the class.
+The mock exam will a timed, open-book exam that will take place in class. It is a "mock" exam because it will be graded on attempt only. After the mock exam, students will be split into groups, and each group will be assigned one question to solve (open book, open discussion). On the group presentation day, each group will present their solutions to the class.
 
 After the presentation, each member of the group will submit a brief (<300 words) contribution statement that (1) summarizes their contribution in the group, and (2) comment on how their group mates participate. 
 
