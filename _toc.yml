@@ -13,10 +13,23 @@ parts:
   - file: references
   - file: setup
 
-- caption: Readings
+- caption: 'Readings (ML)'
   chapters:
-  - glob: readings/*
+  - glob: readings/1[1-9]
 
-- caption: Labs
+- caption: 'Labs (ML)'
   chapters:
-  - glob: labs/*
+  - glob: labs/1[1-9]
+
+- caption: 'Inference (First half sememster)'
+  chapters:
+  - file: readings/inference
+    title: Readings
+    sections:
+    - glob: readings/0[0-9]
+    - file: readings/10
+  - file: labs/inference
+    title: Labs
+    sections:
+    - glob: labs/0[0-9]
+    - file: labs/10
