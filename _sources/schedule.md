@@ -18,10 +18,10 @@ Any changes will be communicated to you in a timely fashion.
 | Week 07 | Feb ~~19~~, 21 | *Presidents Day* | ***Mock exam*** |
 | Week 08 | Feb 26, 28 | Review of statistical inference | ***Mock exam presentation*** |
 |         | Mar ~~4~~, ~~6~~ | *Spring Break* | *Spring Break* |
-| Week 09 | Mar 11, 13 | Introduction to ML methods | Supervised: Regression  |
-| Week 10 | Mar 18, 20 | Model selection and evaluation  | ***Final project pre-presentation*** |
-| Week 11 | Mar 25, 27 | Supervised: Classification | Decision trees & Ensemble methods |
-| Week 12 | Apr 01, 03 | Unsupervised: Density estimation | Unsupervised: Clustering |
-| Week 13 | Apr 08, 10 | Dimensionality reduction | Neural networks |
+| Week 09 | Mar 11, 13 | Introduction to Machine Learning [[Reading 11](readings/11)] | Supervised: Regression [[Reading 12](readings/12)] |
+| Week 10 | Mar 18, 20 | Regression methods | ***Final project pre-presentation*** |
+| Week 11 | Mar 25, 27 | Supervised: Classification | Classification methods |
+| Week 12 | Apr 01, 03 | Unsupervised: Clustering | Clustering methods |
+| Week 13 | Apr 08, 10 | Unsupervised: Dimensionality reduction | Review of machine learning  |
 | Week 14 | Apr 15, 17 | ***Final project presentation*** | ***Final project presentation*** |
 | Week 15 | Apr 22, ~~24~~ | Special topic (TBD) | *Reading Day* |
