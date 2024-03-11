@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Lab 3: Classical Inference I: Maximum Likelihood Estimation &#8212; PHYS/ASTR 7730</title>
+    <title>Lab 11: Introduction to scikit-learn &#8212; PHYS/ASTR 7730</title>
   
   
   
@@ -58,14 +58,12 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'labs/03';</script>
-    <link rel="canonical" href="https://yymao.github.io/phys7730/labs/03.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'labs/11';</script>
+    <link rel="canonical" href="https://yymao.github.io/phys7730/labs/11.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Lab 4: Classical Inference II: Estimating and Comparing Distributions" href="04.html" />
-    <link rel="prev" title="Lab 2: Summary Statistics" href="02.html" />
+    <link rel="next" title="Readings: Inference (First half semester)" href="../readings/inference.html" />
+    <link rel="prev" title="Reading 13: Gaussian Process and Cross Validation" href="../readings/13.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-US"/>
   </head>
@@ -194,11 +192,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../readings/13.html">Reading 13: Gaussian Process and Cross Validation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs (ML)</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="11.html">Lab 11: Introduction to scikit-learn</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 11: Introduction to scikit-learn</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Inference (First half sememster)</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../readings/inference.html">Readings</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../readings/01.html">Reading 1: Probability and Random Variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../readings/02.html">Reading 2: Summary Statistics</a></li>
@@ -212,11 +210,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../readings/10.html">Reading 10: MCMC Inference</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="inference.html">Labs</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="inference.html">Labs</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="00.html">Lab 0: Python Recap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01.html">Lab 1: Sampling Random Variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02.html">Lab 2: Summary Statistics</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Lab 3: Classical Inference I: Maximum Likelihood Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.html">Lab 3: Classical Inference I: Maximum Likelihood Estimation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04.html">Lab 4: Classical Inference II: Estimating and Comparing Distributions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05.html">Lab 5: Importance Sampling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06.html">Lab 6: Random walk and Brownian motion</a></li>
@@ -269,7 +267,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/yymao/phys7730/issues/new?title=Issue%20on%20page%20%2Flabs/03.html&body=Your%20issue%20content%20here." target="_blank"
+<a href="https://github.com/yymao/phys7730/issues/new?title=Issue%20on%20page%20%2Flabs/11.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button"
    title="Open an issue"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -295,7 +293,7 @@
       
       
       
-      <li><a href="../_sources/labs/03.ipynb" target="_blank"
+      <li><a href="../_sources/labs/11.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -379,7 +377,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lab 3: Classical Inference I: Maximum Likelihood Estimation</h1>
+    <h1>Lab 11: Introduction to scikit-learn</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -389,17 +387,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-likelihood-function">Demo - Likelihood function</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-coin-flips">A. Coin Flips</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-data-representation-and-exploration">A. Data Representation and Exploration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-basic-information-about-a-data-set">A1. Basic information about a data set</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a2-exploring-a-data-set">A2. Exploring a data set</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-estimator-properties">B. Estimator Properties</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Questions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-verify">How to verify</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-question">Final question</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-scikit-learn-api-basics">B. scikit-learn API basics</a></li>
 </ul>
             </nav>
         </div>
@@ -411,149 +404,170 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lab-3-classical-inference-i-maximum-likelihood-estimation">
-<h1>Lab 3: Classical Inference I: Maximum Likelihood Estimation<a class="headerlink" href="#lab-3-classical-inference-i-maximum-likelihood-estimation" title="Link to this heading">#</a></h1>
-<p><em>For the class on Monday, January 22nd</em></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-11-introduction-to-scikit-learn">
+<h1>Lab 11: Introduction to scikit-learn<a class="headerlink" href="#lab-11-introduction-to-scikit-learn" title="Link to this heading">#</a></h1>
+<p><em>For the class on Monday, March 11th</em></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Looking for <a class="reference internal" href="../labs-extra/03.html"><span class="doc std std-doc">hints</span></a>?</p>
+<p>If you don’t have <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> installed, you’ll want to install them first.
+Run the following in a terminal <strong>after you activate the environment you use for this course</strong>.
+(If running in a notebook, add <code class="docutils literal notranslate"><span class="pre">!</span></code> at the very beginning of the line.)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>scikit-learn
+</pre></div>
 </div>
-<section id="demo-likelihood-function">
-<h2>Demo - Likelihood function<a class="headerlink" href="#demo-likelihood-function" title="Link to this heading">#</a></h2>
-<p>Consider the likelihood function for the Binomial distribution (coin flip)
-with given number of total trials, <span class="math notranslate nohighlight">\(N\)</span>, and number of successes (heads), <span class="math notranslate nohighlight">\(K\)</span>.</p>
-<p>Pick a few combination of <span class="math notranslate nohighlight">\(N\)</span> and <span class="math notranslate nohighlight">\(K\)</span> values, plot the log-likelihood as a function of <span class="math notranslate nohighlight">\(p\)</span>,
-the probability of successes (heads).</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">comb</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run this cell to check if scikit-learn is installed</span>
+<span class="c1"># scikit-learn version should be at least 1.3.0</span>
 
-<span class="k">def</span> <span class="nf">log_likelihood</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">K</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">K</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="o">-</span><span class="n">p</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">comb</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">K</span><span class="p">))</span>
-
-<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1001</span><span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">log_likelihood</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$N=100, K=50$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">log_likelihood</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$N=100, K=30$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">log_likelihood</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$N=10, K=5$&quot;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$p$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;log-likelihood&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sklearn</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ae9e79e0bd93f503b8f62b933310151e1b3423b8149648cf1f64bdd1d146cb43.png" src="../_images/ae9e79e0bd93f503b8f62b933310151e1b3423b8149648cf1f64bdd1d146cb43.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.4.1.post1
+</pre></div>
 </div>
 </div>
-</section>
-<section id="a-coin-flips">
-<h2>A. Coin Flips<a class="headerlink" href="#a-coin-flips" title="Link to this heading">#</a></h2>
-<p>We flip a coin <span class="math notranslate nohighlight">\(N=100\)</span> times and we want to know at least how many heads we need to see
-to say that the coin favors heads at a <span class="math notranslate nohighlight">\(2\sigma\)</span> level.
-Let <span class="math notranslate nohighlight">\(K\)</span> denote the number of heads we observe.</p>
-<section id="questions">
-<h3>Questions<a class="headerlink" href="#questions" title="Link to this heading">#</a></h3>
-<ol class="arabic">
-<li><p><strong>Estimate your answer using MLE.</strong> The MLE for the heads probability is <span class="math notranslate nohighlight">\(\hat{p} = K/N\)</span>.
-The uncertainty of <span class="math notranslate nohighlight">\(\hat{p}\)</span> can be estimated with Fisher information:</p>
-<div class="math notranslate nohighlight">
-\[
-     \sigma_p = \left(\left. - \frac{d^2}{dp^2} \left[\ln L(p)\right] \right\vert_{p=\hat{p}} \right)^{-1/2} 
-   \]</div>
-<p>To say that the coin favors heads at a <span class="math notranslate nohighlight">\(2\sigma\)</span> level, we should have <span class="math notranslate nohighlight">\(\hat{p} &gt; 0.5 + 2 \sigma_p\)</span>
-(that is, the heads probability is <span class="math notranslate nohighlight">\(2\sigma\)</span> above fair).</p>
-<p>Express both <span class="math notranslate nohighlight">\(\hat{p}\)</span> and <span class="math notranslate nohighlight">\(\sigma_p\)</span> in terms of <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(N\)</span>, then set <span class="math notranslate nohighlight">\(N=100\)</span> and find the minimal value of <span class="math notranslate nohighlight">\(K\)</span>
-for the inequality to hold.</p>
-</li>
-<li><p><strong>Estimate your answer with a direct simulation.</strong></p>
-<p>Simulate a fair coin flip for <span class="math notranslate nohighlight">\(N=100\)</span> times, record the number of heads.
-Repeat this simulation for 10,000 times, and then make a histogram of the number of heads (you should have 10,000 such values).</p>
-<p>This histogram would look like a normal distribution, and
-we can use the normal distribution to translate <span class="math notranslate nohighlight">\(2\sigma\)</span> into percentiles, which would be 2.275% (lower) and 97.725% (higher).
-Out of the 10,000 simulations, find the value number of heads at the percentile of 97.725%.</p>
-</li>
-<li><p>Compare your answers from 1 and 2. Do they agree?</p></li>
-</ol>
+</div>
+<section id="a-data-representation-and-exploration">
+<h2>A. Data Representation and Exploration<a class="headerlink" href="#a-data-representation-and-exploration" title="Link to this heading">#</a></h2>
+<section id="a1-basic-information-about-a-data-set">
+<h3>A1. Basic information about a data set<a class="headerlink" href="#a1-basic-information-about-a-data-set" title="Link to this heading">#</a></h3>
+<p>For each of the three datasets loaded below (<code class="docutils literal notranslate"><span class="pre">data_digits</span></code>, <code class="docutils literal notranslate"><span class="pre">data_solarflare</span></code>, <code class="docutils literal notranslate"><span class="pre">data_transfusion</span></code>), find out:</p>
+<ul class="simple">
+<li><p>number of instances (samples)</p></li>
+<li><p>number of features</p></li>
+<li><p>number of targets</p></li>
+<li><p>number of classes (for each target)</p></li>
+<li><p>what question(s) this data set can help answer given the features and targets</p></li>
+</ul>
 <hr class="docutils" />
-<p><em>// Add your answers here</em></p>
+<p><em>// Write your answers to Part A1 here</em></p>
 <hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Include your implementation for Part A here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://scikit-learn.org/stable/datasets/toy_dataset.html#optical-recognition-of-handwritten-digits-dataset</span>
+<span class="n">data_digits</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_digits</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://openml.org/search?type=data&amp;status=active&amp;sort=runs&amp;id=41489</span>
+<span class="n">data_solarflare</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_openml</span><span class="p">(</span><span class="s2">&quot;sf2&quot;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://openml.org/search?type=data&amp;status=active&amp;id=1464</span>
+<span class="n">data_transfusion</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_openml</span><span class="p">(</span><span class="s2">&quot;blood-transfusion-service-center&quot;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a2-exploring-a-data-set">
+<h3>A2. Exploring a data set<a class="headerlink" href="#a2-exploring-a-data-set" title="Link to this heading">#</a></h3>
+<p>Explore the <code class="docutils literal notranslate"><span class="pre">data_transfusion</span></code> data set a little bit.</p>
+<p>Based on our discussion in class, do some calculations or make some plots to gain a better understanding of this data set.</p>
+<p>Suggestion: Pick 3 calculations/plots to do/make. Write down what you plan to do, implement them, and breifly discuss what you observe.</p>
+<hr class="docutils" />
+<p><em>// Write your answers to Part A2 here</em></p>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your implementation to Part A2 here</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="b-estimator-properties">
-<h2>B. Estimator Properties<a class="headerlink" href="#b-estimator-properties" title="Link to this heading">#</a></h2>
-<p>A continuous uniform distribution <span class="math notranslate nohighlight">\(U(a,b)\)</span> has a probability density function with a constant value <span class="math notranslate nohighlight">\(1/(b-a)\)</span> when <span class="math notranslate nohighlight">\(a \leq x &lt; b\)</span>, and <span class="math notranslate nohighlight">\(0\)</span> elsewhere.</p>
-<p>Let’s say we have a set of <span class="math notranslate nohighlight">\(N\)</span> numbers <span class="math notranslate nohighlight">\({x_1, x_2, \dots, x_N}\)</span>, and we know they are sampled from <span class="math notranslate nohighlight">\(U(a,b)\)</span>.
-However, we do not know the values of the parameters <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p>
-<p>Use MLE to estimate <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, we have <span class="math notranslate nohighlight">\(\hat{a} = \min_{i} x_i\)</span> (the smallest value of <span class="math notranslate nohighlight">\(x_i\)</span>) and <span class="math notranslate nohighlight">\(\hat{b} = \max_{i} x_i\)</span> (the largest value of <span class="math notranslate nohighlight">\(x_i\)</span>).</p>
-<section id="id1">
-<h3>Questions<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<section id="b-scikit-learn-api-basics">
+<h2>B. scikit-learn API basics<a class="headerlink" href="#b-scikit-learn-api-basics" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Are <span class="math notranslate nohighlight">\(\hat{a}\)</span> and <span class="math notranslate nohighlight">\(\hat{b}\)</span> consistent estimators (that is, as <span class="math notranslate nohighlight">\(N\)</span> increases, does the estimator converge towards the true value)?
-Reason your answer, and then verify it with simulations.</p></li>
-<li><p>For a given finite <span class="math notranslate nohighlight">\(N\)</span>, are <span class="math notranslate nohighlight">\(\hat{a}\)</span> and <span class="math notranslate nohighlight">\(\hat{b}\)</span> unbiased estimators (that is, are the expected value of the estimator and the true value equal)?
-Reason your answer, and then verify it with simulations.</p></li>
-</ol>
-</section>
-<section id="how-to-verify">
-<h3>How to verify<a class="headerlink" href="#how-to-verify" title="Link to this heading">#</a></h3>
-<p>Choose two of your favorite numbers as the true values for <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> (with <span class="math notranslate nohighlight">\(a &lt; b\)</span>).</p>
-<ol class="arabic simple">
-<li><ul class="simple">
-<li><p>Generate <span class="math notranslate nohighlight">\(N=10\)</span> random numbers and calculate <span class="math notranslate nohighlight">\(\hat{a}\)</span> and <span class="math notranslate nohighlight">\(\hat{b}\)</span>.</p></li>
-<li><p>Repeat many times but each time with a different value of <span class="math notranslate nohighlight">\(N\)</span> (e.g., 10, 100, 1000, 10,000)</p></li>
-<li><p>Find out how <span class="math notranslate nohighlight">\(\hat{a}\)</span> and <span class="math notranslate nohighlight">\(\hat{b}\)</span> vary with <span class="math notranslate nohighlight">\(N\)</span> and whether they approach <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> as <span class="math notranslate nohighlight">\(N\)</span> increases.</p></li>
-</ul>
-</li>
-<li><ul class="simple">
-<li><p>Choose a value of <span class="math notranslate nohighlight">\(N\)</span> (e.g., 100) and keep it fixed for this part.</p></li>
-<li><p>Generate <span class="math notranslate nohighlight">\(N\)</span> random numbers and calculate <span class="math notranslate nohighlight">\(\hat{a}\)</span> and <span class="math notranslate nohighlight">\(\hat{b}\)</span>.</p></li>
-<li><p>Repeat many times (<span class="math notranslate nohighlight">\(K\)</span> times) with the fixed value of <span class="math notranslate nohighlight">\(N\)</span>.</p></li>
-<li><p>Calculate the sample average of <span class="math notranslate nohighlight">\(\hat{a}\)</span> and <span class="math notranslate nohighlight">\(\hat{b}\)</span>.</p></li>
-<li><p>Recall that as you increase your simulation sample size (that is <span class="math notranslate nohighlight">\(K\)</span>, <em>not</em> <span class="math notranslate nohighlight">\(N\)</span>), the sample average would approach the expected value.</p></li>
-<li><p>Find out whether <span class="math notranslate nohighlight">\(\hat{a}\)</span> and <span class="math notranslate nohighlight">\(\hat{b}\)</span> approach <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> as <span class="math notranslate nohighlight">\(K\)</span> increases.</p></li>
-</ul>
-</li>
+<li><p>Based on the example code below, repeat the classification task
+but with <code class="docutils literal notranslate"><span class="pre">RidgeClassifier</span></code> and the <code class="docutils literal notranslate"><span class="pre">data_transfusion</span></code> data set.
+(You don’t need to know how does the method work.)</p></li>
+<li><p>When using the <code class="docutils literal notranslate"><span class="pre">RidgeClassifier</span></code> method on the <code class="docutils literal notranslate"><span class="pre">data_transfusion</span></code> data set,
+what are the values of recall, precision, specificity, and accuracy?
+Here you can treat “2” (donating blood) as “True”, and “1” (not donating blood) as “False”.</p></li>
 </ol>
 <hr class="docutils" />
-<p><em>// Write your answers here</em></p>
+<p><em>// Write your answers to Part B here</em></p>
 <hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Include your implementation for Part B here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">RidgeClassifier</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="final-question">
-<h2>Final question<a class="headerlink" href="#final-question" title="Link to this heading">#</a></h2>
-<p>Roughly how much time did you spend on this lab (<em>not</em> including the time you spent in class)?</p>
-<hr class="docutils" />
-<p><em>// Write your answers here</em></p>
-<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_features</span><span class="p">,</span> <span class="n">test_features</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">test_target</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data_digits</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">data_digits</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">()</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+<span class="n">test_prediced</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_features</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f correct prediction on the test set&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Manual calculation =&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">test_prediced</span> <span class="o">==</span> <span class="n">test_target</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_target</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;W/ .score() method =&quot;</span><span class="p">,</span> <span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">test_features</span><span class="p">,</span> <span class="n">test_target</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>% of correct prediction on the test set
+Manual calculation = 0.9844444444444445
+W/ .score() method = 0.9844444444444445
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your implementation to Part B here</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p><strong>How to submit this notebook on Canvas?</strong></p>
-<p>Once you complete this lab and have all your code, text answers, and all the desired results after running the notebook properly displayed in this notebook,
-please convert the notebook into HTML format by running the following:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>nbconvert<span class="w"> </span>--to<span class="w"> </span>html<span class="w"> </span>/path/to/labs/03.ipynb<span class="w"> </span>
+<ol class="arabic simple">
+<li><p>Make sure all your answers, code, and desired results are properly displayed in the notebook.</p></li>
+<li><p>Save the notebook (press <code class="docutils literal notranslate"><span class="pre">Ctrl</span></code>+<code class="docutils literal notranslate"><span class="pre">s</span></code> or <code class="docutils literal notranslate"><span class="pre">Cmd</span></code>+<code class="docutils literal notranslate"><span class="pre">s</span></code>). The grey dot on the filename tab (indicating “unsaved”) should disappear.</p></li>
+<li><p>Run the following cell.</p></li>
+<li><p>Upload the resulting HTML file to Canvas under the corresponding assignment.</p></li>
+</ol>
+</div>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>jupyter<span class="w"> </span>nbconvert<span class="w"> </span>--to<span class="w"> </span>html<span class="w"> </span>./11.ipynb
 </pre></div>
 </div>
-<p>Then, upload the resulting HTML file to Canvas for the corresponding assignment.</p>
+</div>
 </div>
 </section>
 </section>
@@ -589,20 +603,20 @@ please convert the notebook into HTML format by running the following:</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="02.html"
+       href="../readings/13.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Lab 2: Summary Statistics</p>
+        <p class="prev-next-title">Reading 13: Gaussian Process and Cross Validation</p>
       </div>
     </a>
     <a class="right-next"
-       href="04.html"
+       href="../readings/inference.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lab 4: Classical Inference II: Estimating and Comparing Distributions</p>
+        <p class="prev-next-title">Readings: Inference (First half semester)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -622,17 +636,12 @@ please convert the notebook into HTML format by running the following:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-likelihood-function">Demo - Likelihood function</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-coin-flips">A. Coin Flips</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-data-representation-and-exploration">A. Data Representation and Exploration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-basic-information-about-a-data-set">A1. Basic information about a data set</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a2-exploring-a-data-set">A2. Exploring a data set</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-estimator-properties">B. Estimator Properties</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Questions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-verify">How to verify</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-question">Final question</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-scikit-learn-api-basics">B. scikit-learn API basics</a></li>
 </ul>
   </nav></div>
 
