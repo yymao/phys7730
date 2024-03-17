@@ -18,10 +18,10 @@ Any changes will be communicated to you in a timely fashion.
 | Week 07 | Feb ~~19~~, 21 | *Presidents Day* | ***Mock exam*** |
 | Week 08 | Feb 26, 28 | Review of statistical inference | ***Mock exam presentation*** |
 |         | Mar ~~4~~, ~~6~~ | *Spring Break* | *Spring Break* |
-| Week 09 | Mar 11, 13 | Introduction to Machine Learning<br>[[Reading 11](readings/11)] [[Lab 11](labs/11)] | Supervised: Regression<br>[[Reading 12](readings/12)] [[Lab 12](labs/12)] |
-| Week 10 | Mar 18, 20 | Regression methods<br>[[Reading 13](readings/13)] | ***Final project pre-presentation*** |
-| Week 11 | Mar 25, 27 | Supervised: Classification | Classification methods |
-| Week 12 | Apr 01, 03 | Unsupervised: Clustering | Clustering methods |
-| Week 13 | Apr 08, 10 | Unsupervised: Dimensionality reduction | Review of machine learning  |
+| Week 09 | Mar 11, 13 | Introduction to Machine Learning<br>[[Reading 11](readings/11)] [[Lab 11](labs/11)] | Supervised: Regression I<br>[[Reading 12](readings/12)] [[Lab 12](labs/12)] |
+| Week 10 | Mar 18, 20 | Supervised: Regression II<br>[[Reading 13](readings/13)][[Lab 13](labs/13)] | ***Final project pre-presentation*** |
+| Week 11 | Mar 25, 27 | Supervised: Classification I<br>[[Reading 14](readings/14)] | Supervised: Classification II<br>[[Reading 15](readings/15)] |
+| Week 12 | Apr 01, 03 | Unsupervised: Clustering I | Unsupervised: Clustering II |
+| Week 13 | Apr 08, 10 | Unsupervised: Dimensionality Reduction | Review of Machine Learning  |
 | Week 14 | Apr 15, 17 | ***Final project presentation*** | ***Final project presentation*** |
 | Week 15 | Apr 22, ~~24~~ | Special topic (TBD) | *Reading Day* |
