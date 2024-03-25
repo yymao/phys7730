@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Reading 13: Regression II: Gaussian Process, Cross Validation &#8212; PHYS/ASTR 7730</title>
+    <title>Reading 17: Density Estimation and Clustering &#8212; PHYS/ASTR 7730</title>
   
   
   
@@ -58,12 +58,12 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'readings/13';</script>
-    <link rel="canonical" href="https://yymao.github.io/phys7730/readings/13.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'readings/17';</script>
+    <link rel="canonical" href="https://yymao.github.io/phys7730/readings/17.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Reading 14: Classification I: Introduction, Generative Classification" href="14.html" />
-    <link rel="prev" title="Reading 12: Regression I: Introduction, Linear Models, Regularization" href="12.html" />
+    <link rel="next" title="Lab 11: Introduction to scikit-learn" href="../labs/11.html" />
+    <link rel="prev" title="Reading 16: Classification III: Neural Networks, Evaluating Classifiers" href="16.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-US"/>
   </head>
@@ -189,11 +189,11 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="11.html">Reading 11: Introduction to Machine Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12.html">Reading 12: Regression I: Introduction, Linear Models, Regularization</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Reading 13: Regression II: Gaussian Process, Cross Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13.html">Reading 13: Regression II: Gaussian Process, Cross Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="14.html">Reading 14: Classification I: Introduction, Generative Classification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="15.html">Reading 15: Classification II: Discriminative Classification, Ensemble Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="16.html">Reading 16: Classification III: Neural Networks, Evaluating Classifiers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="17.html">Reading 17: Density Estimation and Clustering</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Reading 17: Density Estimation and Clustering</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs (ML)</span></p>
 <ul class="nav bd-sidenav">
@@ -273,7 +273,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/yymao/phys7730/issues/new?title=Issue%20on%20page%20%2Freadings/13.html&body=Your%20issue%20content%20here." target="_blank"
+<a href="https://github.com/yymao/phys7730/issues/new?title=Issue%20on%20page%20%2Freadings/17.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button"
    title="Open an issue"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -299,7 +299,7 @@
       
       
       
-      <li><a href="../_sources/readings/13.md" target="_blank"
+      <li><a href="../_sources/readings/17.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -383,7 +383,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Reading 13: Regression II: Gaussian Process, Cross Validation</h1>
+    <h1>Reading 17: Density Estimation and Clustering</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -407,18 +407,23 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="reading-13-regression-ii-gaussian-process-cross-validation">
-<h1>Reading 13: Regression II: Gaussian Process, Cross Validation<a class="headerlink" href="#reading-13-regression-ii-gaussian-process-cross-validation" title="Link to this heading">#</a></h1>
-<p><em>For the class on Monday, March 18th</em></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="reading-17-density-estimation-and-clustering">
+<h1>Reading 17: Density Estimation and Clustering<a class="headerlink" href="#reading-17-density-estimation-and-clustering" title="Link to this heading">#</a></h1>
+<p><em>For the class on Wednesday, April 3rd</em></p>
 <section id="reading-assignments">
 <h2>Reading assignments<a class="headerlink" href="#reading-assignments" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Read the following sections of <span id="id1">[<a class="reference internal" href="../references.html#id3" title="Željko Ivezić, Andrew J. Connolly, Jacob T. VanderPlas, and Alexander Gray. Statistics, Data Mining, and Machine Learning in Astronomy: A Practical Python Guide for the Analysis of Survey Data, Updated Edition. Princeton University Press, 2020. (Direct link for U of Utah access: https://www-jstor-org.ezproxy.lib.utah.edu/stable/j.ctvrxk1hs). doi:10.2307/j.ctvrxk1hs.">ICVG20</a>]</span>:</p>
+<li><p>Read the following sections of <span id="id1">[<a class="reference internal" href="../references.html#id3" title="Željko Ivezić, Andrew J. Connolly, Jacob T. VanderPlas, and Alexander Gray. Statistics, Data Mining, and Machine Learning in Astronomy: A Practical Python Guide for the Analysis of Survey Data, Updated Edition. Princeton University Press, 2020. (Direct link for U of Utah access: https://www-jstor-org.ezproxy.lib.utah.edu/stable/j.ctvrxk1hs). doi:10.2307/j.ctvrxk1hs.">ICVG20</a>]</span> (note that many subsections are skipped):</p>
 <ul class="simple">
-<li><p>Chap. 8 “Regression and Model Fitting”</p>
+<li><p>Sec. 4.4.1 “Gaussian Mixture Model”</p></li>
+<li><p>Sec. 4.4.3 “The Basics of the Expectation Maximization Algorithm”</p></li>
+<li><p>Sec. 6.1.1 “Kernel Density Estimation”</p></li>
+<li><p>Sec. 6.3.1 “Gaussian Mixture Model”</p></li>
+<li><p>Sec. 6.4 “Finding Clusters in Data”</p>
 <ul>
-<li><p>Sec. 8.10 “Gaussian Process Regression”</p></li>
-<li><p>Sec. 8.11 “Overfitting, Underfitting, and Cross-Validation” (and all its subsections)</p></li>
+<li><p>Sec. 6.4.1 “General Aspects of Clustering and Unsupervised Learning”</p></li>
+<li><p>Sec. 6.4.2 “Clustering by Sum-of-Squares Minimization: K-Means”</p></li>
+<li><p>Sec. 6.4.5 “Clustering Procedurally: Hierarchical Clustering”</p></li>
 </ul>
 </li>
 </ul>
@@ -429,12 +434,15 @@ document.write(`
 <h2>Questions<a class="headerlink" href="#questions" title="Link to this heading">#</a></h2>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>Submit your answer on Canvas. Due at noon, Monday, March 18th.</p>
+<p>Submit your answer on Canvas. Due at noon, Wednesday, April 3rd.</p>
 </div>
 <ol class="arabic simple">
 <li><p>List anything from your reading that confuses you. Explain why they confuse you.
-If nothing confuses you, briefly summarize what you have learned from this reading assignment.</p></li>
-<li><p>Use your own words to explain the difference between a “test set” and a “cross-validation set”.</p></li>
+<strong>You are strongly encouraged to think about what questions you have about the reading</strong>,
+but if you really have no questions at all,
+please briefly summarize what you have learned from this reading assignment.</p></li>
+<li><p>How can a good density estimation (of a set of unlabeled data points) help with the clustering task?
+Use Figure 6.1 (page 246) of <span id="id2">[<a class="reference internal" href="../references.html#id3" title="Željko Ivezić, Andrew J. Connolly, Jacob T. VanderPlas, and Alexander Gray. Statistics, Data Mining, and Machine Learning in Astronomy: A Practical Python Guide for the Analysis of Survey Data, Updated Edition. Princeton University Press, 2020. (Direct link for U of Utah access: https://www-jstor-org.ezproxy.lib.utah.edu/stable/j.ctvrxk1hs). doi:10.2307/j.ctvrxk1hs.">ICVG20</a>]</span> as an example to explain.</p></li>
 </ol>
 </section>
 <section id="discussion-preview">
@@ -445,8 +453,9 @@ If nothing confuses you, briefly summarize what you have learned from this readi
 You need <em>not</em> submit your answers as part of this assignment.</p>
 </div>
 <ol class="arabic simple">
-<li><p>We will compare Linear Regression and Gaussian Process Regression and identify their strengths and weaknesses.</p></li>
-<li><p>We will discuss the importance of cross validation and how to interpret the cross validation result.</p></li>
+<li><p>We will compare <a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html#overview-of-clustering-methods">different clustering methods</a>
+and the general principles behind these methods.</p></li>
+<li><p>We will discuss a few ways that we can evaluate clustering methods.</p></li>
 </ol>
 </section>
 </section>
@@ -482,20 +491,20 @@ You need <em>not</em> submit your answers as part of this assignment.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="12.html"
+       href="16.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Reading 12: Regression I: Introduction, Linear Models, Regularization</p>
+        <p class="prev-next-title">Reading 16: Classification III: Neural Networks, Evaluating Classifiers</p>
       </div>
     </a>
     <a class="right-next"
-       href="14.html"
+       href="../labs/11.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Reading 14: Classification I: Introduction, Generative Classification</p>
+        <p class="prev-next-title">Lab 11: Introduction to scikit-learn</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
