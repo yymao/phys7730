@@ -13,15 +13,7 @@ parts:
   - file: references
   - file: setup
 
-- caption: 'Readings (ML)'
-  chapters:
-  - glob: readings/1[1-9]
-
-- caption: 'Labs (ML)'
-  chapters:
-  - glob: labs/1[1-9]
-
-- caption: 'Inference (First half sememster)'
+- caption: 'Statistical Inference'
   chapters:
   - file: readings/inference
     title: Readings
@@ -33,3 +25,14 @@ parts:
     sections:
     - glob: labs/0[0-9]
     - file: labs/10
+
+- caption: 'Machine Learning '
+  chapters:
+  - file: readings/ml
+    title: Readings
+    sections:
+    - glob: readings/1[1-8]
+  - file: labs/ml
+    title: Labs
+    sections:
+    - glob: labs/1[1-8]

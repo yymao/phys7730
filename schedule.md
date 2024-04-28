@@ -24,4 +24,4 @@ Any changes will be communicated to you in a timely fashion.
 | Week 12 | Apr 01, 03 | Supervised: Classification III<br>[[Reading 16](readings/16)][[Lab 16](labs/16)] | Unsupervised: Clustering<br>[[Reading 17](readings/17)][[Lab 17](labs/17)] |
 | Week 13 | Apr 08, 10 | Unsupervised: Dimensionality Reduction<br>[[Reading 18](readings/18)][[Lab 18](labs/18)] | Review of Machine Learning Methods |
 | Week 14 | Apr 15, 17 | ***Final project presentation*** | ***Final project presentation*** |
-| Week 15 | Apr 22, ~~24~~ | Special topic (TBD) | *Reading Day* |
+| Week 15 | Apr 22, ~~24~~ | What did we miss? | *Reading Day* |
