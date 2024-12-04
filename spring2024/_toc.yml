@@ -1,0 +1,40 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: index
+title: Home
+parts:
+- chapters:
+  - url: https://yymao.github.io/phys7730/
+    title: Spring 2025 Contents
+  - url: https://utah.instructure.com/courses/934218
+    title: Canvas (login required)
+  - file: policies
+  - file: schedule
+  - file: references
+  - file: setup
+
+- caption: 'Statistical Inference'
+  chapters:
+  - file: readings/inference
+    title: Readings
+    sections:
+    - glob: readings/0[0-9]
+    - file: readings/10
+  - file: labs/inference
+    title: Labs
+    sections:
+    - glob: labs/0[0-9]
+    - file: labs/10
+
+- caption: 'Machine Learning '
+  chapters:
+  - file: readings/ml
+    title: Readings
+    sections:
+    - glob: readings/1[1-8]
+  - file: labs/ml
+    title: Labs
+    sections:
+    - glob: labs/1[1-8]

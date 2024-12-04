@@ -17,8 +17,14 @@ jobs:
         cache: 'pip'
     - name: Install dependencies
       run: pip install -r requirements.txt
-    - name: Build the book
+    - name: Build Spring 2024
+      run: jupyter-book build --all spring2024/
+    - name: Build Current
       run: jupyter-book build --all .
+    - name: Move spring2024
+      run: |
+        rm -r _build/html/spring2024
+        mv spring2024/_build/html _build/html/spring2024
     - name: Push to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4
       with:

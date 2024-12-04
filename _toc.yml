@@ -6,33 +6,8 @@ root: index
 title: Home
 parts:
 - chapters:
-  - url: https://utah.instructure.com/courses/934218
-    title: Canvas (login required)
-  - file: policies
-  - file: schedule
-  - file: references
-  - file: setup
+  - url: https://yymao.github.io/phys7730/spring2024/
+    title: Spring 2024 Contents
+  - url: https://class-tools.app.utah.edu/syllabus/1254/14992/PHYS-ASTR-7730-Spring-2025.pdf
+    title: Core syllabus
 
-- caption: 'Statistical Inference'
-  chapters:
-  - file: readings/inference
-    title: Readings
-    sections:
-    - glob: readings/0[0-9]
-    - file: readings/10
-  - file: labs/inference
-    title: Labs
-    sections:
-    - glob: labs/0[0-9]
-    - file: labs/10
-
-- caption: 'Machine Learning '
-  chapters:
-  - file: readings/ml
-    title: Readings
-    sections:
-    - glob: readings/1[1-8]
-  - file: labs/ml
-    title: Labs
-    sections:
-    - glob: labs/1[1-8]
