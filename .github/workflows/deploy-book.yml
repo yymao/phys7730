@@ -15,7 +15,7 @@ jobs:
       with:
         python-version: '3.12'
         cache: 'pip'
-    - name: Install dependencies
+    - name: Install Python dependencies
       run: pip install -r requirements.txt
     - uses: dorny/paths-filter@v3
       id: changes
@@ -23,18 +23,17 @@ jobs:
         filters: |
           spring2024:
             - 'spring2024/**'
-    - name: Build Spring 2024
+    - name: Build spring2024
       if: steps.changes.outputs.spring2024 == 'true'
       run: jupyter-book build --all spring2024/
-    - name: Build Current
+    - name: Build current
       run: jupyter-book build --all .
     - name: Move spring2024
       if: steps.changes.outputs.spring2024 == 'true'
       run: |
         rm -rf _build/html/spring2024
         mv spring2024/_build/html _build/html/spring2024
-    - name: Push to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4
+    - uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./_build/html
