@@ -23,7 +23,7 @@ jobs:
       run: jupyter-book build --all .
     - name: Move spring2024
       run: |
-        rm -r _build/html/spring2024
+        rm -rf _build/html/spring2024
         mv spring2024/_build/html _build/html/spring2024
     - name: Push to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4
