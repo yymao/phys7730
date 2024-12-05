@@ -17,19 +17,11 @@ jobs:
         cache: 'pip'
     - name: Install Python dependencies
       run: pip install -r requirements.txt
-    - uses: dorny/paths-filter@v3
-      id: changes
-      with:
-        filters: |
-          spring2024:
-            - 'spring2024/**'
     - name: Build spring2024
-      if: steps.changes.outputs.spring2024 == 'true'
       run: jupyter-book build --all spring2024/
     - name: Build current
       run: jupyter-book build --all .
     - name: Move spring2024
-      if: steps.changes.outputs.spring2024 == 'true'
       run: |
         rm -rf _build/html/spring2024
         mv spring2024/_build/html _build/html/spring2024
