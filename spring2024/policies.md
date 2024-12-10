@@ -1,5 +1,11 @@
 # Course Policies
 
+:::{warning}
+You are looking at the course policies for Spring 2024.
+The course policies for <a href="../">Spring 2025</a> will be similar, but are *not* identical!
+You can take a look at the [Spring 2025 core syllabus [PDF]](https://class-tools.app.utah.edu/syllabus/1254/14992/PHYS-ASTR-7730-Spring-2025.pdf) here.
+:::
+
 :::{important}
 The official course policies for PHYS/ASTR 7730 (Spring 2024) are posted on
 [Canvas](https://utah.instructure.com/courses/934218/assignments/syllabus) (login required).
