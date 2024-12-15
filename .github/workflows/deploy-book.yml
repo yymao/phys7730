@@ -17,14 +17,20 @@ jobs:
         cache-dependency-glob: "pyproject.toml"
     - uses: actions/setup-python@v5
       with:
-        python-version: '3.13'
-    - name: Install the project
+        python-version: "3.13"
+    - name: Install dependencies
       run: uv sync --extra docs
-    - name: Build spring2024
+    - name: Cache past semesters
+      id: cache-past-semesters
+      uses: actions/cache@v4
+      with:
+        path: spring2024/_build
+        key: cache-past-semesters
+    - name: Build past semesters
       run: uv run jupyter-book build spring2024/
-    - name: Build current
+    - name: Build current semester
       run: uv run jupyter-book build --all .
-    - name: Move spring2024
+    - name: Move past semesters builds
       run: |
         rm -rf _build/html/spring2024
         cp -r spring2024/_build/html _build/html/spring2024
