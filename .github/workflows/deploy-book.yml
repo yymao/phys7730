@@ -21,13 +21,13 @@ jobs:
     - name: Install the project
       run: uv sync --extra docs
     - name: Build spring2024
-      run: uv run jupyter-book build --all spring2024/
+      run: uv run jupyter-book build spring2024/
     - name: Build current
       run: uv run jupyter-book build --all .
     - name: Move spring2024
       run: |
         rm -rf _build/html/spring2024
-        mv spring2024/_build/html _build/html/spring2024
+        cp -r spring2024/_build/html _build/html/spring2024
     - uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
