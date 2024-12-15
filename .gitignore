@@ -1,5 +1,5 @@
 _build/
-excluded/
+_excluded/
 
 # Python-generated files
 __pycache__/
@@ -10,7 +10,7 @@ wheels/
 *.egg-info
 
 # Virtual environments
-.venv
+.venv/
 
 # Lock file
 uv.lock
