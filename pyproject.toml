@@ -1,0 +1,34 @@
+[project]
+name = "7730"
+version = "2024.12.15"
+requires-python = ">=3.11"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Yao-Yuan Mao" },
+]
+
+dependencies = [
+    "corner>=2.2",
+    "emcee>=3.1",
+    "matplotlib>=3.8",
+    "numpy>=1.26",
+    "pandas>=2.2",
+    "scikit-learn>=1.4",
+    "scipy>=1.12",
+]
+
+[project.urls]
+Homepage = "https://yymao.github.io/phys7730/"
+Source = "https://github.com/yymao/phys7730"
+
+[project.optional-dependencies]
+dev = [
+    "ipykernel>=6.29",
+    "ipython>=8.20",
+    "jupyter-book >=1",
+    "nbconvert>=7.14",
+]
+docs = [
+    "jupyter-book >=1",
+]

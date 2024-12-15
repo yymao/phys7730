@@ -11,16 +11,19 @@ jobs:
       contents: write
     steps:
     - uses: actions/checkout@v4
+    - uses: astral-sh/setup-uv@v4
+      with:
+        enable-cache: true
+        cache-dependency-glob: "pyproject.toml"
     - uses: actions/setup-python@v5
       with:
-        python-version: '3.12'
-        cache: 'pip'
-    - name: Install Python dependencies
-      run: pip install -r requirements.txt
+        python-version: '3.13'
+    - name: Install the project
+      run: uv sync --extra docs
     - name: Build spring2024
-      run: jupyter-book build --all spring2024/
+      run: uv run jupyter-book build --all spring2024/
     - name: Build current
-      run: jupyter-book build --all .
+      run: uv run jupyter-book build --all .
     - name: Move spring2024
       run: |
         rm -rf _build/html/spring2024
