@@ -20,20 +20,26 @@ jobs:
         python-version: "3.13"
     - name: Install dependencies
       run: uv sync --extra docs
-    - name: Cache past semesters
-      id: cache-past-semesters
-      uses: actions/cache@v4
+    - name: Restore cached past semesters
+      uses: actions/cache/restore@v4
       with:
-        path: spring2024/_build
+        path: |
+          spring2024/_build/
         key: cache-past-semesters
     - name: Build past semesters
       run: uv run jupyter-book build spring2024/
+    - name: Save past semesters
+      uses: actions/cache/save@v4
+      with:
+        path: |
+          spring2024/_build/
+        key: cache-past-semesters
     - name: Build current semester
       run: uv run jupyter-book build --all .
     - name: Move past semesters builds
       run: |
         rm -rf _build/html/spring2024
-        cp -r spring2024/_build/html _build/html/spring2024
+        mv spring2024/_build/html _build/html/spring2024
     - uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
