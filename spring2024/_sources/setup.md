@@ -44,7 +44,7 @@ You will need to activate the base conda environment for the `conda` command to 
 ### Create a new environment
 Once `conda` is available on your machine, you can go ahead and create a new environment for this course.
 
-First, download [this environment definition file](https://yymao.github.io/phys7730/environment.yml).
+First, download [this environment definition file](https://yymao.github.io/phys7730/spring2024/environment.yml).
 
 Once it's downloaded, you can run:
 
