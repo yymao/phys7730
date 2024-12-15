@@ -18,14 +18,10 @@ while [ $# -gt 0 ]; do
   shift
 done
 
-CONDABIN='/home/yymao/miniforge3/bin/conda'
-eval "$($CONDABIN shell.bash hook)"
-conda activate book
-
 if [ ! -z "$CLEAN" ] ; then
-  jupyter-book clean .
+  uv run jupyter-book clean .
 fi
-jupyter-book build $ALL .
+uv run jupyter-book build $ALL .
 
 PAGE='_build/html/index.html'
 if [ ! -z "$VIEW" ] ; then
