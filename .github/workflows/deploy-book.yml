@@ -40,13 +40,14 @@ jobs:
       if: ${{ (steps.changes.outputs.spring2024 == 'true') || (steps.cache.outputs.cache-hit != 'true') }}
       run: |
         uv run jupyter-book build --all spring2024/
+        rm -rf _build/html/spring2024
         mv spring2024/_build/html _build/html/spring2024
     - name: Save past semesters
       uses: actions/cache/save@v4
       with:
         path: |
           _build/html/spring2024
-        key: cache-past-semesters
+        key: cache-past-semesters-${{ github.run_id }}
     - uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
