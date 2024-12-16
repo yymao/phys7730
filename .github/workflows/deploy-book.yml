@@ -28,7 +28,7 @@ jobs:
       with:
         path: |
           _build/html/spring2024
-        key: cache-past-semesters
+        key: cache-past-semesters-
     - name: Check if any changes in past semesters
       uses: dorny/paths-filter@v3
       id: changes
