@@ -1,11 +1,4 @@
-# Weekly Schedule
-
-:::{note}
-While I will do my best to follow this schedule, the schedule is still subject to change.
-Any changes will be communicated to you in a timely fashion.
-:::
-
-## Spring 2024
+# Weekly Schedule - Spring 2024
 
 | Week # | Dates | Monday | Wednesday |
 |--------|-------|--------|-----------|

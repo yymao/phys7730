@@ -10,4 +10,8 @@ parts:
     title: Spring 2024 Contents
   - url: https://class-tools.app.utah.edu/syllabus/1254/14992/PHYS-ASTR-7730-Spring-2025.pdf
     title: Core syllabus
-
+  - url: https://utah.instructure.com/courses/1027507
+    title: Canvas (Not yet available)
+  - file: schedule
+  - file: references
+  - file: setup
