@@ -1,8 +1,7 @@
-# Weekly Schedule
+# Weekly Schedule - Spring 2025
 
-:::{note}
-While I will do my best to follow this schedule, the schedule is still subject to change.
-Any changes will be communicated to you in a timely fashion.
+:::{warning}
+This is only a preliminary schedule and is subject to change.
 :::
 
 | Week # | Dates | Monday | Wednesday |

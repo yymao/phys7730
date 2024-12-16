@@ -1,4 +1,4 @@
-# Course Policies
+# Course Policies - Spring 2024
 
 :::{warning}
 You are looking at the course policies for Spring 2024.
