@@ -43,6 +43,7 @@ jobs:
         rm -rf _build/html/spring2024
         mv spring2024/_build/html _build/html/spring2024
     - name: Save past semesters
+      if: ${{ (steps.changes.outputs.spring2024 == 'true') || (steps.cache.outputs.cache-hit != 'true') }}
       uses: actions/cache/save@v4
       with:
         path: |
