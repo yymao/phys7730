@@ -37,13 +37,13 @@ jobs:
           spring2024:
             - 'spring2024/**'
     - name: Build Spring 2024
-      if: ${{ (steps.changes.outputs.spring2024 == 'true') || (steps.cache.outputs.cache-hit != 'true') }}
+      if: ${{ (steps.changes.outputs.spring2024 == 'true') || (steps.cache.outputs.cache-hit == '') }}
       run: |
         uv run jupyter-book build --all spring2024/
         rm -rf _build/html/spring2024
         mv spring2024/_build/html _build/html/spring2024
     - name: Save past semesters
-      if: ${{ (steps.changes.outputs.spring2024 == 'true') || (steps.cache.outputs.cache-hit != 'true') }}
+      if: ${{ (steps.changes.outputs.spring2024 == 'true') || (steps.cache.outputs.cache-hit == '') }}
       uses: actions/cache/save@v4
       with:
         path: |
