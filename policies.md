@@ -1,4 +1,4 @@
-# Course Policies - Spring 2025
+# Course Policies
 
 :::{important}
 The official course policies for PHYS/ASTR 7730 (Spring 2025) are posted on
