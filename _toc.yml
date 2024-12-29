@@ -11,7 +11,7 @@ parts:
   - url: https://class-tools.app.utah.edu/syllabus/1254/14992/PHYS-ASTR-7730-Spring-2025.pdf
     title: Core syllabus
   - url: https://utah.instructure.com/courses/1027507
-    title: Canvas
+    title: Canvas (login required)
   - file: policies
   - file: schedule
   - file: references
