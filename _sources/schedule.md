@@ -1,7 +1,7 @@
-# Weekly Schedule - Spring 2025
+# Weekly Schedule
 
 :::{warning}
-This is only a preliminary schedule and is subject to change.
+This is only a preliminary schedule for Spring 2025 and is subject to change.
 :::
 
 | Week # | Dates | Monday | Wednesday |

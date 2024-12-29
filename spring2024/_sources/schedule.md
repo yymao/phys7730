@@ -1,4 +1,10 @@
-# Weekly Schedule - Spring 2024
+# Weekly Schedule
+
+:::{warning}
+You are looking at the course Schedule for Spring 2024.
+The course Schedule for <a href="../">Spring 2025</a> will be similar, but are *not* identical!
+You can take a look at the [Spring 2025 core syllabus [PDF]](https://class-tools.app.utah.edu/syllabus/1254/14992/PHYS-ASTR-7730-Spring-2025.pdf) here.
+:::
 
 | Week # | Dates | Monday | Wednesday |
 |--------|-------|--------|-----------|

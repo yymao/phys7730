@@ -4,14 +4,8 @@ This website hosts the course materials and labs for PHYS/ASTR 7730,
 **Statistical and Computational Methods in Physics and Astronomy**, taught by
 [Yao-Yuan Mao](https://yymao.github.io/) at the University of Utah, in Spring 2025.
 
-:::{important}
-The course contents for Spring 2025 will be populated soon.
-
-In the meantime, you can take a look at the <a href="spring2024/">Spring 2024 course contents</a>.
-The Spring 2025 course will have similar but updated contents.
-You can also read Spring 2025's [core syllabus [PDF]](https://class-tools.app.utah.edu/syllabus/1254/14992/PHYS-ASTR-7730-Spring-2025.pdf).
-
-Note that this course is *not* scheduled to be offered in Spring 2026.
+:::{warning}
+This course is *not* scheduled to be offered in Spring 2026.
 :::
 
 This course will discuss a few widely applicable statistical and computational methods of analyzing and
@@ -41,6 +35,9 @@ Students are assumed to be comfortable in programming and have an introductory-l
 No required course prerequisites, but students are expected to be comfortable in coding (preferably in Python)
 to be able to complete assignments and projects independently.
 
-## Core Syllabus
+## Useful Links
 
-- [See this PDF file](https://class-tools.app.utah.edu/syllabus/1254/14992/PHYS-ASTR-7730-Spring-2025.pdf)
+- [Canvas page](https://utah.instructure.com/courses/1027507) (uNID login required): Canvas will be used for announcements, official policies, assignment submission, and grading.
+- [Course policies](policies)
+- [Weekly schedule](schedule)
+- [Spring 2024 Contents](https://yymao.github.io/phys7730/spring2024/): Note that the course contents will be similar, but are *not* identical!
