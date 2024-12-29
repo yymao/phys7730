@@ -2,7 +2,7 @@
 
 :::{important}
 The official course policies for PHYS/ASTR 7730 (Spring 2025) are posted on
-[Canvas](https://utah.instructure.com/courses/934218/assignments/syllabus) (login required).
+[Canvas](https://utah.instructure.com/courses/1027507/assignments/syllabus) (login required).
 Below is a copy of the policies for your convenience.
 If there is any discrepancy between this page and the Canvas page, the latter takes precedence.
 :::
@@ -84,7 +84,7 @@ Pre-lecture reading will be assigned via Canvas. You will need to complete the a
 - ask you if you have any questions about what you read;
 - ask you simple questions that are related to what you read. 
 
-The pre-lecture reading assignment for a class will be due **at noon** on the day that class meets. That is, a reading assignment for a Monday class will be due at noon on that Monday, 3 hours before the class meets. I will typically announce the reading assignment one week in advance. The reading assignments be available on the course website (this site), and you should submit your answers **on Canvas**.
+The pre-lecture reading assignment for a class will be due **at noon** on the day that class meets. That is, a reading assignment for a Monday class will be due at noon on that Monday, 3 hours before the class meets. I will typically announce the reading assignment one week in advance. The reading assignments be available on the course website (this site), and you should submit your answers [on Canvas](https://utah.instructure.com/courses/1027507/assignments).
 
 Late submission within a week (regardless of how late you were within the week) will receive a 1-point deduction (on the 5-point scale). Late submission beyond a week will receive no points.
 
@@ -98,7 +98,7 @@ A lab component will be included in each class. These labs involve hands-on prac
 
 The homework assignments of this course will simply be completing those labs, and there won't be additional homework assignments. 
 
-Each homework assignment (lab) will be due in one week **at noon**. That is, a lab from a Monday class will be due at noon on the following Monday after the class. The lab will be announced in class and be available on the course website (this site). Once you complete the lab (which is the homework assignment), you should submit it on Canvas. 
+Each homework assignment (lab) will be due in one week **at noon**. That is, a lab from a Monday class will be due at noon on the following Monday after the class. The lab will be announced in class and be available on the course website (this site). Once you complete the lab (which is the homework assignment), you should submit it [on Canvas](https://utah.instructure.com/courses/1027507/assignments). 
 
 Late submission within a week (regardless of how late you were within the week) will receive a 1-point deduction (on the 5-point scale). Late submission beyond a week will receive no points.
 
