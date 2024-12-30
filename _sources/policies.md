@@ -55,9 +55,9 @@ All the course components will be graded on a 5-point scale, based on the follow
 
 | Points | In-class participation | Assignments with no "correct answers" | Assignments with "correct answers" |
 |--------|--------|--------|--------|
-| Above 4.5 (up to 5) | Attend the class in full and actively engage in all class activities (such as asking or answering questions that enhance other's learning). | Complete submission, with efforts beyond expectation or an advanced understanding of the material. | Complete submission with all correct answers and additional insights that are scientifically sound, well organized, and/or creative. |
-| 4.5 | Attend the class in full and engage in all class activities. | Complete submission, with satisfactory efforts or a reasonable understanding of the material. | Complete submission with all correct answers. |
-| 3 | Attend the class in full, but with minimal engagement. | Complete submission, with minimal efforts or a limited understanding of the material. | Complete submission, but no correct answers. |
+| 4.5 and above (up to 5) | Attend the class in full and actively engage in all class activities (such as asking or answering questions that enhance other's learning). | Complete submission, with efforts beyond expectation and an advanced understanding of the material. | Complete submission with all correct answers and additional insights that are scientifically sound, well organized, and/or creative. |
+| 4.4 | Attend the class in full and engage in all class activities. | Complete submission, with satisfactory efforts and a clear understanding of the material. | Complete submission with all correct answers. |
+| 3 | Attend the class in full, but with minimal engagement. | Complete submission, with minimal efforts or a minimal understanding of the material. | Complete submission, but no correct answers. |
 | Below 3 | Attend class in part. | Partial submission. | Partial submission. |
 | 0 | Not attend class. | No submission. | No submission. |
 
