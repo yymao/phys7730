@@ -12,3 +12,14 @@ parts:
   - file: schedule
   - file: references
   - file: setup
+
+- caption: 'Statistical Inference'
+  chapters:
+  - file: readings/inference
+    title: Readings
+    sections:
+    - glob: readings/0[0-9]
+  - file: labs/inference
+    title: Labs
+    sections:
+    - glob: labs/0[0-9]
