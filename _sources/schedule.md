@@ -6,7 +6,7 @@ This is only a preliminary schedule for Spring 2025 and is subject to change.
 
 | Week # | Dates | Monday | Wednesday |
 |--------|-------|--------|-----------|
-| Week 01 | Jan 06, 08 | Course introduction and setup<br>[[Lab 0](labs/00)] | Probability theory & random variables<br>[[Reading 1](readings/01)] [[Lab 1](labs/01)] |
+| Week 01 | Jan 06, 08 | Course introduction and setup | Probability theory & random variables<br>[[Reading 1](readings/01)] |
 | Week 02 | Jan ~~13~~, 15 | *MLK Day* | Summary statistics<br>[[Reading 2](readings/02)] |
 | Week 03 | Jan 20, 22 | Maximum Likelihood Estimation | Estimating and comparing distributions |
 | Week 04 | Jan 27, 29 | Monte Carlo; importance sampling | The Ising model |
