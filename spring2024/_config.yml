@@ -18,13 +18,8 @@ parse:
     - tasklist
 
 html:
-  use_issues_button: true
   baseurl: https://yymao.github.io/phys7730/spring2024/
   extra_footer: Statistical and Computational Methods in Physics and Astronomy
-
-repository:
-  url: https://github.com/yymao/phys7730
-  branch: main
 
 bibtex_bibfiles:
     - references.bib
