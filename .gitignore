@@ -1,5 +1,6 @@
 _build/
 _excluded/
+labs/*.html
 
 # Python-generated files
 __pycache__/

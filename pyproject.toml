@@ -30,6 +30,7 @@ dev = [
     "ipykernel>=6.29",
     "ipython>=8.20",
     "jupyter-book >=1",
+    "mistune>=3,<3.1",
     "nbconvert>=7.14",
 ]
 docs = [
