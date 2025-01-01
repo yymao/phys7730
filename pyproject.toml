@@ -1,7 +1,7 @@
 [project]
 name = "7730"
-version = "2024.12.15"
-requires-python = ">=3.11"
+version = "2025.01.01"
+requires-python = ">=3.13"
 readme = "README.md"
 license = { file = "LICENSE" }
 authors = [
@@ -11,14 +11,18 @@ authors = [
 dependencies = [
     "corner>=2.2",
     "emcee>=3.1",
-    "matplotlib>=3.8",
-    "numpy>=1.26",
-    "packaging >=23",
+    "jupyterlab>=4.3",
+    "jupyterlab-myst>=2.4",
+    "matplotlib>=3.10",
+    "mistune>=3,<3.1",
+    "nbconvert>=7.16",
+    "numpy>=2.2",
+    "packaging>=24.2",
     "pandas>=2.2",
-    "scikit-learn>=1.4",
-    "scipy>=1.12",
-    "requests >=2.27",
-    "tqdm[notebook]>=4.65",
+    "requests>=2.32",
+    "scikit-learn>=1.6",
+    "scipy>=1.14",
+    "tqdm[notebook]>=4.67",
 ]
 
 [project.urls]
@@ -27,12 +31,5 @@ Source = "https://github.com/yymao/phys7730"
 
 [project.optional-dependencies]
 dev = [
-    "ipykernel>=6.29",
-    "ipython>=8.20",
-    "jupyter-book >=1",
-    "mistune>=3,<3.1",
-    "nbconvert>=7.14",
-]
-docs = [
-    "jupyter-book >=1",
+    "jupyter-book>=1.0.3",
 ]

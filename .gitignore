@@ -12,6 +12,3 @@ wheels/
 
 # Virtual environments
 .venv/
-
-# Lock file
-uv.lock

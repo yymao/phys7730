@@ -11,15 +11,14 @@ jobs:
       contents: write
     steps:
     - uses: actions/checkout@v4
-    - uses: astral-sh/setup-uv@v4
+    - uses: astral-sh/setup-uv@v5
       with:
         enable-cache: true
-        cache-dependency-glob: "pyproject.toml"
     - uses: actions/setup-python@v5
       with:
         python-version: "3.13"
     - name: Install dependencies
-      run: uv sync --extra docs
+      run: uv sync --extra=dev
     - name: Build current semester
       run: uv run jupyter-book build --all .
     - name: Restore cached past semesters
