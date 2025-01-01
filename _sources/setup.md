@@ -1,4 +1,4 @@
-# Set up your Python environment
+# Set up Python environment
 
 You will need a working Python environment to run the examples and to complete the labs in this course.
 
@@ -62,8 +62,6 @@ After the `7730` environment is activated, you can start the JupyterLab interfac
 ```sh
 jupyter lab
 ```
-
-If you are not familiar with using JupyterLab, you can find extensive documentation [here](https://jupyterlab.readthedocs.io/en/latest/user/interface.html).
 
 
 ## Use Python on Google Colab
