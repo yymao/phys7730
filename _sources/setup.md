@@ -1,17 +1,16 @@
-# Set up your computing environment
+# Set up your Python environment
 
-You will need a working computing environment to run the examples and to complete the labs in this course.
-While you can use any programming language, I strongly recommend Python for a few reasons:
-- Python is a widely used language for data science, and resources for Python are easy to find.
-- Many common algorithms, including ones used in this course, are readily available as Python packages.
-- In this course, examples and some partial code of the labs will be provided in Python only.
+You will need a working Python environment to run the examples and to complete the labs in this course.
+
+I choose Python as the main language for this course because Python is a widely used language for data science.
+Many common algorithms, including ones used in this course, are readily available as Python packages,
+and resources for Python and Python packages are easy to find.
+If you wish to use a different programming language, please read [](sec:other-languages) below.
 
 If you already have a working Python environment, it may already be sufficient for this course.
-However, you might still want to [create a new environment](sec:new-environment) in case you need to install new packages
-for this course and you don't want them to interfere with your original environment.
-The instructions below will guide you to install conda and create a new Python environment.
-
-If you wish to use a different programming language, please read [](sec:other-languages) below.
+However, I strongly recommend that you still [create a new environment](sec:new-environment)
+so that the Python packages you used in this course will not interfere with your original environment.
+The instructions below will guide you to install conda (if needed) and create a new Python environment.
 
 ## Use Python on your machine
 
@@ -66,6 +65,7 @@ jupyter lab
 
 If you are not familiar with using JupyterLab, you can find extensive documentation [here](https://jupyterlab.readthedocs.io/en/latest/user/interface.html).
 
+
 ## Use Python on Google Colab
 
 If you don't want to install Python on your own machine, or if you don't have access to a machine that you can install new software,
@@ -75,13 +75,21 @@ Google Colab provides free Jupyter Notebook service.
 To use Google Colab, you will need a Google account, a web browser, and a stable Internet connection.
 Simply visit https://colab.research.google.com/ to start using the service.
 
+Google Colab already has all the packages that we will use in this course installed,
+except for `corner` and `emcee`.
+When you run labs that use `corner` or `emcee`, please run the follow line in your
+Google Colab notebook:
+
+```
+%pip install corner emcee
+```
 
 (sec:other-languages)=
 ## Use other programming languages
 
-While I do recommend using Python for this course, learning Python is *not* one of the [learning objectives](sec:learning-objectives) of this course.
+While I strongly recommend using Python for this course, learning Python is *not* one of the [learning objectives](sec:learning-objectives) of this course.
 Hence, if using another programming language makes it easier for you to learn the materials in this course,
 you are welcome to do so. You can submit the assignments using the programming language you choose.
 
-Please note that I will not be able to translate any partial code in the assignments into other programming languages.
-I will also not be able to help you identify packages in other programming languages that offer the functionalities of Python packages that we use.
+You will be responsible to translate the provided labs to the language of your choice.
+Please note that I will not be able to assist the translation, nor can I help you identify packages in other programming languages that offer the functionalities of Python packages that we use.
