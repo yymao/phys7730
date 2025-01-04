@@ -11,12 +11,12 @@ dependencies:
   - jupyterlab~=4.3.4
   - jupyterlab-myst~=2.4.2
   - matplotlib-base~=3.10.0
-  - nbconvert-core~=7.16.4
+  - nbconvert-core~=7.16.5
   - numpy~=2.2.1
   - packaging~=24.2
   - pandas~=2.2.3
   - python~=3.13.1
   - requests~=2.32.3
   - scikit-learn~=1.6.0
-  - scipy~=1.14.1
+  - scipy~=1.15.0
   - tqdm~=4.67.1
