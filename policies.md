@@ -120,6 +120,24 @@ I will record each class in case a student has to miss the class and wish to wat
 
 Engaging in discussions and class activities is important for reaching our learning objectives. However, every person has a different level of comfort when it comes to engaging in these group activities. If you find it uncomfortable or difficult to engage in in-class discussions, please contact the instructors so that we can discuss possible accommodations.
 
+#### Discussion Guidelines
+
+When we have group discussions in class, please follow these guidelines: 
+
+-   Listen respectfully and actively, with an aim to understand others' views.
+-   Allow everyone the chance to speak.
+-   Point out and compare the differences in the views and ideas that have been shared.
+-   Do not criticize individuals. Avoid blame, speculation, and inflammatory language.
+-   Understand that intent does not equal impact, and we are accountable for our words and their impact.
+-   Use writing and drawing to facilitate the conversation.
+
+In addition, watch out for the group dynamics and how you are making progress to answer the questions. Here's some useful tips:
+
+-   If all group members find the discussion questions straightforward, that's great. Go beyond what was asked and come up with your own follow-up questions! 
+-   If all group members find it difficult to answer the discussion questions, start by collecting what questions or confusions you have, and then raise your hand to ask Yao for help! 
+-   If each group member appears to have different levels of understanding, that's OK too. If you feel you may be a bit slower,
+    ask your group partners to explain things to you -- this really helps everyone learn better!
+    If you feel you may have a better understanding, be willing to teach and to be challenged -- you will learn something new too!
 
 ## Mock Exam and Presentation
 
@@ -170,7 +188,9 @@ You can also use online resources. Generally you should cite the resources you c
 
 If you use any online resources that are not publicly available (for example, contents behind a paywall or requiring login), you must provide a copy of the used resources in addition to citing them.
 
-If you use any generative artificial intelligence (AI) tools, such as ChatGPT, Copilot, Gemini, etc, you must mention your use of AI in your submission. You are responsible for validation the AI output, and you should document your validation effort as part of your submission.
+If you use any generative artificial intelligence (AI) tools, such as ChatGPT, Copilot, Gemini, etc, you must document your use of AI in your submission. In particular, you need to specify which answers were assisted by AI. You are also responsible for validation the AI output, and you should document your validation effort as part of your submission. You also need to be able to explain your answers without relying on AI.
+
+If you are considering using AI, you are encouraged to first take a look at the U's [Student Guide to Generative ToolsLinks to an external site.](https://cte.utah.edu/instructor-education/gen_ai_2024.pdf).
 
 ## University Policies
 
