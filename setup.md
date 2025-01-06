@@ -16,40 +16,48 @@ The instructions below will guide you to install conda (if needed) and create a 
 
 First, check if you already have `conda` available on your machine.
 If you have been using Python on your machine, there is a good chance that you already have `conda` too.
-You can check whether the `conda` command is available from a terminal.
-If it is, skip [](sec:install-conda) and jump to [](sec:new-environment) directly.
+
+- If you are using Windows, check if you have "Miniforge Prompt" (or "Miniconda Prompt", "Anaconda Prompt") from your Start menu.
+- If you are using macOS or Linux, check whether the `conda` command is available from a terminal.
+
+If the answer is yes, skip [](sec:install-conda) and jump to [](sec:new-environment) directly.
 
 (sec:install-conda)=
 ### Install conda
 
-```{margin}
-Miniforge and Miniconda differ in the channel used to fetch the packages.
-Miniforge uses the [conda-forge](https://conda-forge.org/) channel, which has a more comprehensive list of packages and is usually more up-to-date as well.
-Anaconda comes with a large selection of pre-install packages, many of which we will not use in this course. But if disk space is not a concern you can choose Anaconda too.
-```
+If `conda` is not available on your machine, you can install one very easily using [Miniforge](https://github.com/conda-forge/miniforge).
 
-If `conda` is not available on your machine, you can install one very easily.
+First, download the installation file corresponding to your OS [from this page](https://github.com/conda-forge/miniforge/releases/latest).
 
-I recommend installing [Miniforge](https://github.com/conda-forge/miniforge/blob/main/README.md), but you can choose [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/) or even [Anaconda](https://www.anaconda.com/download) if you like.
+Then, follow one of the following instructions based on your OS:
 
-Simply download Miniforge3 for your OS [from this page](https://github.com/conda-forge/miniforge/blob/main/README.md#miniforge3).
-Once it's downloaded, just run the installer and follow the instruction therein.
+- If you are using Windows, follow [this instruction](https://github.com/conda-forge/miniforge#windows).
+- If you are using macOS or Linux, follow [this instruction](https://github.com/conda-forge/miniforge#unix-like-platforms-macos--linux).
+  :::{tip}
+  If you are using macOS or Linux, near the end of the installation process,
+  you will be prompted to choose whether you want the base conda environment be activated by default.
+  If you choose no, make sure you copy the command that activates the base conda environment and keep it somewhere handy.
+  You will need to activate the base conda environment for the `conda` command to be available on your machine.
+  :::
 
-Near the end of the installation process, you will be prompted to choose whether you want the base conda environment be activated by default.
-If you choose no, make sure you copy the command that activates the base conda environment and keep it somewhere handy.
-You will need to activate the base conda environment for the `conda` command to be available on your machine.
 
 (sec:new-environment)=
 ### Create a new environment
 Once `conda` is available on your machine, you can go ahead and create a new environment for this course.
 
-First, download [this environment definition file](https://yymao.github.io/phys7730/environment.yml).
+First, download [this environment definition file](https://yymao.github.io/phys7730/environment.yml) (right click the link and choose "Save to" or "Save as").
 
-Once it's downloaded, you can run:
+Then, open a terminal:
+- On Windows, open "Miniforge Prompt" (or "Miniconda Prompt", "Anaconda Prompt").
+- On macOS or Linux, open a regular terminal and activate the base conda environment by running the command you copied during the installation.
+
+In the terminal, run:
 
 ```sh
 conda env create -f /path/to/environment.yml
 ```
+
+Note that `/path/to/environment.yml` should be replaced with the actual path to the downloaded environment definition file.
 
 Once the package installation is done, you can run the following to activate this new environment:
 ```sh
@@ -60,7 +68,7 @@ conda activate 7730
 
 After the `7730` environment is activated, you can start the JupyterLab interface by running
 ```sh
-jupyter lab
+jupyter-lab
 ```
 
 
