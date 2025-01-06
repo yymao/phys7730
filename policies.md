@@ -110,13 +110,15 @@ Each homework assignment (lab) should take about 2-3 hours to complete. 
 
 During the class, there will be several group discussions and activities. You will be in a group of 2-3 people to discuss assigned questions or work on certain problems. Your participation in these discussions and activities will constitute a significant part of your final grade. For each meeting, your participation will be graded based on 5-point scale mentioned above, which depends on your level of engagement and the quality of engagement.
 
-It's important to note that the quality of engagement is **not** graded based on how much you spoke in class nor on the correctness your contribution was. **It is graded based on how much you contribute to the learning experiences of yourself, other students, and the instructor** (yes, the instructor learns from you all too!). High quality engagement usually prompts further reflection, thinking, and discussion.
+It's important to note that the quality of engagement is **not** graded based on how much you spoke in class nor on the *correctness* your contribution was. **It is graded based on how much you contribute to the learning experiences of yourself, other students, and the instructor** (yes, the instructor learns from you all too!). High quality engagement usually prompts further reflection, thinking, and discussion.
 
 At the end of each meeting, you can also submit your in-class discussion notes to Canvas (or to me directly). These notes are optional, but they can be useful when you have written ideas or perspectives that you did not have a chance to share in class. They will be considered when I grade the in-class participation. 
 
 The lowest 3 scores you have will be dropped.
 
-Engaging in discussions and class activities is important for reaching our learning objectives. However, every person has a different level of comfort when it comes to engaging in these group activities. If you find it uncomfortable or difficult to engage in in-class discussions, please contact the instructors so that we can discuss possible accommodations. 
+I will record each class in case a student has to miss the class and wish to watch the recording later. However, **I will only post the recordings if requested** (because processing the recordings takes quite some time). Please also understand that, as the class is designed to be very interactive, with many discussions and only intermittent lectures, the recordings will not reproduce the in-person learning experience. If you miss a class but request and watch the recording, you will receive 2 points for that class.
+
+Engaging in discussions and class activities is important for reaching our learning objectives. However, every person has a different level of comfort when it comes to engaging in these group activities. If you find it uncomfortable or difficult to engage in in-class discussions, please contact the instructors so that we can discuss possible accommodations.
 
 
 ## Mock Exam and Presentation
