@@ -140,6 +140,10 @@ Up to 10% of the presentation total score may be adjusted based on the contribu
 
 ## Final Project Presentation
 
+:::{warning}
+Final presentation format may be modified!
+:::
+
 Each student will choose a specific problem, preferably a problem they encounter in their research work, and apply a statistical or computational method to tackle the chosen problem. The chosen method does not need to be a method that this course has specifically covered, but should be closely connected to the material covered in this course. 
 
 Each student will do a 5-minute "pre-presentation" to describe the chosen problem and the method they plan to use. In the final presentation week, each student will do a 10-minute presentation on their results.
@@ -151,7 +155,7 @@ Your final presentation will be evaluated as follows.
 - 20% - clearly describing why and how you implement your chosen method to the chosen problem
 - 20% - summarizing the results you obtained
 - 15% - validating, interpreting, and discussing the results you obtained
-- 20% - point for engaging in the Q&A
+- 20% - engaging in the Q&A
 
 
 ## Policies on Collaboration and the Use of AI Tools and Other Resources
