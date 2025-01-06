@@ -28,7 +28,7 @@ Students are assumed to be comfortable in programming and have an introductory-l
 - Instructor: [Yao-Yuan Mao](https://yymao.github.io/)
 - Instructor Office: [INSCC](https://map.utah.edu/?code=INSCC) 314
 - Instructor Email: yymao<span>@</span>astro<span>.</span>utah<span>.</span>edu
-- Office hours: TBD
+- Office hours: 11am–noon on Tuesdays, or by appointment
 
 ## Prerequisites
 
