@@ -365,33 +365,44 @@ The instructions below will guide you to install conda (if needed) and create a 
 <section id="use-python-on-your-machine">
 <h2>Use Python on your machine<a class="headerlink" href="#use-python-on-your-machine" title="Link to this heading">#</a></h2>
 <p>First, check if you already have <code class="docutils literal notranslate"><span class="pre">conda</span></code> available on your machine.
-If you have been using Python on your machine, there is a good chance that you already have <code class="docutils literal notranslate"><span class="pre">conda</span></code> too.
-You can check whether the <code class="docutils literal notranslate"><span class="pre">conda</span></code> command is available from a terminal.
-If it is, skip <a class="reference internal" href="#sec-install-conda"><span class="std std-ref">Install conda</span></a> and jump to <a class="reference internal" href="#sec-new-environment"><span class="std std-ref">Create a new environment</span></a> directly.</p>
+If you have been using Python on your machine, there is a good chance that you already have <code class="docutils literal notranslate"><span class="pre">conda</span></code> too.</p>
+<ul class="simple">
+<li><p>If you are using Windows, check if you have “Miniforge Prompt” (or “Miniconda Prompt”, “Anaconda Prompt”) from your Start menu.</p></li>
+<li><p>If you are using macOS or Linux, check whether the <code class="docutils literal notranslate"><span class="pre">conda</span></code> command is available from a terminal.</p></li>
+</ul>
+<p>If the answer is yes, skip <a class="reference internal" href="#sec-install-conda"><span class="std std-ref">Install conda</span></a> and jump to <a class="reference internal" href="#sec-new-environment"><span class="std std-ref">Create a new environment</span></a> directly.</p>
 <section id="install-conda">
 <span id="sec-install-conda"></span><h3>Install conda<a class="headerlink" href="#install-conda" title="Link to this heading">#</a></h3>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<p>Miniforge and Miniconda differ in the channel used to fetch the packages.
-Miniforge uses the <a class="reference external" href="https://conda-forge.org/">conda-forge</a> channel, which has a more comprehensive list of packages and is usually more up-to-date as well.
-Anaconda comes with a large selection of pre-install packages, many of which we will not use in this course. But if disk space is not a concern you can choose Anaconda too.</p>
-</aside>
-<p>If <code class="docutils literal notranslate"><span class="pre">conda</span></code> is not available on your machine, you can install one very easily.</p>
-<p>I recommend installing <a class="reference external" href="https://github.com/conda-forge/miniforge/blob/main/README.md">Miniforge</a>, but you can choose <a class="reference external" href="https://docs.conda.io/projects/miniconda/en/latest/">Miniconda</a> or even <a class="reference external" href="https://www.anaconda.com/download">Anaconda</a> if you like.</p>
-<p>Simply download Miniforge3 for your OS <a class="reference external" href="https://github.com/conda-forge/miniforge/blob/main/README.md#miniforge3">from this page</a>.
-Once it’s downloaded, just run the installer and follow the instruction therein.</p>
-<p>Near the end of the installation process, you will be prompted to choose whether you want the base conda environment be activated by default.
+<p>If <code class="docutils literal notranslate"><span class="pre">conda</span></code> is not available on your machine, you can install one very easily using <a class="reference external" href="https://github.com/conda-forge/miniforge">Miniforge</a>.</p>
+<p>First, download the installation file corresponding to your OS <a class="reference external" href="https://github.com/conda-forge/miniforge/releases/latest">from this page</a>.</p>
+<p>Then, follow one of the following instructions based on your OS:</p>
+<ul>
+<li><p>If you are using Windows, follow <a class="reference external" href="https://github.com/conda-forge/miniforge#windows">this instruction</a>.</p></li>
+<li><p>If you are using macOS or Linux, follow <a class="reference external" href="https://github.com/conda-forge/miniforge#unix-like-platforms-macos--linux">this instruction</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you are using macOS or Linux, near the end of the installation process,
+you will be prompted to choose whether you want the base conda environment be activated by default.
 If you choose no, make sure you copy the command that activates the base conda environment and keep it somewhere handy.
 You will need to activate the base conda environment for the <code class="docutils literal notranslate"><span class="pre">conda</span></code> command to be available on your machine.</p>
+</div>
+</li>
+</ul>
 </section>
 <section id="create-a-new-environment">
 <span id="sec-new-environment"></span><h3>Create a new environment<a class="headerlink" href="#create-a-new-environment" title="Link to this heading">#</a></h3>
 <p>Once <code class="docutils literal notranslate"><span class="pre">conda</span></code> is available on your machine, you can go ahead and create a new environment for this course.</p>
-<p>First, download <a class="reference external" href="https://yymao.github.io/phys7730/environment.yml">this environment definition file</a>.</p>
-<p>Once it’s downloaded, you can run:</p>
+<p>First, download <a class="reference external" href="https://yymao.github.io/phys7730/environment.yml">this environment definition file</a> (right click the link and choose “Save to” or “Save as”).</p>
+<p>Then, open a terminal:</p>
+<ul class="simple">
+<li><p>On Windows, open “Miniforge Prompt” (or “Miniconda Prompt”, “Anaconda Prompt”).</p></li>
+<li><p>On macOS or Linux, open a regular terminal and activate the base conda environment by running the command you copied during the installation.</p></li>
+</ul>
+<p>In the terminal, run:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>/path/to/environment.yml
 </pre></div>
 </div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">/path/to/environment.yml</span></code> should be replaced with the actual path to the downloaded environment definition file.</p>
 <p>Once the package installation is done, you can run the following to activate this new environment:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span><span class="m">7730</span>
 </pre></div>
@@ -400,7 +411,7 @@ You will need to activate the base conda environment for the <code class="docuti
 <section id="start-jupyterlab">
 <h3>Start JupyterLab<a class="headerlink" href="#start-jupyterlab" title="Link to this heading">#</a></h3>
 <p>After the <code class="docutils literal notranslate"><span class="pre">7730</span></code> environment is activated, you can start the JupyterLab interface by running</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>lab
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>jupyter-lab
 </pre></div>
 </div>
 </section>
