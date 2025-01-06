@@ -190,7 +190,7 @@ If you use any online resources that are not publicly available (for example, co
 
 If you use any generative artificial intelligence (AI) tools, such as ChatGPT, Copilot, Gemini, etc, you must document your use of AI in your submission. In particular, you need to specify which answers were assisted by AI. You are also responsible for validation the AI output, and you should document your validation effort as part of your submission. You also need to be able to explain your answers without relying on AI.
 
-If you are considering using AI, you are encouraged to first take a look at the U's [Student Guide to Generative ToolsLinks to an external site.](https://cte.utah.edu/instructor-education/gen_ai_2024.pdf).
+If you are considering using AI, you are encouraged to first take a look at the U's [Student Guide to Generative Tools](https://cte.utah.edu/instructor-education/gen_ai_2024.pdf).
 
 ## University Policies
 
