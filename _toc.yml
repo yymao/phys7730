@@ -12,6 +12,7 @@ parts:
   - file: schedule
   - file: references
   - file: setup
+  - file: run-labs
 
 - caption: 'Statistical Inference'
   chapters:
