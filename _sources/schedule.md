@@ -8,11 +8,11 @@ Any changes will be communicated to you in a timely fashion.
 | Week # | Dates | Monday | Wednesday |
 |--------|-------|--------|-----------|
 | Week 01 | Jan 06, 08 | Course introduction and setup<br>[[Lab 0](labs/00)] | Probability theory & random variables<br>[[Reading 1](readings/01)] |
-| Week 02 | Jan 13, 15 |  Summary statistics<br>[[Reading 2](readings/02)] | Maximum Likelihood Estimation |
-| Week 03 | Jan ~~20~~, 22 | *MLK Day* | Estimating and comparing distributions |
-| Week 04 | Jan 27, 29 | Monte Carlo; importance sampling | The Ising model |
-| Week 05 | Feb 03, 05 | MCMC Algorithms | Bayesian Analysis I |
-| Week 06 | Feb 10, 12 | Bayesian Analysis II | MCMC Inference |
+| Week 02 | Jan 13, 15 |  Summary statistics<br>[[Reading 2](readings/02)] | Central Limit Theorem & Estimators<br>[[Reading 3](readings/03)] |
+| Week 03 | Jan ~~20~~, 22 | *MLK Day* | Maximum Likelihood Estimation |
+| Week 04 | Jan 27, 29 | Estimating and comparing distributions | Monte Carlo & Importance sampling |
+| Week 05 | Feb 03, 05 | Stochastic processes & Ising model | MCMC Algorithms & Considerations |
+| Week 06 | Feb 10, 12 | Bayesian Analysis | MCMC Inference |
 | Week 07 | Feb ~~17~~, 19 | *Presidents Day* | ***Mock exam*** |
 | Week 08 | Feb 24, 26 | Review of statistical inference | ***Mock exam presentation*** |
 | Week 09 | Mar 03, 05 | Introduction to Machine Learning | Supervised: Regression I |
