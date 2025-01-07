@@ -18,7 +18,7 @@ First, check if you already have `conda` available on your machine.
 If you have been using Python on your machine, there is a good chance that you already have `conda` too.
 
 - If you are using Windows, check if you have "Miniforge Prompt" (or "Miniconda Prompt", "Anaconda Prompt") from your Start menu.
-- If you are using macOS or Linux, check whether the `conda` command is available from a terminal.
+- If you are using macOS or Linux, check whether the `conda` command is available from a terminal. You can do this by running `conda --version` in a terminal.
 
 If the answer is yes, skip [](sec:install-conda) and jump to [](sec:new-environment) directly.
 
@@ -38,6 +38,7 @@ Then, follow one of the following instructions based on your OS:
   you will be prompted to choose whether you want the base conda environment be activated by default.
   If you choose no, make sure you copy the command that activates the base conda environment and keep it somewhere handy.
   You will need to activate the base conda environment for the `conda` command to be available on your machine.
+  If you choose yes, just start a new terminal and you should be able to use the `conda` command.
   :::
 
 
@@ -50,6 +51,10 @@ First, download [this environment definition file](https://yymao.github.io/phys7
 Then, open a terminal:
 - On Windows, open "Miniforge Prompt" (or "Miniconda Prompt", "Anaconda Prompt").
 - On macOS or Linux, open a regular terminal and activate the base conda environment by running the command you copied during the installation.
+
+:::{tip}
+If you have just installed Miniforge, you can replace `conda` with `micromamba` in the following commands.
+:::
 
 In the terminal, run:
 

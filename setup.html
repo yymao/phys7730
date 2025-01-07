@@ -65,7 +65,7 @@
     <link rel="canonical" href="https://yymao.github.io/phys7730/setup.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Readings: Inference (First half semester)" href="readings/inference.html" />
+    <link rel="next" title="How to run a lab?" href="run-labs.html" />
     <link rel="prev" title="References" href="references.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-US"/>
@@ -176,6 +176,7 @@
 <li class="toctree-l1"><a class="reference internal" href="schedule.html">Weekly Schedule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Set up Python environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run-labs.html">How to run a lab?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistical Inference</span></p>
 <ul class="nav bd-sidenav">
@@ -370,7 +371,7 @@ The instructions below will guide you to install conda (if needed) and create a 
 If you have been using Python on your machine, there is a good chance that you already have <code class="docutils literal notranslate"><span class="pre">conda</span></code> too.</p>
 <ul class="simple">
 <li><p>If you are using Windows, check if you have “Miniforge Prompt” (or “Miniconda Prompt”, “Anaconda Prompt”) from your Start menu.</p></li>
-<li><p>If you are using macOS or Linux, check whether the <code class="docutils literal notranslate"><span class="pre">conda</span></code> command is available from a terminal.</p></li>
+<li><p>If you are using macOS or Linux, check whether the <code class="docutils literal notranslate"><span class="pre">conda</span></code> command is available from a terminal. You can do this by running <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">--version</span></code> in a terminal.</p></li>
 </ul>
 <p>If the answer is yes, skip <a class="reference internal" href="#sec-install-conda"><span class="std std-ref">Install conda</span></a> and jump to <a class="reference internal" href="#sec-new-environment"><span class="std std-ref">Create a new environment</span></a> directly.</p>
 <section id="install-conda">
@@ -386,7 +387,8 @@ If you have been using Python on your machine, there is a good chance that you a
 <p>If you are using macOS or Linux, near the end of the installation process,
 you will be prompted to choose whether you want the base conda environment be activated by default.
 If you choose no, make sure you copy the command that activates the base conda environment and keep it somewhere handy.
-You will need to activate the base conda environment for the <code class="docutils literal notranslate"><span class="pre">conda</span></code> command to be available on your machine.</p>
+You will need to activate the base conda environment for the <code class="docutils literal notranslate"><span class="pre">conda</span></code> command to be available on your machine.
+If you choose yes, just start a new terminal and you should be able to use the <code class="docutils literal notranslate"><span class="pre">conda</span></code> command.</p>
 </div>
 </li>
 </ul>
@@ -400,6 +402,10 @@ You will need to activate the base conda environment for the <code class="docuti
 <li><p>On Windows, open “Miniforge Prompt” (or “Miniconda Prompt”, “Anaconda Prompt”).</p></li>
 <li><p>On macOS or Linux, open a regular terminal and activate the base conda environment by running the command you copied during the installation.</p></li>
 </ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you have just installed Miniforge, you can replace <code class="docutils literal notranslate"><span class="pre">conda</span></code> with <code class="docutils literal notranslate"><span class="pre">micromamba</span></code> in the following commands.</p>
+</div>
 <p>In the terminal, run:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>/path/to/environment.yml
 </pre></div>
@@ -483,11 +489,11 @@ Please note that I will not be able to assist the translation, nor can I help yo
       </div>
     </a>
     <a class="right-next"
-       href="readings/inference.html"
+       href="run-labs.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Readings: Inference (First half semester)</p>
+        <p class="prev-next-title">How to run a lab?</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
