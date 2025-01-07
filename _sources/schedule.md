@@ -8,8 +8,8 @@ Any changes will be communicated to you in a timely fashion.
 | Week # | Dates | Monday | Wednesday |
 |--------|-------|--------|-----------|
 | Week 01 | Jan 06, 08 | Course introduction and setup<br>[[Lab 0](labs/00)] | Probability theory & random variables<br>[[Reading 1](readings/01)] |
-| Week 02 | Jan ~~13~~, 15 | *MLK Day* | Summary statistics<br>[[Reading 2](readings/02)] |
-| Week 03 | Jan 20, 22 | Maximum Likelihood Estimation | Estimating and comparing distributions |
+| Week 02 | Jan 13, 15 |  Summary statistics<br>[[Reading 2](readings/02)] | Maximum Likelihood Estimation |
+| Week 03 | Jan ~~20~~, 22 | *MLK Day* | Estimating and comparing distributions |
 | Week 04 | Jan 27, 29 | Monte Carlo; importance sampling | The Ising model |
 | Week 05 | Feb 03, 05 | MCMC Algorithms | Bayesian Analysis I |
 | Week 06 | Feb 10, 12 | Bayesian Analysis II | MCMC Inference |
