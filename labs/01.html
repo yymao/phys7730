@@ -1,0 +1,740 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-US" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 1: Sampling Random Variables &#8212; PHYS/ASTR 7730 - Spring 2025</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystyle.css?v=5f62bfb6" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=e39023b8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'labs/01';</script>
+    <link rel="canonical" href="https://yymao.github.io/phys7730/labs/01.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Lab 0: Setting up and Introduction" href="00.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-US"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="PHYS/ASTR 7730 - Spring 2025 - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="PHYS/ASTR 7730 - Spring 2025 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    PHYS/ASTR 7730 - Spring 2025
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://utah.instructure.com/courses/1027507">Canvas (login required)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies.html">Course Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Weekly Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Set up Python environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-labs.html">How to run a lab?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistical Inference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../readings/inference.html">Readings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../readings/01.html">Reading 1: Probability and Random Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/02.html">Reading 2: Summary Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/03.html">Reading 3: Central Limit Theorem &amp; Estimators</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="inference.html">Labs</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00.html">Lab 0: Setting up and Introduction</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Lab 1: Sampling Random Variables</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/labs/01.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 1: Sampling Random Variables</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-uniformly-sampling-random-points-within-a-circle">A. Uniformly sampling random points within a circle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-rejection-sampling">A1. Rejection sampling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a2-inverse-transform-sampling">A2. Inverse transform sampling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-maxwell-boltzmann-distribution">B. Maxwell-Boltzmann Distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chi-and-chi-squared-distributions">Chi and Chi-squared Distributions</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-1-sampling-random-variables">
+<h1>Lab 1: Sampling Random Variables<a class="headerlink" href="#lab-1-sampling-random-variables" title="Link to this heading">#</a></h1>
+<p><em>For the class on Wednesday, January 8th</em></p>
+<section id="a-uniformly-sampling-random-points-within-a-circle">
+<h2>A. Uniformly sampling random points within a circle<a class="headerlink" href="#a-uniformly-sampling-random-points-within-a-circle" title="Link to this heading">#</a></h2>
+<p>Here we are going to use two different methods to generate a set of points
+that are distributed uniformly at random within a circle of a given radius.</p>
+<section id="a1-rejection-sampling">
+<h3>A1. Rejection sampling<a class="headerlink" href="#a1-rejection-sampling" title="Link to this heading">#</a></h3>
+<p>Our first method is rejection sampling.
+It is more straightforward to generate a set of points that are distributed uniformly at random within a <em>square</em>.
+If we can find a square that fully encompasses the circle, we can then generate the random points within the square first,
+and then reject those that are outside the circle.</p>
+<p>For a circle of radius <span class="math notranslate nohighlight">\(r\)</span>, the square that fully encompasses the circle would have a side length of <span class="math notranslate nohighlight">\(2r\)</span>.</p>
+<p>The function <code class="docutils literal notranslate"><span class="pre">generate_points_within_square</span></code> below generates points that are uniformly at random
+within a square of side length <span class="math notranslate nohighlight">\(2r\)</span> (from <span class="math notranslate nohighlight">\(-r\)</span> to <span class="math notranslate nohighlight">\(r\)</span> on each side).</p>
+<p>Then, the function <code class="docutils literal notranslate"><span class="pre">generate_points_within_circle</span></code> calls <code class="docutils literal notranslate"><span class="pre">generate_points_within_square</span></code> to get a set of points,
+check if those points are within the circle, and keep only those that are within.
+Note that it has to do this a few times to get the number of points that we desire.
+Hence you see a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop in that function.</p>
+<p>Finally, the function <code class="docutils literal notranslate"><span class="pre">visualize_points_within_circle</span></code> plots both the generated points and the circle
+for visual inspection.</p>
+<p>Run the following two cells and see what they produce. You should also understand what the code is doing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_points_within_square</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="n">n_points</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">radius</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_points</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_points_within_circle</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="n">n_points</span><span class="p">):</span>
+    <span class="n">x_collected</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">y_collected</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">n_points</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">generate_points_within_square</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_points</span><span class="p">))</span>
+        <span class="n">is_within_circle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="o">*</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">radius</span><span class="o">*</span><span class="n">radius</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">is_within_circle</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">is_within_circle</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">n_points</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">is_within_circle</span><span class="p">)</span> <span class="o">-</span> <span class="n">n_points</span><span class="p">,</span> <span class="s2">&quot;points wasted&quot;</span><span class="p">)</span>
+            <span class="n">is_within_circle</span> <span class="o">=</span> <span class="n">is_within_circle</span><span class="p">[:</span><span class="n">n_points</span><span class="p">]</span>
+        <span class="n">x_collected</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">is_within_circle</span><span class="p">])</span>
+        <span class="n">y_collected</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">is_within_circle</span><span class="p">])</span>
+        <span class="n">n_points</span> <span class="o">-=</span> <span class="nb">len</span><span class="p">(</span><span class="n">is_within_circle</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">n_points</span><span class="p">,</span> <span class="s2">&quot;points left to be generated&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">x_collected</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">y_collected</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">visualize_points_within_circle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">radius</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">Circle</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">radius</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">radius</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">n_points</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">generate_points_within_circle</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="n">n_points</span><span class="p">)</span>
+<span class="n">visualize_points_within_circle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">radius</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>196 points left to be generated
+43 points left to be generated
+6 points left to be generated
+3 points left to be generated
+1 points left to be generated
+0 points left to be generated
+</pre></div>
+</div>
+<img alt="../_images/ee4120c3786c4b89a75ffee5209a5cb66644da18070376e765b3802813bc2fbc.png" src="../_images/ee4120c3786c4b89a75ffee5209a5cb66644da18070376e765b3802813bc2fbc.png" />
+</div>
+</div>
+<p>Note that the rejection sampling method does not seem very efficient.
+As you can see from the printout, tt has to call <code class="docutils literal notranslate"><span class="pre">generate_points_within_square</span></code> several times.</p>
+<p>⚠️ <strong>Task</strong>: Can you modify this line in <code class="docutils literal notranslate"><span class="pre">generate_points_within_circle</span></code> so that it only calls <code class="docutils literal notranslate"><span class="pre">generate_points_within_square</span></code> once?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">generate_points_within_square</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_points</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>(Note: you can edit the above code directly. Make sure to run the edited cell again.)</p>
+<p>📝 <strong>Questions</strong>: What changes do you need to make above so that <code class="docutils literal notranslate"><span class="pre">generate_points_within_square</span></code> is only called once?
+Justify the change you made.</p>
+ <!-- put your answers between the blockquote tags below -->
+<blockquote>
+</blockquote><p>Even though the rejection sampling method is not the most efficient, it is a powerful method as it can be applied
+to many scenarios when we cannot obtain an explicitly functional form of our desired random variable.
+But for the case of uniformly sampling random points within a circle, there is certainly a more efficient method, which we will see next.</p>
+</section>
+<section id="a2-inverse-transform-sampling">
+<h3>A2. Inverse transform sampling<a class="headerlink" href="#a2-inverse-transform-sampling" title="Link to this heading">#</a></h3>
+<p>When we know the cumulative distribution of the random variable that we want to sample,
+we can use the inverse transform sampling method.
+The inverse transform sampling method sends a standard uniform random variable, <span class="math notranslate nohighlight">\(U(0, 1)\)</span>,
+to the inverse function of the desired random variable’s cumulative distribution function (CDF).
+Let’s see how it works in action.</p>
+<p>To sample random points within a circle, we can use the polar coordinate system <span class="math notranslate nohighlight">\((r, \phi)\)</span>.
+Here <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span> are the radius and the angle, respectively, and most importantly,
+they are independent random variables when the points are uniformly at random.
+That is, the probability density function (PDF) of <span class="math notranslate nohighlight">\(\phi\)</span> does not have any dependence on <span class="math notranslate nohighlight">\(r\)</span> and vice versa.</p>
+<p>The PDF of <span class="math notranslate nohighlight">\(\phi\)</span> is just a uniform random variable from 0 to <span class="math notranslate nohighlight">\(2\pi\)</span>, <span class="math notranslate nohighlight">\(U(0, 2\pi)\)</span>,
+but the PDF of <span class="math notranslate nohighlight">\(r\)</span> is not uniform.
+There are most area near the outer edge of the circle, and hence we will need more points there.
+The PDF of <span class="math notranslate nohighlight">\(r\)</span> is actually proportional to <span class="math notranslate nohighlight">\(r\)</span>.
+This makes sense because the area of a annulus at radius <span class="math notranslate nohighlight">\(r\)</span> is proportional to <span class="math notranslate nohighlight">\(2\pi r\)</span>.</p>
+<p>We can write the PDF of <span class="math notranslate nohighlight">\(r\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[ p(r) = \frac{1}{A} r. \]</div>
+<p>Here <span class="math notranslate nohighlight">\(A\)</span> is the normalization constant that makes the integral of <span class="math notranslate nohighlight">\(p(r)\)</span> over the entire circle equal to 1.</p>
+<p>📝 <strong>Questions</strong>: Complete the following calculations.</p>
+<ol class="arabic simple">
+<li><p>If the full circle has a radius of <span class="math notranslate nohighlight">\(R\)</span>, find the value of <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
+<li><p>The CDF of <span class="math notranslate nohighlight">\(r\)</span> (our random variable) is then <span class="math notranslate nohighlight">\(F(r) = \int_0^r p(r') dr'\)</span>.
+Find the function <span class="math notranslate nohighlight">\(F(r)\)</span>.</p></li>
+<li><p>Find the inverse function of <span class="math notranslate nohighlight">\(F(r)\)</span>, <span class="math notranslate nohighlight">\(F^{-1}(u)\)</span>, such <span class="math notranslate nohighlight">\(F(F^{-1}(u)) = u\)</span>.</p></li>
+</ol>
+<!-- put your answers between the blockquote tags below -->
+<blockquote>
+</blockquote><p>Let’s implement the inverse transform sampling method now.</p>
+<p>In the function <code class="docutils literal notranslate"><span class="pre">generate_points_within_circle_inverse_sampling</span></code> below, <code class="docutils literal notranslate"><span class="pre">u</span></code> is sampled from a standard uniform random variable.
+The existing code just set <span class="math notranslate nohighlight">\(r = Ru\)</span> (note that <span class="math notranslate nohighlight">\(R\)</span> is the radius of the circle, which is called <code class="docutils literal notranslate"><span class="pre">radius</span></code> in the code),
+but that is not correct. You can run the following two cells and see what they produces.
+You should also understand what the code is doing.</p>
+<p>⚠️ <strong>Task</strong>: Implement the correct method by change the second line to match what you obtain for <span class="math notranslate nohighlight">\(F^{-1}\)</span> above.
+Re-run the cells and visually confirm that the points are uniformly distributed within the circle.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_points_within_circle_inverse_sampling</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="n">n_points</span><span class="p">):</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n_points</span><span class="p">)</span>  <span class="c1"># generates standard uniform random numbers in [0, 1)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">u</span> <span class="o">*</span> <span class="n">radius</span>  <span class="c1"># Not the correct implementation yet!</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_points</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">generate_points_within_circle_inverse_sampling</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="n">n_points</span><span class="p">)</span>
+<span class="n">visualize_points_within_circle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">radius</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/cc6f5018f762e3ba71280a8deda67b4380510c83941f446233a748309ec2cb17.png" src="../_images/cc6f5018f762e3ba71280a8deda67b4380510c83941f446233a748309ec2cb17.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="b-maxwell-boltzmann-distribution">
+<h2>B. Maxwell-Boltzmann Distribution<a class="headerlink" href="#b-maxwell-boltzmann-distribution" title="Link to this heading">#</a></h2>
+<p>The Maxwell-Boltzmann distribution describes the distribution of <em>speeds</em> of ideal gas particles that are in thermodynamic equilibrium.</p>
+<p>Note that the speed is the magnitude of the velocity vector, which is a three-dimensional vector.
+When the ideal gas particles are in thermodynamic equilibrium, their velocities in a specific direction (e.g., <span class="math notranslate nohighlight">\(v_x\)</span>)
+actually follow a Gaussian distribution.</p>
+<p>In other words, the velocity vector <span class="math notranslate nohighlight">\(\mathbf{v} = (v_x, v_y, v_z)\)</span> follows a three-dimensional multivariate Gaussian random variable,
+with the variance in each direction being the same.
+And the Maxwell-Boltzmann distribution is the probability density function of the speed, <span class="math notranslate nohighlight">\(v = |\mathbf{v}|\)</span>.</p>
+<p>Let’s verify this with code. We will first sample the full velocity vector <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> from the standard normal distribution.
+We will then calculate the speed <span class="math notranslate nohighlight">\(|\mathbf{v}|\)</span> (called <code class="docutils literal notranslate"><span class="pre">v_abs</span></code> in the code) and plot the histogram of the speeds.
+Finally, we will overplot the PDF of the Maxwell-Boltzmann distribution on top of the histogram to see if they match.</p>
+<p>Conveniently, <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> has implemented both distributions for us so we can use them directly.
+In fact, <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> has implemented <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/stats.html#continuous-distributions">a large number of commonly used distributions</a>
+and they will come in handy often!</p>
+<p>Run the following two cells. You should understand what the code is doing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span><span class="p">,</span> <span class="n">maxwell</span>
+
+<span class="n">n_points</span> <span class="o">=</span> <span class="mi">20000</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_points</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">v_sq</span> <span class="o">=</span> <span class="p">(</span><span class="n">v</span> <span class="o">*</span> <span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">v_abs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_sq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">v_abs</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1001</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">maxwell</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C1&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7be534e2fd6f3b5446b189fb097c2500ab0335dac8db5fbbdf11320bc63be287.png" src="../_images/7be534e2fd6f3b5446b189fb097c2500ab0335dac8db5fbbdf11320bc63be287.png" />
+</div>
+</div>
+<section id="chi-and-chi-squared-distributions">
+<h3>Chi and Chi-squared Distributions<a class="headerlink" href="#chi-and-chi-squared-distributions" title="Link to this heading">#</a></h3>
+<p>The Maxwell-Boltzmann distribution is actually a special case of the chi distribution.
+In a <span class="math notranslate nohighlight">\(k\)</span>-dimensional space, the distribution of the Euclidean distance between a
+multivariate Gaussian random variable (with equal variance on each dimension) and the origin
+is called the chi distribution with <span class="math notranslate nohighlight">\(k\)</span> degrees of freedom.
+As such, the Maxwell-Boltzmann distribution is the chi distribution with <span class="math notranslate nohighlight">\(k=3\)</span>.</p>
+<p>⚠️ <strong>Task</strong>: In the cell <em>above</em>, add a new curve with a different color that shows the PDF of the chi distribution with <span class="math notranslate nohighlight">\(k=3\)</span>.
+You will need to import <code class="docutils literal notranslate"><span class="pre">chi</span></code> from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>.</p>
+<p>You might have now gaussed that the famous chi-squared distribution is just
+the distribution of the square of a random variable that follows the chi distribution.</p>
+<p>Say <span class="math notranslate nohighlight">\(Z\)</span> is a standard Gaussian random variable, and if we have define</p>
+<div class="math notranslate nohighlight">
+\[ Y^2 = Z_1^2 + Z_2^2 + \cdots + Z_k^2. \]</div>
+<p>Then <span class="math notranslate nohighlight">\(Y\)</span> follows the <em>chi</em> distribution with <span class="math notranslate nohighlight">\(k\)</span> degrees of freedom, and <span class="math notranslate nohighlight">\(Y^2\)</span> follows the <em>chi-squared</em> distribution with <span class="math notranslate nohighlight">\(k\)</span> degrees of freedom.</p>
+<p>⚠️ <strong>Task</strong>: In the cell <em>below</em>, plot the histogram of <code class="docutils literal notranslate"><span class="pre">v_sq</span></code> (the square of the speed)
+and overplot a curve that shows the PDF of the chi-squared distribution with <span class="math notranslate nohighlight">\(k=3\)</span>.
+See if they agree with each other.
+You will need to import <code class="docutils literal notranslate"><span class="pre">chi2</span></code> from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implement your plot here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>📝 <strong>Questions</strong>: We often hear about people doing the <em>chi-squared</em> test or calculating the <em>chi-squared</em> value
+when comparing data to a model.
+Based on what you learn here, what assumption about the differences between the data and the model is made when people use the <em>chi-squared</em> test?</p>
+<!-- put your answers between the blockquote tags below -->
+<blockquote>
+</blockquote><div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Submit your notebook</strong></p>
+<p>Follow these steps when you complete this lab and are ready to submit your work to Canvas:</p>
+<ol class="arabic simple">
+<li><p>Check that all your text answers, plots, and code are all properly displayed in this notebook.</p></li>
+<li><p>Run the cell below.</p></li>
+<li><p>Download the resulting HTML file <code class="docutils literal notranslate"><span class="pre">01.html</span></code> and then upload it to the corresponding assignment on Canvas.</p></li>
+</ol>
+</div>
+<div class="cell tag_remove-stdout docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>jupyter<span class="w"> </span>nbconvert<span class="w"> </span>--to<span class="w"> </span>html<span class="w"> </span>--embed-images<span class="w"> </span><span class="m">01</span>.ipynb
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./labs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="00.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 0: Setting up and Introduction</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-uniformly-sampling-random-points-within-a-circle">A. Uniformly sampling random points within a circle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-rejection-sampling">A1. Rejection sampling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a2-inverse-transform-sampling">A2. Inverse transform sampling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-maxwell-boltzmann-distribution">B. Maxwell-Boltzmann Distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chi-and-chi-squared-distributions">Chi and Chi-squared Distributions</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yao-Yuan Mao (University of Utah)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Statistical and Computational Methods in Physics and Astronomy
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
