@@ -8,7 +8,7 @@ dependencies:
   - corner~=2.2.3
   - emcee~=3.1.6
   - ipywidgets~=8.1.5
-  - jupyterlab~=4.3.4
+  - jupyterlab~=4.4.0a2
   - jupyterlab-myst~=2.4.2
   - matplotlib-base~=3.10.0
   - nbconvert-core~=7.16.5
