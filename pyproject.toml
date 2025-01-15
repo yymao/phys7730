@@ -1,6 +1,6 @@
 [project]
 name = "7730"
-version = "2025.01.04"
+version = "2025.01.14"
 requires-python = ">=3.13"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -11,8 +11,7 @@ authors = [
 dependencies = [
     "corner>=2.2",
     "emcee>=3.1",
-    "jupyterlab>=4.3",
-    "jupyterlab-myst>=2.4",
+    "jupyter-book>=1.0.3",
     "matplotlib>=3.10",
     "nbconvert>=7.16",
     "numpy>=2.2",
@@ -27,8 +26,3 @@ dependencies = [
 [project.urls]
 Homepage = "https://yymao.github.io/phys7730/"
 Source = "https://github.com/yymao/phys7730"
-
-[project.optional-dependencies]
-dev = [
-    "jupyter-book>=1.0.3",
-]
