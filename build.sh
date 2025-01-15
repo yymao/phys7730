@@ -15,7 +15,7 @@ while [ $# -gt 0 ]; do
   shift
 done
 
-EXE='$HOME/python/7730/.venv/bin/jupyter-book'
+EXE="$HOME/python/7730/.venv/bin/jupyter-book"
 
 if [ ! -z "$CLEAN" ] ; then
   $EXE clean .
