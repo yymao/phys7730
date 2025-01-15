@@ -10,7 +10,7 @@ Any changes will be communicated to you in a timely fashion.
 | Week 01 | Jan 06, 08 | Course introduction and setup<br>[[Lab 0](labs/00)] | Probability theory & random variables<br>[[Reading 1](readings/01)] [[Lab 1](labs/01)]|
 | Week 02 | Jan 13, 15 |  Summary statistics<br>[[Reading 2](readings/02)] [[Lab 2](labs/02)] | Central Limit Theorem & Estimators<br>[[Reading 3](readings/03)] |
 | Week 03 | Jan ~~20~~, 22 | *MLK Day* | Maximum Likelihood Estimation<br>[[Reading 4](readings/04)] |
-| Week 04 | Jan 27, 29 | Estimating and comparing distributions | Monte Carlo & Importance sampling |
+| Week 04 | Jan 27, 29 | Statistical tests | Monte Carlo & Importance sampling |
 | Week 05 | Feb 03, 05 | Stochastic processes & Ising model | MCMC Algorithms & Considerations |
 | Week 06 | Feb 10, 12 | Bayesian Analysis | MCMC Inference |
 | Week 07 | Feb ~~17~~, 19 | *Presidents Day* | ***Mock exam*** |
