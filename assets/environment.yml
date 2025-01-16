@@ -3,6 +3,7 @@
 name: "7730"
 channels:
   - conda-forge
+  - conda-forge/label/jupyterlab_alpha
   - nodefaults
 dependencies:
   - corner~=2.2.3

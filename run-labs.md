@@ -1,5 +1,22 @@
 # How to run a lab?
 
+
+:::{tip}
+If you encounter scrolling issues with Jupyter notebooks, consider updating juptyerlab.
+
+If you use conda, run:
+```sh
+conda activate 7730
+conda install conda-forge/label/jupyterlab_alpha::jupyterlab
+```
+
+If you use pip, run
+```sh
+pip install jupyterlab~=4.4.0a2
+```
+:::
+
+
 ## Step 1. Download the lab notebook
 
 First, you need to download the lab notebook:
