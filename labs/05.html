@@ -1,0 +1,929 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-US" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 5: Statistical Tests &#8212; PHYS/ASTR 7730 - Spring 2025</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystyle.css?v=016a4efc" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=e39023b8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="application/vnd.jupyter.widget-state+json">{"state": {"39937f074068456e817277dc753cd18c": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "c70d2311810e45c891956f828972f5b0": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "039d5a8ebfb743b584df91853867b05b": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_39937f074068456e817277dc753cd18c", "max": 100000.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_c70d2311810e45c891956f828972f5b0", "tabbable": null, "tooltip": null, "value": 100000.0}}, "cca18cb211f54f8a8dbf59dacce57762": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "fc3c122a9b7d4784812e1169dbbd2bf2": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "c2f725b1189d43d39338e5c434e7bbba": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_cca18cb211f54f8a8dbf59dacce57762", "placeholder": "\u200b", "style": "IPY_MODEL_fc3c122a9b7d4784812e1169dbbd2bf2", "tabbable": null, "tooltip": null, "value": "100%"}}, "2b5da1d65b064af09f1646a5f32f4d3c": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "b7cf8fafba974791922f1f9e8099a4f1": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "74f90dbdc569498eb0fbfb3bf13ae38d": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_2b5da1d65b064af09f1646a5f32f4d3c", "placeholder": "\u200b", "style": "IPY_MODEL_b7cf8fafba974791922f1f9e8099a4f1", "tabbable": null, "tooltip": null, "value": "\u2007100000/100000\u2007[00:04&lt;00:00,\u200722434.64it/s]"}}, "6d2efebaf8ab4c458d62efb69425633a": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "a3f7498d40764097a4f40bbab2af6297": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_c2f725b1189d43d39338e5c434e7bbba", "IPY_MODEL_039d5a8ebfb743b584df91853867b05b", "IPY_MODEL_74f90dbdc569498eb0fbfb3bf13ae38d"], "layout": "IPY_MODEL_6d2efebaf8ab4c458d62efb69425633a", "tabbable": null, "tooltip": null}}, "b0ac4bc01e924edaaddcb3ec2774f44c": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "47786ec9c6674e7e81eb1b758cd46630": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "4982555a9c38486382bd36aecb9b277e": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_b0ac4bc01e924edaaddcb3ec2774f44c", "max": 100000.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_47786ec9c6674e7e81eb1b758cd46630", "tabbable": null, "tooltip": null, "value": 100000.0}}, "4f846848262f435a85707b893899e17f": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "b23599bb190049d98b76658cb66be162": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "13229899570a4675a041f53df904cf74": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_4f846848262f435a85707b893899e17f", "placeholder": "\u200b", "style": "IPY_MODEL_b23599bb190049d98b76658cb66be162", "tabbable": null, "tooltip": null, "value": "100%"}}, "6a83d2a934f949379025903c673db1ae": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "902121727a9a4cd5b387245cfd70854b": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "382bbf3e443b42379b605847f1941690": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_6a83d2a934f949379025903c673db1ae", "placeholder": "\u200b", "style": "IPY_MODEL_902121727a9a4cd5b387245cfd70854b", "tabbable": null, "tooltip": null, "value": "\u2007100000/100000\u2007[00:06&lt;00:00,\u200714435.84it/s]"}}, "35335b78799449aa882c20696390c417": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "eb3432ebd9c344bcbe287920c47989ea": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_13229899570a4675a041f53df904cf74", "IPY_MODEL_4982555a9c38486382bd36aecb9b277e", "IPY_MODEL_382bbf3e443b42379b605847f1941690"], "layout": "IPY_MODEL_35335b78799449aa882c20696390c417", "tabbable": null, "tooltip": null}}}, "version_major": 2, "version_minor": 0}</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'labs/05';</script>
+    <link rel="canonical" href="https://yymao.github.io/phys7730/labs/05.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Lab 4: Maximum Likelihood Estimation" href="04.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-US"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="PHYS/ASTR 7730 - Spring 2025 - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="PHYS/ASTR 7730 - Spring 2025 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    PHYS/ASTR 7730 - Spring 2025
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://utah.instructure.com/courses/1027507">Canvas (login required)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies.html">Course Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Weekly Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Set up Python environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-labs.html">How to run a lab?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistical Inference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../readings/inference.html">Readings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../readings/01.html">Reading 1: Probability and Random Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/02.html">Reading 2: Summary Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/03.html">Reading 3: Central Limit Theorem &amp; Estimators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/04.html">Reading 4: Maximum Likelihood Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/05.html">Reading 5: Statistical Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/06.html">Reading 6: Monte Carlo and Importance Sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/07.html">Reading 7: Stochastic Processes &amp; Ising Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/08.html">Reading 8: MCMC Algorithms and Considerations</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="inference.html">Labs</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00.html">Lab 0: Setting up and Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.html">Lab 1: Sampling Random Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.html">Lab 2: Summary Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.html">Lab 3: Central Limit Theorem and Estimators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04.html">Lab 4: Maximum Likelihood Estimation</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Lab 5: Statistical Tests</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/labs/05.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 5: Statistical Tests</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-pearson-correlation-coefficient">A. Pearson Correlation Coefficient</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-kolmogorov-smirnov-test">B. Kolmogorov–Smirnov Test</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-5-statistical-tests">
+<h1>Lab 5: Statistical Tests<a class="headerlink" href="#lab-5-statistical-tests" title="Link to this heading">#</a></h1>
+<p><em>For the class on Monday, January 27th</em></p>
+<section id="a-pearson-correlation-coefficient">
+<h2>A. Pearson Correlation Coefficient<a class="headerlink" href="#a-pearson-correlation-coefficient" title="Link to this heading">#</a></h2>
+<p>Say we have a set of paired data <span class="math notranslate nohighlight">\((x_1, y_1), (x_2, y_2), \cdots, (x_n, y_n)\)</span>.
+How do we test if <span class="math notranslate nohighlight">\(x\)</span>’s and <span class="math notranslate nohighlight">\(y\)</span>’s are correlated?</p>
+<p>We can calculate the Pearson correlation coefficient <span class="math notranslate nohighlight">\(r\)</span> as follows:</p>
+<div class="math notranslate nohighlight">
+\[ r = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n} (x_i - \bar{x})^2 \sum_{i=1}^{n} (y_i - \bar{y})^2}}, \]</div>
+<p>where <span class="math notranslate nohighlight">\(\bar{x}\)</span> and <span class="math notranslate nohighlight">\(\bar{y}\)</span> are the sample averages of <span class="math notranslate nohighlight">\(x\)</span>’s and <span class="math notranslate nohighlight">\(y\)</span>’s, respectively.</p>
+<p>However, the value of <span class="math notranslate nohighlight">\(r\)</span> does not directly tell us if the correlation is statistically significant.
+To test if the correlation is significant, we should ask the following question:</p>
+<p>If <span class="math notranslate nohighlight">\(x\)</span>’s and <span class="math notranslate nohighlight">\(y\)</span>’s are not correlated, what is the probability of observing a correlation coefficient as extreme as the observed value of <span class="math notranslate nohighlight">\(r\)</span>?</p>
+<p>To answer this question, we can generate many sets of uncorrelated paired data (“mock data”) and calculate the correlation coefficient for each set.
+Then, we can look at the distribution of the <span class="math notranslate nohighlight">\(r\)</span>’s from the mock data, and see where the observed <span class="math notranslate nohighlight">\(r\)</span> falls in that distribution.</p>
+<p>Let’s start with generating those mock data set.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.notebook</span><span class="w"> </span><span class="kn">import</span> <span class="n">trange</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">50</span>     <span class="c1"># Number of pairs in one data set</span>
+<span class="n">n_mocks</span> <span class="o">=</span> <span class="mi">100000</span>   <span class="c1"># How many mock data sets we want to generate</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">208</span><span class="p">)</span>
+
+<span class="n">pearson_r</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">trange</span><span class="p">(</span><span class="n">n_mocks</span><span class="p">):</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n_samples</span><span class="p">)</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n_samples</span><span class="p">)</span>
+    <span class="n">cov</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>  <span class="c1"># sample covariance matrix</span>
+    <span class="n">pearson_r_this</span> <span class="o">=</span> <span class="n">cov</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">cov</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">cov</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">pearson_r</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pearson_r_this</span><span class="p">)</span>
+<span class="n">pearson_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pearson_r</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "a3f7498d40764097a4f40bbab2af6297"}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s take a look of the very last set of the mock data we generated</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">lim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">([</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">]))</span> <span class="o">*</span> <span class="mf">1.1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="n">lim</span><span class="p">,</span> <span class="n">lim</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="n">lim</span><span class="p">,</span> <span class="n">lim</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/17595b83e9ebac4c70bc9bdf04fc656798577e87d066ad62bd8b8c24a178cc1f.png" src="../_images/17595b83e9ebac4c70bc9bdf04fc656798577e87d066ad62bd8b8c24a178cc1f.png" />
+</div>
+</div>
+<p>If you recall from what we did in <a class="reference internal" href="00.html"><span class="doc std std-doc">Lab 0</span></a>, the next step is to plot the histogram of <span class="math notranslate nohighlight">\(r\)</span>’s from these mock data sets,
+and then we can check where the observed <span class="math notranslate nohighlight">\(r\)</span> falls in that distribution.</p>
+<p>However, it turns out that if <span class="math notranslate nohighlight">\(x\)</span>’s and <span class="math notranslate nohighlight">\(y\)</span>’s are independent and normally distributed,
+the distribution of the Pearson correlation coefficient is known!
+But we need to do a change of variable first. If we let</p>
+<div class="math notranslate nohighlight">
+\[ t = r \cdot \sqrt{\frac{n-2}{1-r^2}}, \]</div>
+<p>where <span class="math notranslate nohighlight">\(n\)</span> is the number of pairs,
+then <span class="math notranslate nohighlight">\(t\)</span> follows a Student’s t distribution with <span class="math notranslate nohighlight">\(n-2\)</span> degrees of freedom.
+This <span class="math notranslate nohighlight">\(t\)</span> is often called the studentized correlation coefficient.</p>
+<p>Note that if  <span class="math notranslate nohighlight">\(x\)</span>’s and <span class="math notranslate nohighlight">\(y\)</span>’s are not normally distributed,
+<span class="math notranslate nohighlight">\(t\)</span> would still follow a Student’s t-distribution if sample size is large enough.</p>
+<p>Let’s now do this change of variable, and then plot the histogram of <span class="math notranslate nohighlight">\(t\)</span>’s (<code class="docutils literal notranslate"><span class="pre">studentized_pearson_r</span></code>).
+This way, we can compare the histogram with the Student’s t distribution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate t, or the studentized correlation coefficient</span>
+<span class="n">studentized_pearson_r</span> <span class="o">=</span> <span class="n">pearson_r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">n_samples</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1</span><span class="o">-</span><span class="n">pearson_r</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the histogram of the studentized correlation coefficient</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">studentized_pearson_r</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Studentized Pearson r&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">*</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">(),</span> <span class="n">num</span><span class="o">=</span><span class="mi">1001</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="p">(</span><span class="n">n_samples</span><span class="o">-</span><span class="mi">2</span><span class="p">)),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Student&#39;s t&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Standard normal&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;t (or Studentized Pearson r)&quot;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency / PDF&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7941178696cfa633a0b50f40cc287e173f7596a528e7b47c566ab9960f7f925f.png" src="../_images/7941178696cfa633a0b50f40cc287e173f7596a528e7b47c566ab9960f7f925f.png" />
+</div>
+</div>
+<p>You can see that the histogram of <span class="math notranslate nohighlight">\(t\)</span>’s (<code class="docutils literal notranslate"><span class="pre">studentized_pearson_r</span></code>) is very similar
+to the Student’s t-distribution with <span class="math notranslate nohighlight">\(n-2\)</span> degrees of freedom.</p>
+<p>In addition, as <span class="math notranslate nohighlight">\(n \rightarrow \infty\)</span>, the Student’s t-distribution converges
+to the standard normal distribution.
+Even with <span class="math notranslate nohighlight">\(n=50\)</span>, you can see that the Student’s t-distribution is already very
+close to the standard normal distribution.</p>
+<p>Let’s also compare their cumulative distribution functions (CDFs).
+For the Student’s t- and normal distributions, we merely need to change <code class="docutils literal notranslate"><span class="pre">.pdf</span></code> to <code class="docutils literal notranslate"><span class="pre">.cdf</span></code> in the code
+to get their CDFs.
+But for the histogram, we need to calculate its the empirical distribution function first,
+which is defined as</p>
+<div class="math notranslate nohighlight">
+\[ F(t) = \frac{\text{number of elements in the sample } \leq t}{n}, \]</div>
+<p>where <span class="math notranslate nohighlight">\(n\)</span> is the total number of elements in the sample.
+Note how this definition is analogous to the definition of the CDF.
+The function <code class="docutils literal notranslate"><span class="pre">get_empirical_cdf</span></code> below calculates the empirical distribution function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_empirical_cdf</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">1001</span><span class="p">):</span>
+    <span class="n">samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">sample_min</span><span class="p">,</span> <span class="n">sample_max</span> <span class="o">=</span> <span class="n">samples</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">samples</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">sample_max</span><span class="o">-</span><span class="n">sample_min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">bins</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">sample_min</span><span class="o">-</span><span class="n">dx</span><span class="p">,</span> <span class="n">sample_max</span><span class="o">+</span><span class="n">dx</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">bins</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">sorter</span><span class="o">=</span><span class="n">samples</span><span class="o">.</span><span class="n">argsort</span><span class="p">())</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cdf_bins</span><span class="p">,</span> <span class="n">empirical_cdf</span> <span class="o">=</span> <span class="n">get_empirical_cdf</span><span class="p">(</span><span class="n">studentized_pearson_r</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cdf_bins</span><span class="p">,</span> <span class="n">empirical_cdf</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Empirical CDF&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cdf_bins</span><span class="p">,</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">cdf_bins</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="p">(</span><span class="n">n_samples</span><span class="o">-</span><span class="mi">2</span><span class="p">)),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Student&#39;s t&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cdf_bins</span><span class="p">,</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">cdf_bins</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Standard normal&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;t (or Studentized Pearson r)&quot;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;CDF&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/415c73c375d64a86ea037ef96842b4367fc42cf90a0386a2d501de7ddf1d3127.png" src="../_images/415c73c375d64a86ea037ef96842b4367fc42cf90a0386a2d501de7ddf1d3127.png" />
+</div>
+</div>
+<p>There are two reasons that we want to look at the CDFs.
+First, the comparison of the empirical and theoretical CDF is often a better comparison
+than the comparison of the histogram and the theoretical PDF,
+because the former is less sensitive to the choice of bin size.</p>
+<p>Second, the CDF directly tells us the probability of observing a value less than <span class="math notranslate nohighlight">\(t\)</span>.
+If I want to know the probability to observed a studentized Pearson r <em>less</em> than -2,
+I can simply read off the value of the CDF at <span class="math notranslate nohighlight">\(t=-2\)</span>, which would be around 0.02 in this case.</p>
+<p>Similarly, if I want to know the probability to observed a studentized Pearson r <em>greater</em> than 2,
+I can also read off the value of the CDF at <span class="math notranslate nohighlight">\(t=2\)</span>, which would be around 0.98 in this case.
+One minus that value would be the probability I am looking for.</p>
+<p>Now, let’s try an actual statistical test!
+In the first cell below, we will generate our “observed” data set, <code class="docutils literal notranslate"><span class="pre">X_obs</span></code> and <code class="docutils literal notranslate"><span class="pre">Y_obs</span></code>.</p>
+<p>🚀 <strong>Tasks</strong>:</p>
+<ol class="arabic simple">
+<li><p>In the second cell below, use <code class="docutils literal notranslate"><span class="pre">np.cov</span></code> to calculate the Pearson correlation coefficient between <code class="docutils literal notranslate"><span class="pre">X_obs</span></code> and <code class="docutils literal notranslate"><span class="pre">Y_obs</span></code>.
+And then calculate studentized correlation coefficient using <span class="math notranslate nohighlight">\( t = r \sqrt{\frac{n-2}{1-r^2}}\)</span>.</p></li>
+<li><p>In the third cell below, calculate the probability of observing a studentized Pearson r
+greater than the observed value. Do this calculation in three ways:</p>
+<ul class="simple">
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">studentized_pearson_r</span></code> from the mock data, find the fraction of elements that are greater than or equal to the observed value.</p></li>
+<li><p>Use the CDF of the Student’s t-distribution with <span class="math notranslate nohighlight">\(n-2\)</span> degrees of freedom.</p></li>
+<li><p>Use the CDF of the standard normal distribution.</p></li>
+</ul>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Don&#39;t change the content of this cell</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">218</span><span class="p">)</span>
+<span class="n">X_obs</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n_samples</span><span class="p">)</span>
+<span class="n">Y_obs</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n_samples</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use np.cov to calculate the Pearson correlation coefficient between X_obs and Y_obs</span>
+
+
+<span class="c1"># Calculate the studentized Pearson correlation coefficient between X_obs and Y_obs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the probability of observing a studentized Pearson r greater than the value you found above</span>
+
+<span class="c1">## Using `studentized_pearson_r` from the mock data, find the fraction of elements that are greater than the observed value.</span>
+<span class="c1">## You may find `np.count_nonzero` useful.</span>
+
+
+<span class="c1">## Use the CDF of the Student&#39;s t-distribution with $n-2$ degrees of freedom.</span>
+
+
+<span class="c1">## Use the CDF of the standard normal distribution.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>These “probabilities” you found are often called <span class="math notranslate nohighlight">\(p\)</span>-values. They are unfortunately often misinterpreted.
+As you can tell from this exercise, the <span class="math notranslate nohighlight">\(p\)</span>-value is the probability of observing a value as extreme as (or more extreme than) the observed value
+when assuming the null hypothesis is true.
+It is, however, <em>not</em> the probability that the null hypothesis is true.</p>
+<p>A small <span class="math notranslate nohighlight">\(p\)</span>-value only means that, if the null hypothesis is true, then the probability of observing the observed data (or summary statistics) is small.</p>
+<p>We did this exercise to understand the concept of statistical tests and <span class="math notranslate nohighlight">\(p\)</span>-values.
+In practice, SciPy actually has a built-in functions for calculating the correlation coefficient and the associated <span class="math notranslate nohighlight">\(p\)</span>-value:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">scipy.stats.pearsonr</span></code>: Pearson correlation coefficient</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scipy.stats.spearmanr</span></code>: <a class="reference external" href="https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient">Spearman’s rank correlation coefficient</a>.
+This is the Pearson correlation coefficient of the rank-transformed data.</p></li>
+</ul>
+<p>🚀 <strong>Tasks</strong>:</p>
+<ol class="arabic simple" start="3">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">scipy.stats.pearsonr</span></code> to calculate the Pearson correlation coefficient and the associated <span class="math notranslate nohighlight">\(p\)</span>-value.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use `scipy.stats.pearsonr` to calculate the Pearson correlation coefficient and the associated $p$-value.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The process we have gone through also reveals the general framework behind statistical tests:</p>
+<ol class="arabic simple">
+<li><p>Formulate a null hypothesis.</p></li>
+<li><p>Find a (good) test statistic.</p></li>
+<li><p>Find the distribution of the test statistic under the null hypothesis (either analytically or numerically; may require additional assumptions).</p></li>
+<li><p>Calculate the <span class="math notranslate nohighlight">\(p\)</span>-value for the observed test statistic.
+The p-value is the probability that the test statistic has a value as extreme as (or more extreme than) the observed value when assuming the null hypothesis is true.</p></li>
+</ol>
+<p>For Part A of this lab, the null hypothesis is that <span class="math notranslate nohighlight">\(x\)</span>’s and <span class="math notranslate nohighlight">\(y\)</span>’s are uncorrelated,
+the test statistic is the studentized Pearson correlation coefficient,
+and the distribution of the test statistic under the null hypothesis is the Student’s t-distribution with <span class="math notranslate nohighlight">\(n-2\)</span> degrees of freedom
+(when <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are normally distributed, or when sample is large).</p>
+<p>We did a similar process in  Lab 0. There, the null hypothesis is that the students choose their seats with no preference,
+the first test statistic we used is the maximum gap size between students,
+and the distribution of the test statistic under the null hypothesis is not known analytically, so we had to simulate the distribution.</p>
+<p>📝 <strong>Questions</strong>:</p>
+<ol class="arabic simple">
+<li><p>As you complete the tasks above, is there anything particularly interesting or surprising that you observe? If so, note them here.</p></li>
+<li><p>For the chi-squared test that you read from <a class="reference internal" href="../readings/05.html"><span class="doc std std-doc">Reading 5</span></a>, identify the null hypothesis, the test statistic, and the distribution of the test statistic under the null hypothesis (and any additional assumptions for obtaining the distribution).</p></li>
+</ol>
+<p><em>// Add your answers here:</em></p>
+</section>
+<section id="b-kolmogorov-smirnov-test">
+<h2>B. Kolmogorov–Smirnov Test<a class="headerlink" href="#b-kolmogorov-smirnov-test" title="Link to this heading">#</a></h2>
+<p>Say you have two sets of samples, <span class="math notranslate nohighlight">\((x_1, x_2, \cdots, x_m)\)</span> and <span class="math notranslate nohighlight">\((y_1, y_2, \cdots, y_n)\)</span>,
+and you want to test if they come from the same distribution or not.</p>
+<p>If you don’t know the underlying distribution those samples come from,
+typically you would use the two-sample Kolmogorov–Smirnov test (K-S test) to test
+if the two data sets come from the same distribution.</p>
+<p>The K-S test follows the same framework as in Part A.
+Here, the null hypothesis is that the two data sets come from the same distribution.
+The test statistic is the maximum difference between the two empirical distribution functions, which we will demonstrate below.
+The distribution of the test statistic under the null hypothesis can be calculated analytically.</p>
+<p>One surprising fact about the K-S test is that the distribution of the test statistic under the null hypothesis
+does <em>not</em> depend on the underlying distribution of the data sets.
+This feature makes the K-S test very useful when the underlying distribution is unknown.</p>
+<p>Let’s start by simulating the test statistic under the null hypothesis.
+We will generate two sets of mock data, <code class="docutils literal notranslate"><span class="pre">X</span></code> and <code class="docutils literal notranslate"><span class="pre">Y</span></code>, for <code class="docutils literal notranslate"><span class="pre">n_mocks</span></code> times.
+Note that <code class="docutils literal notranslate"><span class="pre">X</span></code> and <code class="docutils literal notranslate"><span class="pre">Y</span></code> are drawn from the same distribution but have different sample sizes.
+Here we use the beta distribution as an example, but you can use any distribution you like.</p>
+<p>The second cell below demonstrates how to calculate the test statistic for the observed data set.
+The plot shows the empirical distribution functions of <code class="docutils literal notranslate"><span class="pre">X</span></code> and <code class="docutils literal notranslate"><span class="pre">Y</span></code>, and the test statistic is the
+largest vertical difference between the two empirical distribution functions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_samples_x</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">n_samples_y</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">n_mocks</span> <span class="o">=</span> <span class="mi">100000</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">205</span><span class="p">)</span>
+
+<span class="n">ks_stats</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">trange</span><span class="p">(</span><span class="n">n_mocks</span><span class="p">):</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">beta</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_samples_x</span><span class="p">)</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">beta</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_samples_y</span><span class="p">)</span>
+    <span class="n">cdf_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">2001</span><span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">x_cdf</span> <span class="o">=</span> <span class="n">get_empirical_cdf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">cdf_bins</span><span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">y_cdf</span> <span class="o">=</span> <span class="n">get_empirical_cdf</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">cdf_bins</span><span class="p">)</span>
+    <span class="n">cdf_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x_cdf</span> <span class="o">-</span> <span class="n">y_cdf</span><span class="p">))</span>
+    <span class="n">ks_stats</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cdf_diff</span><span class="p">)</span>
+<span class="n">ks_stats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ks_stats</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "eb3432ebd9c344bcbe287920c47989ea"}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s plot the empirical distribution functions of X and Y for the last mock data set we generated</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cdf_bins</span><span class="p">,</span> <span class="n">x_cdf</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cdf_bins</span><span class="p">,</span> <span class="n">y_cdf</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">cdf_bins</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x_cdf</span> <span class="o">-</span> <span class="n">y_cdf</span><span class="p">))],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;KS statistic&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;X or Y&quot;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Empirical CDF&quot;</span><span class="p">);</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of the K-S test statistic =&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x_cdf</span> <span class="o">-</span> <span class="n">y_cdf</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Value of the K-S test statistic = 0.25
+</pre></div>
+</div>
+<img alt="../_images/b28edd63ac8e220a6d90e282660618e5b4d8c8d813b0655ec25a0130ecca2b07.png" src="../_images/b28edd63ac8e220a6d90e282660618e5b4d8c8d813b0655ec25a0130ecca2b07.png" />
+</div>
+</div>
+<p>Note that in the cell above, the printed value should be the same as the vertical difference between the blue and orange lines
+at the location of the black dashed line. This value is the test statistic.
+We have stored the value of this test statistic for each mock data set in the variable <code class="docutils literal notranslate"><span class="pre">ks_stats</span></code>.</p>
+<p>Like in Part A, we can now plot the histogram of the test statistic under the null hypothesis (our mock data).
+The theoretical distribution of the K-S test statistic can be calculated analytically;
+however, it only has a closed form when the sample sizes <span class="math notranslate nohighlight">\(n_x\)</span> and <span class="math notranslate nohighlight">\(n_y\)</span> both approach infinity.
+This asymptotic distribution of the K-S test statistic is known as the Kolmogorov distribution.</p>
+<p>In a two-sample K-S test, if the sample sizes are large,
+the test statistic follows the Kolmogorov distribution scaled by <span class="math notranslate nohighlight">\(\sqrt{\frac{n_x n_y}{n_x + n_y}}\)</span>.</p>
+<p>In a one-sample K-S test (same as two-sample K-S test but replacing one sample with a known distribution),
+the test statistic follows the Kolmogorov distribution scaled by <span class="math notranslate nohighlight">\(\sqrt{n}\)</span> if <span class="math notranslate nohighlight">\(n\)</span> is large.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">ks_stats</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;K-S test statistic&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">*</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">(),</span> <span class="n">num</span><span class="o">=</span><span class="mi">1001</span><span class="p">)</span>
+<span class="n">scale_two_sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n_samples_x</span> <span class="o">*</span> <span class="n">n_samples_y</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_samples_x</span> <span class="o">+</span> <span class="n">n_samples_y</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">kstwobign</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">scale_two_sample</span><span class="p">),</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Kolmogorov dist.&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;K-S test statistic&quot;</span><span class="p">);</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency / PDF&quot;</span><span class="p">);</span>
+
+<span class="n">cdf_bins</span><span class="p">,</span> <span class="n">empirical_cdf</span> <span class="o">=</span> <span class="n">get_empirical_cdf</span><span class="p">(</span><span class="n">ks_stats</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cdf_bins</span><span class="p">,</span> <span class="n">empirical_cdf</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Empirical CDF&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cdf_bins</span><span class="p">,</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">kstwobign</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">cdf_bins</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">scale_two_sample</span><span class="p">),</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Kolmogorov dist.&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;K-S test statistic&quot;</span><span class="p">);</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;CDF&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c171fdd6198d464ff4827265f284cd3b6fbcca790789b8214ee8304f559477d0.png" src="../_images/c171fdd6198d464ff4827265f284cd3b6fbcca790789b8214ee8304f559477d0.png" />
+</div>
+</div>
+<p>There are things to note from these plots.</p>
+<p>First, the difference between the histogram and the Kolmogorov distribution is very visible.
+This is expected as the Kolmogorov distribution is only a good approximation when the sample sizes are large.</p>
+<p>Second, the CDF of the test statistic has steps. This means the test statistic is discretely valued.
+This is because the test statistic is the maximum difference between the two empirical distribution functions,
+which also have steps (because they are empirical). So the difference between them is also discrete.</p>
+<p>Let us now calculate the <span class="math notranslate nohighlight">\(p\)</span>-value for one observed data set.</p>
+<p>🚀 <strong>Tasks</strong>:</p>
+<ol class="arabic simple">
+<li><p>In the second cell below, calculate the K-S test statistic between <code class="docutils literal notranslate"><span class="pre">X_obs</span></code> and <code class="docutils literal notranslate"><span class="pre">Y_obs</span></code>  using their empirical CDFs.
+You can obtain the empirical CDF for <code class="docutils literal notranslate"><span class="pre">X_obs</span></code> with <code class="docutils literal notranslate"><span class="pre">get_empirical_cdf(X_obs,</span> <span class="pre">cdf_bins)</span></code>.
+Once you obtain both empirical CDFs, calculate the maximum difference between them.</p></li>
+<li><p>In the third cell below, calculate the probability of observing a K-S test statistic
+greater than what you calculated for <code class="docutils literal notranslate"><span class="pre">X_obs</span></code> and <code class="docutils literal notranslate"><span class="pre">Y_obs</span></code> above.
+Using <code class="docutils literal notranslate"><span class="pre">ks_stats</span></code> from the mock data, find the fraction of elements that are greater than or equal to the observed value.</p></li>
+<li><p>Finally, in the fourth cell, run <code class="docutils literal notranslate"><span class="pre">scipy.stats.kstest(X_obs,</span> <span class="pre">Y_obs)</span></code>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Don&#39;t change the content of this cell</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">218</span><span class="p">)</span>
+<span class="n">X_obs</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">beta</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_samples_x</span><span class="p">)</span>
+<span class="n">Y_obs</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">beta</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_samples_y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the K-S test statistic between X_obs and Y_obs using their empirical CDFs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the probability of observing a K-S test statistic</span>
+<span class="c1"># greater than what you calculated for `X_obs` and `Y_obs` above.</span>
+<span class="c1"># Using `ks_stats` from the mock data, find the fraction of elements that are greater than the observed value.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use scipy.stats.kstest to calculate the K-S test statistic and the associated $p$-value.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>📝 <strong>Questions</strong>:</p>
+<ol class="arabic simple">
+<li><p>Do <code class="docutils literal notranslate"><span class="pre">scipy.stats.kstest</span></code>’s result, in particular <code class="docutils literal notranslate"><span class="pre">statistic</span></code> and <code class="docutils literal notranslate"><span class="pre">pvalue</span></code>, agree with your own calculation?
+If there’s a discrepancy, what may be the reason for it?</p></li>
+</ol>
+<p><em>// Add your answers here:</em></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Submit your notebook</strong></p>
+<p>Follow these steps when you complete this lab and are ready to submit your work to Canvas:</p>
+<ol class="arabic simple">
+<li><p>Check that all your text answers, plots, and code are all properly displayed in this notebook.</p></li>
+<li><p>Run the cell below.</p></li>
+<li><p>Download the resulting HTML file <code class="docutils literal notranslate"><span class="pre">05.html</span></code> and then upload it to the corresponding assignment on Canvas.</p></li>
+</ol>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>jupyter<span class="w"> </span>nbconvert<span class="w"> </span>--to<span class="w"> </span>html<span class="w"> </span>--embed-images<span class="w"> </span><span class="m">05</span>.ipynb
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./labs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 4: Maximum Likelihood Estimation</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-pearson-correlation-coefficient">A. Pearson Correlation Coefficient</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-kolmogorov-smirnov-test">B. Kolmogorov–Smirnov Test</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yao-Yuan Mao (University of Utah)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Statistical and Computational Methods in Physics and Astronomy
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
