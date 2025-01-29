@@ -42,10 +42,10 @@ Your grade will be determined from all of the components, with the following wei
 | Component | Grading Weight |
 |-----------|----------------|
 | Pre-lecture reading | 20% |
-| Homework (completing labs) | 26% |
-| In-class participation & discussion | 30% |
+| Homework (completing labs) | 33% |
+| In-class participation & discussion | 33% |
 | Midterm mock exam & presentation | 12% |
-| Final presentation | 12% |
+| 5-min "stats tidbit" presentation | 2% |
 
 See the respective sections below for details of how each component is evaluated.
 
@@ -158,23 +158,12 @@ Up to 10% of the presentation total score may be adjusted based on the contribu
 
 ## Final Project Presentation
 
-:::{warning}
-Final presentation format may be modified!
-:::
+Each student will do a 5-minute presentation, with their choice of one of the following topics:
 
-Each student will choose a specific problem, preferably a problem they encounter in their research work, and apply a statistical or computational method to tackle the chosen problem. The chosen method does not need to be a method that this course has specifically covered, but should be closely connected to the material covered in this course. 
+- Find a statement from a scientific paper or a news article that involves a statistical test or estimation. Describe, examine, and comment on the method used.
+- Describe a problem in their research work that involves a statistical test or estimation. Lay out a potential method that can be used for the said problem.
 
-Each student will do a 5-minute "pre-presentation" to describe the chosen problem and the method they plan to use. In the final presentation week, each student will do a 10-minute presentation on their results.
-
-Your final presentation will be evaluated as follows.
-
-- 10% - completing the pre-presentation
-- 15% - clearly describing the chosen problem
-- 20% - clearly describing why and how you implement your chosen method to the chosen problem
-- 20% - summarizing the results you obtained
-- 15% - validating, interpreting, and discussing the results you obtained
-- 20% - engaging in the Q&A
-
+This presentation will be graded based on 5-point scale mentioned above. 
 
 ## Policies on Collaboration and the Use of AI Tools and Other Resources
 
