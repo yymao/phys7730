@@ -1,0 +1,799 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-US" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 6: Importance Sampling &#8212; PHYS/ASTR 7730 - Spring 2025</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystyle.css?v=016a4efc" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=e39023b8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'labs/06';</script>
+    <link rel="canonical" href="https://yymao.github.io/phys7730/labs/06.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Lab 5: Statistical Tests" href="05.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-US"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="PHYS/ASTR 7730 - Spring 2025 - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="PHYS/ASTR 7730 - Spring 2025 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    PHYS/ASTR 7730 - Spring 2025
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://utah.instructure.com/courses/1027507">Canvas (login required)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies.html">Course Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Weekly Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Set up Python environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-labs.html">How to run a lab?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistical Inference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../readings/inference.html">Readings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../readings/01.html">Reading 1: Probability and Random Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/02.html">Reading 2: Summary Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/03.html">Reading 3: Central Limit Theorem &amp; Estimators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/04.html">Reading 4: Maximum Likelihood Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/05.html">Reading 5: Statistical Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/06.html">Reading 6: Monte Carlo and Importance Sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/07.html">Reading 7: Stochastic Processes &amp; Ising Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/08.html">Reading 8: MCMC Algorithms and Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/09.html">Reading 9: Bayesian Analysis I</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="inference.html">Labs</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00.html">Lab 0: Setting up and Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.html">Lab 1: Sampling Random Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.html">Lab 2: Summary Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.html">Lab 3: Central Limit Theorem and Estimators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04.html">Lab 4: Maximum Likelihood Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05.html">Lab 5: Statistical Tests</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Lab 6: Importance Sampling</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/labs/06.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 6: Importance Sampling</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-random-mazes">A. Random Mazes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-importance-sampling">B. Importance Sampling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-final-remarks-percolation">C. Final Remarks: Percolation</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-6-importance-sampling">
+<h1>Lab 6: Importance Sampling<a class="headerlink" href="#lab-6-importance-sampling" title="Link to this heading">#</a></h1>
+<p><em>For the class on Monday, February 3rd</em></p>
+<section id="a-random-mazes">
+<h2>A. Random Mazes<a class="headerlink" href="#a-random-mazes" title="Link to this heading">#</a></h2>
+<p>Consider a <span class="math notranslate nohighlight">\(N \times N\)</span> matrix. Each element of the matrix can be either 1 or 0.
+The value is determined randomly and independently, with a probability <span class="math notranslate nohighlight">\(p\)</span> of being 1, and <span class="math notranslate nohighlight">\(1-p\)</span> of being 0,
+except for the upper left and lower right corners, which will always be 1.</p>
+<p>Think of this matrix as a maze, where 0s present walls and 1s present paths.
+We call a maze “solvable” if there is a fully connected path (i.e., 1s)
+from the upper left corner to the lower right corner.
+Note that one cannot move diagonally in this maze.</p>
+<p>The question we want to answer is: Given specific values of <span class="math notranslate nohighlight">\(N\)</span> and <span class="math notranslate nohighlight">\(p\)</span>, what is the probability that the maze is solvable?</p>
+<p>Below, the first cell defines two functions:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">generate_maze</span></code> generates a random maze with <span class="math notranslate nohighlight">\(N=\)</span> <code class="docutils literal notranslate"><span class="pre">side_length</span></code> and <span class="math notranslate nohighlight">\(p=\)</span> <code class="docutils literal notranslate"><span class="pre">path_prob</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">check_solvable</span></code> checks if a maze is solvable.</p></li>
+</ul>
+<p>The second cell generates and displays a 3x3 maze.
+In the display, 0s (walls) are represented by black squares and 1s (paths) by white squares.
+It also prints out whether the maze is solvable.
+Run this cell a few times to see if you agree with <code class="docutils literal notranslate"><span class="pre">check_solvable</span></code>’s output!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.ndimage</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.notebook</span><span class="w"> </span><span class="kn">import</span> <span class="n">trange</span>
+
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_maze</span><span class="p">(</span><span class="n">side_length</span><span class="p">,</span> <span class="n">path_prob</span><span class="p">):</span>
+    <span class="n">maze</span> <span class="o">=</span> <span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">side_length</span><span class="p">,</span> <span class="n">side_length</span><span class="p">))</span> <span class="o">&lt;</span> <span class="n">path_prob</span><span class="p">)</span>
+    <span class="n">maze</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">maze</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="n">maze</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">check_solvable</span><span class="p">(</span><span class="n">maze</span><span class="p">):</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">ndimage</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">maze</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">label</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">label</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maze</span> <span class="o">=</span> <span class="n">generate_maze</span><span class="p">(</span><span class="n">side_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">path_prob</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">maze</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Maze is solvable?&quot;</span><span class="p">,</span> <span class="n">check_solvable</span><span class="p">(</span><span class="n">maze</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maze is solvable? True
+</pre></div>
+</div>
+<img alt="../_images/965a38d9acc25797b60825a02ed5bed188f64b78b627ba70b26829b83ef05a6a.png" src="../_images/965a38d9acc25797b60825a02ed5bed188f64b78b627ba70b26829b83ef05a6a.png" />
+</div>
+</div>
+<p>Now, we are going to generate 20,000 random mazes,
+and calculate the fraction of them that are solvable.
+This fraction is then an estimate of the probability that a maze is solvable
+in the case of <span class="math notranslate nohighlight">\(N=3\)</span> and <span class="math notranslate nohighlight">\(p=0.5\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simple sampling</span>
+<span class="n">n_mazes</span> <span class="o">=</span> <span class="mi">20000</span>
+<span class="n">side_length</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">solvable_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">trange</span><span class="p">(</span><span class="n">n_mazes</span><span class="p">):</span>
+    <span class="n">maze</span> <span class="o">=</span> <span class="n">generate_maze</span><span class="p">(</span><span class="n">side_length</span><span class="o">=</span><span class="n">side_length</span><span class="p">,</span> <span class="n">path_prob</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">check_solvable</span><span class="p">(</span><span class="n">maze</span><span class="p">):</span>
+        <span class="n">solvable_count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fraction of solvable mazes:&quot;</span><span class="p">,</span> <span class="n">solvable_count</span> <span class="o">/</span> <span class="n">n_mazes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "2a1334749ac7489cbb626372fe4d1760"}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fraction of solvable mazes: 0.39715
+</pre></div>
+</div>
+</div>
+</div>
+<p>The fraction you got from the cell above should be around 51/128 = 0.3984375.
+Run the cell a few times to see the range of results you get.</p>
+<p>This true value (51/128) comes from listing all the possible 3x3 mazes (there are 128 possibilities – why?)
+and counting the number of solvable ones.
+While this process may sound tedious, it is rather simple for a computer to do.</p>
+<p>However, what if the matrix is 50x50 instead?</p>
+<p>📝 <strong>Questions</strong>:</p>
+<ol class="arabic simple">
+<li><p>How many possible 50x50 mazes are there? (Remember that the upper left and lower right corners are always 1s.)</p></li>
+<li><p>When we generated 20,000 random mazes, roughly what fraction of all possible mazes did we sample?</p></li>
+<li><p>In the cell above, change <code class="docutils literal notranslate"><span class="pre">side_length=50</span></code> (i.e., for a 50x50 matrix).
+Run the cell a few times, and describe the result you get. Does the result make sense to you? Why or why not?</p></li>
+</ol>
+<p><em>// Add your answer here</em></p>
+</section>
+<section id="b-importance-sampling">
+<h2>B. Importance Sampling<a class="headerlink" href="#b-importance-sampling" title="Link to this heading">#</a></h2>
+<p>There are so many possible configurations for a 50x50 maze, and only a small fraction of those are solvable.
+If we “fairly” draw random configurations, the chance we get a solvable maze is extremely low.</p>
+<p>If we can somehow include more solvable configurations in our samples,
+we may be able to get a better estimate of the solvable probability.</p>
+<p>When we draw the configurations, we can tune up the value of <span class="math notranslate nohighlight">\(p\)</span> (probability of an element being 1).
+This way, there will be more 1s in the matrix, and the chance of the maze being solvable will increase.
+But then we need to correct for the fact that we are not drawing from the original distribution (<span class="math notranslate nohighlight">\(p=0.5\)</span>).</p>
+<p>The true probability of a maze being solvable is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+  P_{\text{solvable},\, p=0.5} = \frac{1}{n_\text{conf.}} \sum_{i=1}^{n_\text{conf.}} f(C_i) P(C_i | p=0.5),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(C_i\)</span> is a specific configuration of the maze, <span class="math notranslate nohighlight">\(n_\text{conf.}\)</span> is the total number of possible maze configurations,
+<span class="math notranslate nohighlight">\(f\)</span> is 1 if the maze is solvable and 0 otherwise, and <span class="math notranslate nohighlight">\(P(C_i | p=0.5)\)</span> is the probability
+of drawing <span class="math notranslate nohighlight">\(C_i\)</span> from the distribution with <span class="math notranslate nohighlight">\(p=0.5\)</span>.</p>
+<p>Compare this formula with our simulation code above, you will notice two differences.
+First, we didn’t draw all possible configurations when running our simulation, but only a small fraction of them.
+Hence, our result was not the true value of <span class="math notranslate nohighlight">\(P_{\text{solvable},\, p=0.5}\)</span>, but just an estimator for it.
+Second, the factor <span class="math notranslate nohighlight">\(P(C_i | p=0.5)\)</span> is not explicitly included in our code,
+because when running the simulation, the drawing process itself already accounts for <span class="math notranslate nohighlight">\(P(C_i | p=0.5)\)</span> (why?).</p>
+<p>Now, we can rewrite the formula above:
+$<span class="math notranslate nohighlight">\(
+  P_{\text{solvable},\, p=0.5} = \frac{1}{n_\text{conf.}} \sum_{i=1}^{n_\text{conf.}} \left[ f(C_i) \frac{P(C_i | p=0.5)}{P(C_i | p=p')} \right] P(C_i | p=p').
+\)</span>$</p>
+<p>Note that these two formulas are equivalent, but the second one gives us an interesting idea.
+We can run a simulation where the drawing process uses <span class="math notranslate nohighlight">\(p=p'\)</span>, which can differ from 0.5.
+As long as we weight <span class="math notranslate nohighlight">\(f(C_i)\)</span> by <span class="math notranslate nohighlight">\(\frac{P(C_i | p=0.5)}{P(C_i | p=p')}\)</span>,
+we can still obtain an estimator for <span class="math notranslate nohighlight">\( P_{\text{solvable},\, p=0.5} \)</span>, in  the case of <span class="math notranslate nohighlight">\(p=0.5\)</span>, <em>not</em> <span class="math notranslate nohighlight">\(p=p'\)</span>!</p>
+<p>Let’s first do some calculations in the <span class="math notranslate nohighlight">\(N=3\)</span> case since the small number is easier to handle.</p>
+<p>📝 <strong>Questions</strong>:</p>
+<ol class="arabic simple">
+<li><p>Run the cell below. Let <span class="math notranslate nohighlight">\(C_i\)</span> denote that configuration. Find the value of P(C_i | p=0.5).</p></li>
+<li><p>Find the value of <span class="math notranslate nohighlight">\(P(C_i | p=p')\)</span> (express your answer in terms of <span class="math notranslate nohighlight">\(p'\)</span>).</p></li>
+<li><p>Find the ratio <span class="math notranslate nohighlight">\( P(C_i | p=0.5) / P(C_i | p=p')\)</span>.</p></li>
+</ol>
+<p><em>// Add your answer here</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0c0bcdb877d3c294d70c41f1ca16c1f4acb20fb4e402d883dbb96388f9d2e7c9.png" src="../_images/0c0bcdb877d3c294d70c41f1ca16c1f4acb20fb4e402d883dbb96388f9d2e7c9.png" />
+</div>
+</div>
+<p>Let now run some simulations with the importance sampling method.
+The overall setup is the same as before, but each time when we draw a solvable maze,
+we need to collect the ratio <span class="math notranslate nohighlight">\( P(C_i | p=0.5) / P(C_i | p=p')\)</span>, not just 1.</p>
+<p>Since we will need to use that ratio a lot, we define a function <code class="docutils literal notranslate"><span class="pre">calc_log_prob_diff</span></code>.
+This function calculates the log of the ratio <span class="math notranslate nohighlight">\( P(C_i | p=0.5) / P(C_i | p=p')\)</span>.
+Here we calculate in logarithm to avoid numerical precision issues.,
+because when the matrix size gets large, the probability of any configuration will be very small.</p>
+<p>However, when we collect those ratios, we cannot add them in the log space directly.
+We need to first exponentiate them, then do the addition, and finally take the log again.
+NumPy provides a function <code class="docutils literal notranslate"><span class="pre">np.logaddexp</span></code> that does this without loss of numerical precision.</p>
+<p>Let’s now run the following cells. Take a look at the code to see if it’s consistent with our derivation earlier.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calc_log_prob_diff</span><span class="p">(</span><span class="n">maze</span><span class="p">,</span> <span class="n">path_prob_p</span><span class="p">,</span> <span class="n">path_prob_q</span><span class="p">):</span>
+    <span class="n">paths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">maze</span><span class="p">)</span>
+    <span class="n">walls</span> <span class="o">=</span> <span class="n">maze</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="n">paths</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="p">(</span><span class="n">paths</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">path_prob_p</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">path_prob_q</span><span class="p">))</span>
+        <span class="o">+</span> <span class="n">walls</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="o">-</span><span class="n">path_prob_p</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="o">-</span><span class="n">path_prob_q</span><span class="p">))</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importance sampling</span>
+<span class="n">n_mazes</span> <span class="o">=</span> <span class="mi">20000</span>
+<span class="n">side_length</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">altered_path_prob</span> <span class="o">=</span> <span class="mf">0.7</span>
+
+<span class="n">log_total_weight</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">trange</span><span class="p">(</span><span class="n">n_mazes</span><span class="p">):</span>
+    <span class="n">maze</span> <span class="o">=</span> <span class="n">generate_maze</span><span class="p">(</span><span class="n">side_length</span><span class="o">=</span><span class="n">side_length</span><span class="p">,</span> <span class="n">path_prob</span><span class="o">=</span><span class="n">altered_path_prob</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">check_solvable</span><span class="p">(</span><span class="n">maze</span><span class="p">):</span>
+        <span class="n">log_weight</span> <span class="o">=</span> <span class="n">calc_log_prob_diff</span><span class="p">(</span><span class="n">maze</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">altered_path_prob</span><span class="p">)</span>
+        <span class="n">log_total_weight</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logaddexp</span><span class="p">(</span><span class="n">log_total_weight</span><span class="p">,</span> <span class="n">log_weight</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Estimated solvable prob. =&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">log_total_weight</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">n_mazes</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "0a2cb06314c94f188db6d231f9f9fdf9"}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimated solvable prob. = 0.3987838569876587
+</pre></div>
+</div>
+</div>
+</div>
+<p>🚀 <strong>Tasks and Questions</strong>:</p>
+<ol class="arabic simple">
+<li><p>In the cell above, keep <code class="docutils literal notranslate"><span class="pre">side_length=3</span></code> but change the value of <code class="docutils literal notranslate"><span class="pre">altered_path_prob</span></code>. Describe how the result changes.</p></li>
+<li><p>In the cell above, set <code class="docutils literal notranslate"><span class="pre">side_length=50</span></code> and <code class="docutils literal notranslate"><span class="pre">altered_path_prob=0.6</span></code>. Do you get a nonzero result now?</p></li>
+<li><p>In the cell above, keep <code class="docutils literal notranslate"><span class="pre">side_length=50</span></code> but change the value of <code class="docutils literal notranslate"><span class="pre">altered_path_prob</span></code>. Describe how the result changes.</p></li>
+</ol>
+<p><em>// Add your answer here</em></p>
+</section>
+<section id="c-final-remarks-percolation">
+<h2>C. Final Remarks: Percolation<a class="headerlink" href="#c-final-remarks-percolation" title="Link to this heading">#</a></h2>
+<p>This lab is actually closely related to <a class="reference external" href="https://en.wikipedia.org/wiki/Percolation_theory">percolation theory</a>,
+an important topic in statistical physics and probability theory.</p>
+<p>When the value of <span class="math notranslate nohighlight">\(p\)</span> is lower than some critical value <span class="math notranslate nohighlight">\(p_\text{crit}\)</span>,
+the maze we considered will have an exponentially low probability of being solvable.</p>
+<p>In fact, even with importance sampling, it is still hard to get an accurate estimate
+of the solvable probability, due to the critical behavior in the system.
+While we use this example to illustrate importance sampling, for actual percolation problems,
+more sophisticated methods are needed to get accurate results.</p>
+<p>Oh, what is critical behavior? You may ask.
+Well, it turns out the that, when <span class="math notranslate nohighlight">\(N\)</span> is large,
+the probability of a maze being solvable has a sharp transition around <span class="math notranslate nohighlight">\(p_\text{crit}\)</span>.
+Run the following cells and check out the resulting plot.</p>
+<p>We will see another example of critical behavior in the next lab,
+where we will study the Ising model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This cell may take a while to run!</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.notebook</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
+<span class="n">n_mazes</span> <span class="o">=</span> <span class="mi">20000</span>
+<span class="n">side_length</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="n">path_probs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">51</span><span class="p">)</span>
+<span class="n">p_crit</span> <span class="o">=</span> <span class="mf">0.592746</span>
+
+<span class="n">log_p_solvable</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">]</span>  <span class="c1"># for path_prob == 0</span>
+
+<span class="c1"># Use importance sampling for path_probs &lt; p_crit</span>
+<span class="n">path_probs_small</span> <span class="o">=</span> <span class="n">path_probs</span><span class="p">[(</span><span class="n">path_probs</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">path_probs</span> <span class="o">&lt;</span> <span class="n">p_crit</span><span class="p">)]</span>
+<span class="n">log_total_weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">path_probs_small</span><span class="p">)</span>
+<span class="n">log_total_weights</span><span class="p">[:]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_mazes</span><span class="p">):</span>
+    <span class="n">maze</span> <span class="o">=</span> <span class="n">generate_maze</span><span class="p">(</span><span class="n">side_length</span><span class="o">=</span><span class="n">side_length</span><span class="p">,</span> <span class="n">path_prob</span><span class="o">=</span><span class="n">p_crit</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">check_solvable</span><span class="p">(</span><span class="n">maze</span><span class="p">):</span>
+        <span class="n">log_weights</span> <span class="o">=</span> <span class="n">calc_log_prob_diff</span><span class="p">(</span><span class="n">maze</span><span class="p">,</span> <span class="n">path_probs_small</span><span class="p">,</span> <span class="n">p_crit</span><span class="p">)</span>
+        <span class="n">log_total_weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logaddexp</span><span class="p">(</span><span class="n">log_total_weights</span><span class="p">,</span> <span class="n">log_weights</span><span class="p">)</span>
+<span class="n">log_p_solvable</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">log_total_weights</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">n_mazes</span><span class="p">))</span>
+
+<span class="c1"># Use simple sampling for path_probs &gt;= p_crit</span>
+<span class="k">for</span> <span class="n">path_prob</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">path_probs</span><span class="p">[(</span><span class="n">path_probs</span> <span class="o">&gt;=</span> <span class="n">p_crit</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">path_probs</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)]):</span>
+    <span class="n">solvable_count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_mazes</span><span class="p">):</span>
+        <span class="n">maze</span> <span class="o">=</span> <span class="n">generate_maze</span><span class="p">(</span><span class="n">side_length</span><span class="o">=</span><span class="n">side_length</span><span class="p">,</span> <span class="n">path_prob</span><span class="o">=</span><span class="n">path_prob</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">check_solvable</span><span class="p">(</span><span class="n">maze</span><span class="p">):</span>
+            <span class="n">solvable_count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">log_p_solvable</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">solvable_count</span> <span class="o">/</span> <span class="n">n_mazes</span><span class="p">))</span>
+
+<span class="n">log_p_solvable</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># for path_prob == 1</span>
+<span class="n">log_p_solvable</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">log_p_solvable</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "4a51f6c6a4774c08a7bfcbcc1b6e94b6"}</script><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">28</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_mazes</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span>     <span class="n">maze</span> <span class="o">=</span> <span class="n">generate_maze</span><span class="p">(</span><span class="n">side_length</span><span class="o">=</span><span class="n">side_length</span><span class="p">,</span> <span class="n">path_prob</span><span class="o">=</span><span class="n">path_prob</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">28</span>     <span class="k">if</span> <span class="n">check_solvable</span><span class="p">(</span><span class="n">maze</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span>         <span class="n">solvable_count</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="n">log_p_solvable</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">solvable_count</span> <span class="o">/</span> <span class="n">n_mazes</span><span class="p">))</span>
+
+<span class="nn">Cell In[1], line 14,</span> in <span class="ni">check_solvable</span><span class="nt">(maze)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="k">def</span><span class="w"> </span><span class="nf">check_solvable</span><span class="p">(</span><span class="n">maze</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">14</span>     <span class="n">label</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">ndimage</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">maze</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="k">return</span> <span class="n">label</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">label</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nn">File ~/work/phys7730/phys7730/.venv/lib/python3.13/site-packages/scipy/ndimage/_measurements.py:218,</span> in <span class="ni">label</span><span class="nt">(input, structure, output)</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>         <span class="k">return</span> <span class="n">output</span><span class="p">,</span> <span class="n">maxlabel</span>
+<span class="g g-Whitespace">    </span><span class="mi">217</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">218</span>     <span class="n">max_label</span> <span class="o">=</span> <span class="n">_ni_label</span><span class="o">.</span><span class="n">_label</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">structure</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span> <span class="k">except</span> <span class="n">_ni_label</span><span class="o">.</span><span class="n">NeedMoreBits</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span>     <span class="c1"># Make another attempt with enough bits, then try to cast to the</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span>     <span class="c1"># new type.</span>
+<span class="g g-Whitespace">    </span><span class="mi">222</span>     <span class="n">tmp_output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">intp</span> <span class="k">if</span> <span class="n">need_64bits</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">path_probs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_p_solvable</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$p$ (Probability of matrix element being 1)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Probability of maze being solvable&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">p_crit</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C3&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Critical $p$&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Submit your notebook</strong></p>
+<p>Follow these steps when you complete this lab and are ready to submit your work to Canvas:</p>
+<ol class="arabic simple">
+<li><p>Check that all your text answers, plots, and code are all properly displayed in this notebook.</p></li>
+<li><p>Run the cell below.</p></li>
+<li><p>Download the resulting HTML file <code class="docutils literal notranslate"><span class="pre">06.html</span></code> and then upload it to the corresponding assignment on Canvas.</p></li>
+</ol>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>jupyter<span class="w"> </span>nbconvert<span class="w"> </span>--to<span class="w"> </span>html<span class="w"> </span>--embed-images<span class="w"> </span><span class="m">06</span>.ipynb
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./labs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="05.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 5: Statistical Tests</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-random-mazes">A. Random Mazes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-importance-sampling">B. Importance Sampling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-final-remarks-percolation">C. Final Remarks: Percolation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yao-Yuan Mao (University of Utah)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Statistical and Computational Methods in Physics and Astronomy
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
