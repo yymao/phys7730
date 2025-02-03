@@ -11,7 +11,7 @@ Any changes will be communicated to you in a timely fashion.
 | Week 02 | Jan 13, 15 |  Summary Statistics<br>[[Reading 2](readings/02)] [[Lab 2](labs/02)] | Central Limit Theorem & Estimators<br>[[Reading 3](readings/03)] [[Lab 3](labs/03)] |
 | Week 03 | Jan ~~20~~, 22 | *MLK Day* | Maximum Likelihood Estimation<br>[[Reading 4](readings/04)] [[Lab 4](labs/04)]|
 | Week 04 | Jan 27, 29 | Statistical Tests I<br>[[Reading 5](readings/05)] [[Lab 5](labs/05)] | Statistical Tests II  |
-| Week 05 | Feb 03, 05 | Monte Carlo & Importance Sampling<br>[[Reading 6](readings/06)] | Stochastic Processes & Ising model<br>[[Reading 7](readings/07)] |
+| Week 05 | Feb 03, 05 | Monte Carlo & Importance Sampling<br>[[Reading 6](readings/06)] [[Lab 6](labs/06)] | Stochastic Processes & Ising model<br>[[Reading 7](readings/07)] |
 | Week 06 | Feb 10, 12 | MCMC Algorithms & Considerations<br>[[Reading 8](readings/08)] | Bayesian Analysis I<br>[[Reading 9](readings/09)] |
 | Week 07 | Feb ~~17~~, 19 | *Presidents Day* | Bayesian Analysis II |
 | Week 08 | Feb 24, 26 | Bayesian Analysis III | ***5-min presentations*** |
