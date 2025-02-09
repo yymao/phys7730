@@ -13,7 +13,7 @@ Any changes will be communicated to you in a timely fashion.
 | Week 04 | Jan 27, 29 | Statistical Tests I<br>[[Reading 5](readings/05)] [[Lab 5](labs/05)] | Statistical Tests II  |
 | Week 05 | Feb 03, 05 | Monte Carlo & Importance Sampling<br>[[Reading 6](readings/06)] [[Lab 6](labs/06)] | Stochastic Processes & Ising model<br>[[Reading 7](readings/07)] [[Lab 7](labs/07)]|
 | Week 06 | Feb 10, 12 | MCMC Algorithms & Considerations<br>[[Reading 8](readings/08)] | Bayesian Analysis I<br>[[Reading 9](readings/09)] |
-| Week 07 | Feb ~~17~~, 19 | *Presidents Day* | Bayesian Analysis II |
+| Week 07 | Feb ~~17~~, 19 | *Presidents Day* | Bayesian Analysis II<br>[[Reading 10](readings/10)] |
 | Week 08 | Feb 24, 26 | Bayesian Analysis III | ***5-min presentations*** |
 | Week 09 | Mar 03, 05 | Introduction to Machine Learning | Supervised: Regression I |
 |         | Mar ~~10~~, ~~12~~ | *Spring Break* | *Spring Break* |
