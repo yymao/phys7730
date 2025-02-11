@@ -156,14 +156,18 @@ The mock exam and the presentation on the mock exam questions will be graded wit
 Up to 10% of the presentation total score may be adjusted based on the contribution statements. 
 
 
-## Final Project Presentation
+## 5-min "Stats Tidbit" Presentation
 
-Each student will do a 5-minute presentation, with their choice of one of the following topics:
+Each student will do a 5-minute presentation, with their choice of one of the following topics:
 
 - Find a statement from a scientific paper or a news article that involves a statistical test or estimation. Describe, examine, and comment on the method used.
+  (You can find science news articles on [phys.org](https://phys.org/), [sciencenews.org](https://www.sciencenews.org/), [sciencedaily.com](https://www.sciencedaily.com/))
 - Describe a problem in their research work that involves a statistical test or estimation. Lay out a potential method that can be used for the said problem.
+- Pick one exercise question from a section we have read in Wall and Jenkins, "Practical Statistics for Astronomers", and answer it. 
 
-This presentation will be graded based on 5-point scale mentioned above. 
+Prepare to speak for about 4 minutes, and no more than 5 minutes. You can prepare one slide to aid your presentation. 
+
+This presentation will be graded based on 5-point scale mentioned above.
 
 ## Policies on Collaboration and the Use of AI Tools and Other Resources
 
