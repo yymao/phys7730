@@ -1,0 +1,746 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-US" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 9: Bayesian Analysis I &#8212; PHYS/ASTR 7730 - Spring 2025</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystyle.css?v=016a4efc" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=e39023b8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'labs/09';</script>
+    <link rel="canonical" href="https://yymao.github.io/phys7730/labs/09.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Lab 8: MCMC Algorithms and Considerations" href="08.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-US"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="PHYS/ASTR 7730 - Spring 2025 - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="PHYS/ASTR 7730 - Spring 2025 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    PHYS/ASTR 7730 - Spring 2025
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://utah.instructure.com/courses/1027507">Canvas (login required)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies.html">Course Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Weekly Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Set up Python environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-labs.html">How to run a lab?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistical Inference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../readings/inference.html">Readings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../readings/01.html">Reading 1: Probability and Random Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/02.html">Reading 2: Summary Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/03.html">Reading 3: Central Limit Theorem &amp; Estimators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/04.html">Reading 4: Maximum Likelihood Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/05.html">Reading 5: Statistical Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/06.html">Reading 6: Monte Carlo and Importance Sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/07.html">Reading 7: Stochastic Processes &amp; Ising Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/08.html">Reading 8: MCMC Algorithms and Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/09.html">Reading 9: Bayesian Analysis I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/10.html">Reading 10: Bayesian Analysis II</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="inference.html">Labs</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00.html">Lab 0: Setting up and Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.html">Lab 1: Sampling Random Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.html">Lab 2: Summary Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.html">Lab 3: Central Limit Theorem and Estimators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04.html">Lab 4: Maximum Likelihood Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05.html">Lab 5: Statistical Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06.html">Lab 6: Importance Sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07.html">Lab 7: Ising Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08.html">Lab 8: MCMC Algorithms and Considerations</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Lab 9: Bayesian Analysis I</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/labs/09.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 9: Bayesian Analysis I</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-model-construction">A. Model Construction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-the-likelihood-function">B. The Likelihood Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-fitting-to-data">C. Fitting to Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-flat-priors-with-bounds">D. Flat Priors with Bounds</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-9-bayesian-analysis-i">
+<h1>Lab 9: Bayesian Analysis I<a class="headerlink" href="#lab-9-bayesian-analysis-i" title="Link to this heading">#</a></h1>
+<p><em>For the class on Wednesday, February 12th</em></p>
+<p>In this and the next labs, we are going to do a full Bayesian analysis
+on the alpha particle detector scenario that we have discussed in class earlier.
+Here’s the setup (you’ve seen this already; it’s repeated here for your convenience).</p>
+<blockquote>
+<div><p>You have a detector that detects alpha particles and records the time of each detection.
+The detector produces the data as a list of incident times, <span class="math notranslate nohighlight">\(t_1, t_2, \cdots\)</span>.
+You know there is background radiation that results in background noise.
+The background noise is random but has a uniform probability density in time.
+You collected the data during a 24-hour period and want to check if there was
+an event that produces a burst of alpha particles during that period.
+From your physics knowledge, you know that:</p>
+<ul class="simple">
+<li><p>The background level is of the order of 1 incident per minute (but you don’t know the exact rate).</p></li>
+<li><p>The event is supposed to produce a burst of alpha particles that is at least 3 times higher than the background level during the burst.</p></li>
+<li><p>The event happens very rarely (it’s very unlikely it happens more than once during a 24-hour period).</p></li>
+<li><p>One burst typically lasts for about 5 minutes (but you don’t know the exact length).</p></li>
+</ul>
+</div></blockquote>
+<section id="a-model-construction">
+<h2>A. Model Construction<a class="headerlink" href="#a-model-construction" title="Link to this heading">#</a></h2>
+<p>The first step is to construct a model based on our knowledge of the system.
+As we discussed in class, we sometimes will need to make assumptions about the system
+to fully specify the model.</p>
+<p>We don’t know the exact rate of the background level or the signal level.
+We also don’t know the exact duration of the burst.
+We can leave all these as parameters in our model.</p>
+<p>We also don’t know the exact time when the burst happened, so that needs to be a parameter as well.
+We do know that the burst happens very rarely, so for now let’s assume there’s at most one burst in the 24-hour period.</p>
+<p>We know the background incidents have a uniform probability density in time.
+But we don’t know whether the rate during a burst would stay constant or go up and down gradually.
+For now, let’s assume the rate also stays constant (uniform) during the burst.</p>
+<p>With all of the above, our model would look like this:</p>
+<p><img alt="Model" src="https://yymao.github.io/phys7730/lab9_model.png" /></p>
+<p>Here, we have four parameters:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(r_{\text{bg}}\)</span> is the rate of the background level (in incidents per minute),</p></li>
+<li><p><span class="math notranslate nohighlight">\(s\)</span> is the ratio of the signal rate to the background rate,</p></li>
+<li><p><span class="math notranslate nohighlight">\(t_{\text{start}}\)</span> is the time when the burst happened (in minutes since the start of the 24-hour period), and</p></li>
+<li><p><span class="math notranslate nohighlight">\(t_{\text{duration}}\)</span> is the duration of the burst (in minutes).</p></li>
+</ul>
+<p>📝 <strong>Questions</strong>:</p>
+<ol class="arabic simple">
+<li><p>Derive the expected value of the total number of incidents (i.e., alpha particle detection) during the 24-hour window.
+Express your answer in terms of the four parameters above. Note that there are 1,440 minutes in a 24-hour period.</p></li>
+<li><p>What is the probability <em>density</em> of detecting one incident at <span class="math notranslate nohighlight">\(t_1\)</span>, if <span class="math notranslate nohighlight">\(t_1 &lt; t_{\text{start}}\)</span>?
+Express your answer in terms of the four parameters above. Properly normalize the probability density.</p></li>
+<li><p>What is the probability <em>density</em> of detecting one incident at <span class="math notranslate nohighlight">\(t_2\)</span>, if <span class="math notranslate nohighlight">\(t_{\text{start}} &lt; t_2 &lt; t_{\text{start}} + t_{\text{duration}}\)</span>?
+Express your answer in terms of the four parameters above. Properly normalize the probability density.</p></li>
+<li><p>Given this model, what conditions of the parameters correspond to the null hypothesis (background only)?</p></li>
+</ol>
+<p><em>// Write your answers to Part A here</em></p>
+</section>
+<section id="b-the-likelihood-function">
+<h2>B. The Likelihood Function<a class="headerlink" href="#b-the-likelihood-function" title="Link to this heading">#</a></h2>
+<p>Let’s say the observed data (the actual times of the alpha particle detection incidents) is <span class="math notranslate nohighlight">\(t_1, t_2, \cdots, t_N\)</span>,
+where <span class="math notranslate nohighlight">\(N\)</span> is the total number of incidents detected.</p>
+<p>If we assume the incidents are independent events, then the likelihood function
+is the product of the probability densities of each incident,
+which we have calculated in A2 and A3 above.</p>
+<p>Moreover, the total number of incidents, <span class="math notranslate nohighlight">\(N\)</span>, would impact the likelihood function as well.
+The likelihood should be greater if the observed <span class="math notranslate nohighlight">\(N\)</span> is closer to the expected value of the total number of incidents.
+We often model the number of event occurrences as a Poisson distribution, with the rate parameter being the expected
+value of the total number of occurrences.</p>
+<p>We can write the likelihood function as:</p>
+<div class="math notranslate nohighlight">
+\[
+L( \boldsymbol\theta | t_1, t_2, \cdots, t_N) = \mathrm{Pois}(N | \lambda(\boldsymbol\theta)) \times \prod_{i=1}^N p(t_i | \boldsymbol\theta),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\boldsymbol\theta = (r_{\text{bg}}, s, t_{\text{start}}, t_{\text{duration}})\)</span> is the vector of our parameters,
+<span class="math notranslate nohighlight">\(\mathrm{Pois}\)</span> is the Poisson distribution,
+<span class="math notranslate nohighlight">\(\lambda(\boldsymbol\theta)\)</span> is the expected value of the total number of incidents as you derived in A1,
+and <span class="math notranslate nohighlight">\(p\)</span> is the probability density of detecting one incident at a given time as you derived in A2 and A3.</p>
+<p>📝 <strong>Questions</strong>:</p>
+<ol class="arabic simple">
+<li><p>Based on your answers to A2 and A3, write down <span class="math notranslate nohighlight">\( \sum_{i=1}^N \log p(t_i | \boldsymbol\theta)\)</span>.
+Express your answer in terms of the four parameters above,
+the number of events that are during the burst (<span class="math notranslate nohighlight">\(N_{\text{burst}}\)</span>),
+and the number of events that are outside the burst (<span class="math notranslate nohighlight">\(N_{\text{outside}}\)</span>).</p></li>
+</ol>
+<p>🚀 <strong>Tasks</strong>:</p>
+<ol class="arabic simple">
+<li><p>Based on your answer to B1, implement the log-likelihood function in Python below.</p></li>
+</ol>
+<p><em>// Write your answers to Part B here</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importing the libraries</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.optimize</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">total_time</span> <span class="o">=</span> <span class="mi">1440</span>  <span class="c1"># 24 hours in minutes</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implement the Part B task here</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">log_likelihood</span><span class="p">(</span><span class="n">r_bg</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t_start</span><span class="p">,</span> <span class="n">t_duration</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+
+    <span class="n">expected_total</span> <span class="o">=</span> <span class="o">...</span>   <span class="c1"># Implement the function based on your answer to A1</span>
+    <span class="n">log_p_outside</span> <span class="o">=</span> <span class="o">...</span>    <span class="c1"># Implement the function based on your answer to A2</span>
+    <span class="n">log_p_during</span> <span class="o">=</span> <span class="o">...</span>     <span class="c1"># Implement the function based on your answer to A3</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">N_total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">N_during</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">((</span><span class="n">data</span> <span class="o">&gt;=</span> <span class="n">t_start</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span> <span class="o">&lt;</span> <span class="n">t_start</span> <span class="o">+</span> <span class="n">t_duration</span><span class="p">))</span>
+    <span class="n">N_outside</span> <span class="o">=</span> <span class="n">N_total</span> <span class="o">-</span> <span class="n">N_during</span>
+
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">logpmf</span><span class="p">(</span><span class="n">N_total</span><span class="p">,</span> <span class="n">expected_total</span><span class="p">)</span>
+        <span class="o">+</span> <span class="o">...</span>  <span class="c1"># Implement the term of the log-likelihood for incidents outside the burst period</span>
+        <span class="o">+</span> <span class="o">...</span>  <span class="c1"># Implement the term of the log-likelihood for incidents during the burst period</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="c-fitting-to-data">
+<h2>C. Fitting to Data<a class="headerlink" href="#c-fitting-to-data" title="Link to this heading">#</a></h2>
+<p>Now, let’s take a look at the observed data.
+The cell below loads the data from a file and plots the histogram of the time of the observed incidents.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://yymao.github.io/phys7730/lab9_data.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">total_time</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C0&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$t$  [min]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Counts per 5-min bin&quot;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">total_time</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">total_time</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e25357dd1b9f8a20b0b3b05209a6324bd0fa1e6d9aa79423e80797b4ab98ec16.png" src="../_images/e25357dd1b9f8a20b0b3b05209a6324bd0fa1e6d9aa79423e80797b4ab98ec16.png" />
+</div>
+</div>
+<p>Now, let’s see how our likelihood function behaves given this data set.
+The cell below plots the log-likelihood function that you implemented earlier.</p>
+<p>However, it is not easy to visualize a 4D function (we have four parameters),
+so we will only plot the log-likelihood function as a function of <code class="docutils literal notranslate"><span class="pre">r_bg</span></code>, and fix all other parameters by hand.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">ll_values_no_burst</span></code>, we will store the log-likelihood values when there is no burst (i.e., <span class="math notranslate nohighlight">\(r_{\text{sig}} = 0\)</span>).
+This case would correspond to our null hypothesis (background only).</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">ll_values_with_burst</span></code>, we will store the log-likelihood values when there is a burst.
+For now, we will manually set the three parameters (<code class="docutils literal notranslate"><span class="pre">s</span></code>, <code class="docutils literal notranslate"><span class="pre">t_start</span></code>, and <code class="docutils literal notranslate"><span class="pre">t_duration</span></code>) based on some educated guesses
+by looking at the histogram above.</p>
+<p>We finally plot these both cases to compare them.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_bg_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
+<span class="n">ll_values_no_burst</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">ll_values_with_burst</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">r_bg</span> <span class="ow">in</span> <span class="n">r_bg_values</span><span class="p">:</span>
+    <span class="n">ll_values_no_burst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">log_likelihood</span><span class="p">(</span><span class="n">r_bg</span><span class="o">=</span><span class="n">r_bg</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">t_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_duration</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">))</span>
+    <span class="n">ll_values_with_burst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">log_likelihood</span><span class="p">(</span><span class="n">r_bg</span><span class="o">=</span><span class="n">r_bg</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">t_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_duration</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">))</span>  <span class="c1"># change this line</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_bg_values</span><span class="p">,</span> <span class="n">ll_values_no_burst</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;No burst&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_bg_values</span><span class="p">,</span> <span class="n">ll_values_with_burst</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;With burst&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;r_bg values&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Log-Likelihood&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>🚀 <strong>Tasks and Questions</strong>:</p>
+<ol class="arabic simple">
+<li><p>In the cell above, try a few different values of <code class="docutils literal notranslate"><span class="pre">t_start</span></code> in the line that starts with <code class="docutils literal notranslate"><span class="pre">ll_values_with_burst.append</span></code>.
+How does the orange curve change as you change <code class="docutils literal notranslate"><span class="pre">t_start</span></code>?
+Do you ever see the orange curve surpass the blue curve with certain values of <code class="docutils literal notranslate"><span class="pre">t_start</span></code>?
+<strong>Briefly describe and explain your observations.</strong></p></li>
+</ol>
+<p><em>// Write your answers to Part C here</em></p>
+</section>
+<section id="d-flat-priors-with-bounds">
+<h2>D. Flat Priors with Bounds<a class="headerlink" href="#d-flat-priors-with-bounds" title="Link to this heading">#</a></h2>
+<p>Finally, let’s assume flat priors for all four parameters, but with some bounds imposed.
+This type of prior is also called a “top-hat prior”.</p>
+<p>Since the priors are uniform within the bounds,
+if the maximum likelihood estimate of our parameter vector is also located within the bounds,
+then the maximum a posterior (MAP) estimate would be the same as the maximum likelihood estimate.</p>
+<p>Let’s try to find the MAP estimate using the flat priors with the following bounds:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(0.5 \leq r_{\text{bg}} \leq 2\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(3 \leq s \leq 5\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(-10 \leq t_{\text{start}} \leq 1440\)</span>, and</p></li>
+<li><p><span class="math notranslate nohighlight">\(2 \leq t_{\text{duration}} \leq 8\)</span>.</p></li>
+</ul>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parameters are r_bg, s, t_start, t_duration</span>
+<span class="n">bounds</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">Bounds</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1440</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">obj_func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">log_likelihood</span><span class="p">(</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">method</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">dual_annealing</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">method</span><span class="p">(</span><span class="n">obj_func</span><span class="p">,</span> <span class="n">bounds</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">((</span><span class="s2">&quot;r_bg&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;t_start&quot;</span><span class="p">,</span> <span class="s2">&quot;t_duration&quot;</span><span class="p">),</span> <span class="n">result</span><span class="o">.</span><span class="n">x</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>🚀 <strong>Tasks</strong>:</p>
+<ol class="arabic simple">
+<li><p>Run the cell above a few times. You may notice the best-fit values change.
+This is because the parameter space is quite large and the optimization algorithm may not find the actual minimum
+with the given limitation of run time (number of iterations).
+See which set of the best-fit values seems to appear more often when you re-run the cell.</p></li>
+<li><p>With the MAP estimates you obtained, plot again the log-likelihood functions with and without the burst
+(i.e., the last code cell from Part C), but supply the MAP estimates above for the case with the burst.
+See how the orange curve changes with these best-fit parameter values.
+<strong>Briefly describe and explain your observations.</strong></p></li>
+</ol>
+<p><em>// Write your answers to Part D here</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code to Part D here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Submit your notebook</strong></p>
+<p>Follow these steps when you complete this lab and are ready to submit your work to Canvas:</p>
+<ol class="arabic simple">
+<li><p>Check that all your text answers, plots, and code are all properly displayed in this notebook.</p></li>
+<li><p>Run the cell below.</p></li>
+<li><p>Download the resulting HTML file <code class="docutils literal notranslate"><span class="pre">09.html</span></code> and then upload it to the corresponding assignment on Canvas.</p></li>
+</ol>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>jupyter<span class="w"> </span>nbconvert<span class="w"> </span>--to<span class="w"> </span>html<span class="w"> </span>--embed-images<span class="w"> </span><span class="m">09</span>.ipynb
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./labs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="08.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 8: MCMC Algorithms and Considerations</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-model-construction">A. Model Construction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-the-likelihood-function">B. The Likelihood Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-fitting-to-data">C. Fitting to Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-flat-priors-with-bounds">D. Flat Priors with Bounds</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yao-Yuan Mao (University of Utah)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Statistical and Computational Methods in Physics and Astronomy
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
