@@ -25,3 +25,4 @@ parts:
     title: Labs
     sections:
     - glob: labs/0[0-9]
+    - file: labs/10
