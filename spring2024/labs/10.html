@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -431,7 +431,7 @@ Run the following in a terminal <strong>after you activate the environment you u
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run this cell to check if emcee and corner are installed</span>
-<span class="kn">import</span> <span class="nn">emcee</span><span class="o">,</span> <span class="nn">corner</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">emcee</span><span class="o">,</span><span class="w"> </span><span class="nn">corner</span>
 </pre></div>
 </div>
 </div>
@@ -446,28 +446,28 @@ populate the functions <code class="docutils literal notranslate"><span class="p
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Include your implementation for Part A1 here</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="k">def</span> <span class="nf">log_prior_a</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">log_prior_a</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
     <span class="c1"># TODO: implement this function</span>
     <span class="k">return</span>
 
 
-<span class="k">def</span> <span class="nf">log_prior_b</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">log_prior_b</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
     <span class="c1"># TODO: implement this function</span>
     <span class="k">return</span>
 
 
-<span class="k">def</span> <span class="nf">log_likelihood</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">x_sum</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">y_sum</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">log_likelihood</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">x_sum</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">y_sum</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
     <span class="c1"># TODO: impelement this function</span>
     <span class="k">return</span>
 
 
-<span class="k">def</span> <span class="nf">log_posterior</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">log_posterior</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">parameters</span>
     <span class="k">return</span> <span class="n">log_likelihood</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="o">+</span> <span class="n">log_prior_a</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="n">log_prior_b</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
@@ -483,7 +483,7 @@ The initial guesses are set to a narrow gaussian distribution around the MLE est
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For A2. Uncomment the last line run this cell</span>
-<span class="kn">import</span> <span class="nn">emcee</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">emcee</span>
 
 <span class="c1">#########</span>
 <span class="c1"># do not change the following two lines</span>
@@ -579,7 +579,7 @@ Repeat the analysis from A3 and A4 and see how the results change.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For A5 setup: Uncomment the last line run this cell</span>
 
-<span class="k">def</span> <span class="nf">log_posterior_uniform_priors</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">log_posterior_uniform_priors</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">parameters</span>
     <span class="k">return</span> <span class="n">log_likelihood</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
 

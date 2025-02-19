@@ -1,0 +1,923 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-US" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 10: Bayesian Analysis II &#8212; PHYS/ASTR 7730 - Spring 2025</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystyle.css?v=016a4efc" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=e39023b8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'labs/10';</script>
+    <link rel="canonical" href="https://yymao.github.io/phys7730/labs/10.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Lab 9: Bayesian Analysis I" href="09.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-US"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="PHYS/ASTR 7730 - Spring 2025 - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="PHYS/ASTR 7730 - Spring 2025 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    PHYS/ASTR 7730 - Spring 2025
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://utah.instructure.com/courses/1027507">Canvas (login required)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies.html">Course Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Weekly Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Set up Python environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-labs.html">How to run a lab?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistical Inference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../readings/inference.html">Readings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../readings/01.html">Reading 1: Probability and Random Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/02.html">Reading 2: Summary Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/03.html">Reading 3: Central Limit Theorem &amp; Estimators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/04.html">Reading 4: Maximum Likelihood Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/05.html">Reading 5: Statistical Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/06.html">Reading 6: Monte Carlo and Importance Sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/07.html">Reading 7: Stochastic Processes &amp; Ising Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/08.html">Reading 8: MCMC Algorithms and Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/09.html">Reading 9: Bayesian Analysis I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readings/10.html">Reading 10: Bayesian Analysis II</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="inference.html">Labs</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00.html">Lab 0: Setting up and Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.html">Lab 1: Sampling Random Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.html">Lab 2: Summary Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.html">Lab 3: Central Limit Theorem and Estimators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04.html">Lab 4: Maximum Likelihood Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05.html">Lab 5: Statistical Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06.html">Lab 6: Importance Sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07.html">Lab 7: Ising Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08.html">Lab 8: MCMC Algorithms and Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09.html">Lab 9: Bayesian Analysis I</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Lab 10: Bayesian Analysis II</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/labs/10.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 10: Bayesian Analysis II</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-running-mcmc-with-emcee">A. Running MCMC with emcee</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-the-likelihood-function">A1. The likelihood function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a2-the-flat-prior-function">A2. The (flat) prior function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a3-initial-guesses">A3. Initial guesses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a4-running-the-mcmc">A4. Running the MCMC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a5-inspecting-the-mcmc-chains">A5. Inspecting the MCMC chains</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a6-a-corner-plot-of-the-posterior-distribution">A6. A corner plot of the posterior distribution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-choosing-priors">B. Choosing priors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-the-log-prior-functions">B1. The log-prior functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-re-running-the-mcmc-with-non-flat-priors">B2. Re-running the MCMC with non-flat priors</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-10-bayesian-analysis-ii">
+<h1>Lab 10: Bayesian Analysis II<a class="headerlink" href="#lab-10-bayesian-analysis-ii" title="Link to this heading">#</a></h1>
+<p><em>For the class on Wednesday, February 19th</em></p>
+<section id="a-running-mcmc-with-emcee">
+<h2>A. Running MCMC with emcee<a class="headerlink" href="#a-running-mcmc-with-emcee" title="Link to this heading">#</a></h2>
+<p>In this lab we will do a full MCMC inference for the problem presented in the previous lab.</p>
+<p>We will not be writing our own MCMC code. Instead, we will simply use the <code class="docutils literal notranslate"><span class="pre">emcee</span></code> package.
+The <code class="docutils literal notranslate"><span class="pre">emcee</span></code> package implements the affine-invariant ensemble sampling algorithm proposed by
+<a class="reference external" href="https://msp.org/camcos/2010/5-1/p04.xhtml">Goodman &amp; Weare (2010)</a>.
+This algorithm is based on the classical Metropolis–Hastings algorithm,
+but it runs multiple chains at once, and uses the positions of other walkers when proposing the jump.
+This algorithm reduces the autocorrelation time compared to the plain Metropolis–Hastings algorithm.</p>
+<p>For more details, please refer to <a class="reference external" href="https://arxiv.org/abs/1202.3665">Foreman-Mackey, Hogg, Lang &amp; Goodman (2012)</a>.
+For the full documentation of <code class="docutils literal notranslate"><span class="pre">emcee</span></code>, please refer to <a class="reference external" href="https://emcee.readthedocs.io">this link</a> (but you won’t need it for this lab though).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import packages used in this lab</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">multiprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pool</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">emcee</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">emcee.autocorr</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">corner</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="a1-the-likelihood-function">
+<h3>A1. The likelihood function<a class="headerlink" href="#a1-the-likelihood-function" title="Link to this heading">#</a></h3>
+<p>Our first step is of course to construct the likelihood function, which you have already done in Lab 9.
+But here we need to make a few technical modifications to the code so that it can be used with <code class="docutils literal notranslate"><span class="pre">emcee</span></code>:</p>
+<ol class="arabic simple">
+<li><p>We will combine the four parameters into one single argument in the function’s call signature,
+but we can easily unpack these parameters.</p></li>
+<li><p>We will also modify the log-likelihood function to ensure it never returns a NaN (not-a-number) value.
+<code class="docutils literal notranslate"><span class="pre">emcee</span></code> does not like NaNs well, so the log-likelihood should return <code class="docutils literal notranslate"><span class="pre">-np.inf</span></code> instead.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the observed data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://yymao.github.io/phys7730/lab9_data.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Define total_time (24 hours in minutes)</span>
+<span class="n">total_time</span> <span class="o">=</span> <span class="mi">1440</span>
+
+<span class="c1"># Define the log-likelihood function</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">log_likelihood</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="n">r_bg</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t_start</span><span class="p">,</span> <span class="n">t_duration</span> <span class="o">=</span> <span class="n">theta</span>  <span class="c1"># unpack the parameters</span>
+
+    <span class="n">expected_total</span> <span class="o">=</span> <span class="n">r_bg</span> <span class="o">*</span> <span class="n">total_time</span> <span class="o">+</span> <span class="n">s</span> <span class="o">*</span> <span class="n">r_bg</span> <span class="o">*</span> <span class="n">t_duration</span>
+    <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>  <span class="c1"># suppress numpy warnings</span>
+        <span class="n">log_p_outside</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">r_bg</span> <span class="o">/</span> <span class="n">expected_total</span><span class="p">)</span>
+        <span class="n">log_p_during</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">r_bg</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="n">expected_total</span><span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">N_total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">N_during</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">((</span><span class="n">data</span> <span class="o">&gt;=</span> <span class="n">t_start</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span> <span class="o">&lt;</span> <span class="n">t_start</span> <span class="o">+</span> <span class="n">t_duration</span><span class="p">))</span>
+    <span class="n">N_outside</span> <span class="o">=</span> <span class="n">N_total</span> <span class="o">-</span> <span class="n">N_during</span>
+
+    <span class="c1"># These cases will result in a NaN log-likelihood, so we need change it to -inf</span>
+    <span class="k">if</span> <span class="n">expected_total</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">log_p_outside</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">log_p_during</span><span class="p">):</span>
+        <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">logpmf</span><span class="p">(</span><span class="n">N_total</span><span class="p">,</span> <span class="n">expected_total</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">N_during</span> <span class="o">*</span> <span class="n">log_p_during</span>
+        <span class="o">+</span> <span class="n">N_outside</span> <span class="o">*</span> <span class="n">log_p_outside</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a2-the-flat-prior-function">
+<h3>A2. The (flat) prior function<a class="headerlink" href="#a2-the-flat-prior-function" title="Link to this heading">#</a></h3>
+<p>Let’s start with just flat priors for all parameters.
+However, even though we are using flat priors, we still need to implement some bounds on the parameters.
+These bounds are necessary to prevent the MCMC chains from wandering into to regions of parameter space that:</p>
+<ol class="arabic simple">
+<li><p>are not physically meaningful, or</p></li>
+<li><p>do not impact the likelihood function.</p></li>
+</ol>
+<p>Here are the bounds we will use for the four parameters:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(r_{\text{bg}} \geq 0\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(s \geq 0\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(-10 \leq t_{\text{start}} \leq 1440\)</span>, and</p></li>
+<li><p><span class="math notranslate nohighlight">\(0 \leq t_{\text{duration}} \leq 1440\)</span>.</p></li>
+</ul>
+<p>📝 <strong>Questions (A2)</strong>:</p>
+<p>For each parameter, are the bounds listed above to avoid non-physical regions
+or to avoid entering regions that do not have an impact on the likelihood function?
+Briefly explain your answer.</p>
+<p><em>// Add your answer to Part A2 here</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is our flat prior function</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">log_prior_flat</span><span class="p">(</span><span class="n">theta</span><span class="p">):</span>
+    <span class="n">r_bg</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t_start</span><span class="p">,</span> <span class="n">t_duration</span> <span class="o">=</span> <span class="n">theta</span>
+    <span class="k">if</span> <span class="n">r_bg</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">s</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">t_start</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">10</span> <span class="ow">or</span> <span class="n">t_start</span> <span class="o">&gt;</span> <span class="n">total_time</span> <span class="ow">or</span> <span class="n">t_duration</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">t_duration</span> <span class="o">&gt;</span> <span class="n">total_time</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+    <span class="k">return</span> <span class="mi">0</span>
+
+<span class="c1"># This is our log-posterior function</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">log_posterior_flat_priors</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">log_prior_flat</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="n">log_likelihood</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a3-initial-guesses">
+<h3>A3. Initial guesses<a class="headerlink" href="#a3-initial-guesses" title="Link to this heading">#</a></h3>
+<p>Now we are almost ready to run the MCMC!</p>
+<p>Before we start, we will need to provide some initial guesses to start these walkers.
+As we discussed, it’s a good idea to have each walker start at a different location in parameter space.
+This way we can explore the parameter space more efficiently.
+To this end, we will sample from some distributions to get these initial guesses.</p>
+<p>The distributions that we use to sample the initial guesses are not super important,
+as long as they can result in some reasonable initial guesses that span the interesting regions of our parameter space.
+They also do <em>not</em> need to match the prior distributions.</p>
+<p>The cell below will generate the initial guesses for the walkers
+and also plot the histogram of the initial guesses for each parameter.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nwalkers</span> <span class="o">=</span> <span class="mi">40</span>   <span class="c1"># number of walkers</span>
+
+<span class="c1"># generate initial guess</span>
+<span class="n">r_bg_0</span>       <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">truncnorm</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">nwalkers</span><span class="p">)</span>
+<span class="n">s_0</span>          <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">expon</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">nwalkers</span><span class="p">)</span>
+<span class="n">t_start_0</span>    <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1440</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">nwalkers</span><span class="p">)</span>
+<span class="n">t_duration_0</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">truncnorm</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">nwalkers</span><span class="p">)</span>
+
+<span class="n">p0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">r_bg_0</span><span class="p">,</span> <span class="n">s_0</span><span class="p">,</span> <span class="n">t_start_0</span><span class="p">,</span> <span class="n">t_duration_0</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ax_this</span><span class="p">,</span> <span class="n">p0_this</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">p0</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;r_bg&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;t_start&quot;</span><span class="p">,</span> <span class="s2">&quot;t_duration&quot;</span><span class="p">]):</span>
+    <span class="n">ax_this</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">p0_this</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+    <span class="n">ax_this</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+    <span class="n">ax_this</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Initial guesses&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Initial guesses&#39;)
+</pre></div>
+</div>
+<img alt="../_images/342c9c831b81281f53d07c561199b892a541c125fb70c0fc1183a15aaceb99b9.png" src="../_images/342c9c831b81281f53d07c561199b892a541c125fb70c0fc1183a15aaceb99b9.png" />
+</div>
+</div>
+</section>
+<section id="a4-running-the-mcmc">
+<h3>A4. Running the MCMC<a class="headerlink" href="#a4-running-the-mcmc" title="Link to this heading">#</a></h3>
+<p>The cell below now actually runs the MCMC.</p>
+<p>Here <code class="docutils literal notranslate"><span class="pre">emcee.EnsembleSampler</span></code> defines the sampler object, which contains the information
+about the posterior function, the number of walkers, and the number of parameters.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">run_mcmc</span></code> method then actually runs the MCMC chains for a given number of steps.</p>
+<p>This cell is going to take a while to run.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">npara</span> <span class="o">=</span> <span class="n">p0</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># number of parameters</span>
+<span class="n">nsteps</span> <span class="o">=</span> <span class="mi">10000</span>      <span class="c1"># number of steps per walker</span>
+
+<span class="k">with</span> <span class="n">Pool</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+    <span class="n">sampler</span> <span class="o">=</span> <span class="n">emcee</span><span class="o">.</span><span class="n">EnsembleSampler</span><span class="p">(</span><span class="n">nwalkers</span><span class="p">,</span> <span class="n">npara</span><span class="p">,</span> <span class="n">log_posterior_flat_priors</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">data</span><span class="p">,))</span>
+    <span class="n">sampler</span><span class="o">.</span><span class="n">run_mcmc</span><span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">,</span> <span class="n">progress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a5-inspecting-the-mcmc-chains">
+<h3>A5. Inspecting the MCMC chains<a class="headerlink" href="#a5-inspecting-the-mcmc-chains" title="Link to this heading">#</a></h3>
+<p>Now we are going to inspect our MCMC run.
+We will first print out the acceptance rate for each walker.
+Then we will pick a specific walker and make the trace plot for each parameter.</p>
+<p>🚀 <strong>Tasks and Questions (A5)</strong>:</p>
+<ol class="arabic simple">
+<li><p>Pay attention to the acceptance rate printed below (and the histogram). What is the typical acceptance rate?
+Do you spot a few walkers with very low acceptance rates?</p></li>
+<li><p>In the second cell below (the one that makes trace plots), check a few different walkers with different acceptance rates.
+What do you observe in these trace plots?
+What’s the difference between the walker with a typical acceptance rate and the one with a very low acceptance rate?</p></li>
+<li><p>What’s the burn-in period that you would choose for this MCMC run?
+Would you choose the same burn-in period for all walkers?
+Does the burn-in period depend on the walker’s acceptance rate?</p></li>
+</ol>
+<p><em>// Add your answer to Part A5 here</em></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the acceptance fraction for each walker (with the walker index shown)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">sampler</span><span class="o">.</span><span class="n">acceptance_fraction</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">sampler</span><span class="o">.</span><span class="n">acceptance_fraction</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Acceptance fraction&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Number of walkers per bin&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">walker_index</span> <span class="o">=</span> <span class="mi">24</span>  <span class="c1"># change this number to see different walkers</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ax_this</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">sampler</span><span class="o">.</span><span class="n">get_chain</span><span class="p">()[:,</span><span class="n">walker_index</span><span class="p">,:]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;r_bg&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;t_start&quot;</span><span class="p">,</span> <span class="s2">&quot;t_duration&quot;</span><span class="p">]):</span>
+    <span class="n">ax_this</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C0&quot;</span><span class="p">)</span>
+    <span class="n">ax_this</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax_this</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">)</span>
+    <span class="n">ax_this</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a6-a-corner-plot-of-the-posterior-distribution">
+<h3>A6. A corner plot of the posterior distribution<a class="headerlink" href="#a6-a-corner-plot-of-the-posterior-distribution" title="Link to this heading">#</a></h3>
+<p>Finally, we will make a corner plot to visualize the posterior distribution of the parameters.</p>
+<p>Before we do so, there’s a few things to do:</p>
+<ol class="arabic simple">
+<li><p>We should remove walkers that have very low or very high acceptance rates, as those walkers may not be representative of the posterior distribution.</p></li>
+<li><p>We need to remove the burn-in period from our chains.</p></li>
+<li><p>We should apply thinning to our chains to reduce the autocorrelation between samples.</p></li>
+</ol>
+<p>🚀 <strong>Tasks (A6)</strong>:</p>
+<ol class="arabic simple">
+<li><p>In the first cell below, we will remove the walkers with very low acceptance rates.
+Based on your observation in Part A5, choose a threshold for the acceptance rate
+to remove walkers with acceptance rates below this threshold.</p></li>
+</ol>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a mask that can be used to select the good walkers</span>
+<span class="n">good_walkers</span> <span class="o">=</span> <span class="p">(</span><span class="n">sampler</span><span class="o">.</span><span class="n">acceptance_fraction</span> <span class="o">&gt;=</span> <span class="o">...</span><span class="p">)</span>  <span class="c1"># TODO: change ... with a threshold value</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the autocorrelation time for each parameter</span>
+<span class="n">emcee</span><span class="o">.</span><span class="n">autocorr</span><span class="o">.</span><span class="n">integrated_time</span><span class="p">(</span><span class="n">sampler</span><span class="o">.</span><span class="n">get_chain</span><span class="p">(</span><span class="n">discard</span><span class="o">=</span><span class="mi">1000</span><span class="p">)[:,</span><span class="n">good_walkers</span><span class="p">,:],</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may see a warning that the chain is too short. That’s probably true, especially if you did not remove all the bad walkers.
+Typically, we will choose a thinning step that is about half of the autocorrelation time</p>
+<p>Now, let’s re-sample our chain with appropriate thinning and burn-in removal, and then make the corner plot.</p>
+<p>In the cell below:</p>
+<ol class="arabic simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">discard</span></code> argument is used to remove the burn-in period (skip the first <code class="docutils literal notranslate"><span class="pre">discard</span></code> steps),</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">thin</span></code> argument is used to thin the chains (keep only every <code class="docutils literal notranslate"><span class="pre">thin</span></code>-th step).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">good_walkers</span></code> variable is used to select only the walkers with an acceptance rate between 0.2 and 0.8.</p></li>
+</ol>
+<p>🚀 <strong>Tasks (A6)</strong>:
+2. In the cell below, choose some values for <code class="docutils literal notranslate"><span class="pre">discard</span></code> and <code class="docutils literal notranslate"><span class="pre">thin</span></code> that you think are appropriate.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample from the MCMC chains, with only good walkers, skipping burn-in, and thinning</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">get_chain</span><span class="p">(</span><span class="n">discard</span><span class="o">=...</span><span class="p">,</span> <span class="n">thin</span><span class="o">=...</span><span class="p">)[:,</span><span class="n">good_walkers</span><span class="p">,:]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">npara</span><span class="p">)</span>  <span class="c1"># TODO: change ... with appropriate values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The `results` variable is an n-by-4 array, where n is the number of samples we finally kept</span>
+<span class="n">results</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will now use the <code class="docutils literal notranslate"><span class="pre">corner</span></code> package to make the corner plot.</p>
+<p>You won’t need the advanced features of the <code class="docutils literal notranslate"><span class="pre">corner</span></code> package in this lab.
+But for your future references, here’s <a class="reference external" href="https://corner.readthedocs.io/en/latest/api/"><code class="docutils literal notranslate"><span class="pre">corner</span></code> documentation</a>.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make the corner plot</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">corner</span><span class="o">.</span><span class="n">corner</span><span class="p">(</span>
+    <span class="n">results</span><span class="p">,</span>
+    <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;$r_</span><span class="se">\\</span><span class="s2">mathrm</span><span class="si">{bg}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="s2">&quot;$s$&quot;</span><span class="p">,</span> <span class="s2">&quot;$t_</span><span class="se">\\</span><span class="s2">mathrm</span><span class="si">{start}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="s2">&quot;$t_</span><span class="se">\\</span><span class="s2">mathrm</span><span class="si">{duration}</span><span class="s2">$&quot;</span><span class="p">],</span>
+    <span class="n">quantiles</span><span class="o">=</span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span>
+    <span class="n">show_titles</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">title_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;fontsize&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">},</span>
+    <span class="n">label_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;fontsize&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">},</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>📝 <strong>Questions (A6)</strong>:</p>
+<p>Briefly discuss what you observed from the corner plot. In particular, discuss the following:</p>
+<ul class="simple">
+<li><p>Based on the corner plot, what would you conclude about the observed data?</p></li>
+<li><p>Compare the corner plot with the maximum a posteriori estimate that you obtained in Lab 9.</p></li>
+<li><p>Do you see any potential issues with the MCMC chains based the corner plot?</p></li>
+</ul>
+<p><em>// Add your answer to Part A6 here</em></p>
+</section>
+</section>
+<section id="b-choosing-priors">
+<h2>B. Choosing priors<a class="headerlink" href="#b-choosing-priors" title="Link to this heading">#</a></h2>
+<p>In Part B, we will repeat the MCMC run with more informative priors for the four parameters.</p>
+<section id="b1-the-log-prior-functions">
+<h3>B1. The log-prior functions<a class="headerlink" href="#b1-the-log-prior-functions" title="Link to this heading">#</a></h3>
+<p>🚀 <strong>Question and Task (B1)</strong>:</p>
+<ul class="simple">
+<li><p>Based on our discussion in class, choose a prior distribution for each of the four parameters.
+Briefly explain your prior choice for each parameter.</p></li>
+<li><p>Implement the log-prior functions for each parameter based on your choices.</p></li>
+</ul>
+<p><em>// Add your answer to Part B1 here</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">log_prior_r_bg</span><span class="p">(</span><span class="n">r_bg</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">0</span>  <span class="c1"># Implement here</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">log_prior_s</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">0</span>  <span class="c1"># Implement here</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">log_prior_t_start</span><span class="p">(</span><span class="n">t_start</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">0</span>   <span class="c1"># Implement here</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">log_prior_t_duration</span><span class="p">(</span><span class="n">t_duration</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">0</span>   <span class="c1"># Implement here</span>
+
+<span class="c1"># This is the combined prior function. You don&#39;t need to modify this function.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">log_prior_combined</span><span class="p">(</span><span class="n">theta</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">log_prior_flat</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+    <span class="n">r_bg</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t_start</span><span class="p">,</span> <span class="n">t_duration</span> <span class="o">=</span> <span class="n">theta</span>
+
+    <span class="n">prior</span> <span class="o">=</span> <span class="n">log_prior_r_bg</span><span class="p">(</span><span class="n">r_bg</span><span class="p">)</span> <span class="o">+</span> <span class="n">log_prior_s</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="n">log_prior_t_start</span><span class="p">(</span><span class="n">t_start</span><span class="p">)</span> <span class="o">+</span> <span class="n">log_prior_t_duration</span><span class="p">(</span><span class="n">t_duration</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">prior</span><span class="p">):</span>
+        <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+    <span class="k">return</span>
+
+<span class="c1"># This is our log-posterior function with non-flat priors. You don&#39;t need to modify this function.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">log_posterior_nonflat_priors</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">log_prior_combined</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="n">log_likelihood</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="b2-re-running-the-mcmc-with-non-flat-priors">
+<h3>B2. Re-running the MCMC with non-flat priors<a class="headerlink" href="#b2-re-running-the-mcmc-with-non-flat-priors" title="Link to this heading">#</a></h3>
+<p>The cell below will run the MCMC with non-flat priors.
+The sampler in this case is named <code class="docutils literal notranslate"><span class="pre">sampler_nfp</span></code> to distinguish it from the previous run.</p>
+<p>The cell below will take a while to run.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">Pool</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+    <span class="n">sampler_nfp</span> <span class="o">=</span> <span class="n">emcee</span><span class="o">.</span><span class="n">EnsembleSampler</span><span class="p">(</span><span class="n">nwalkers</span><span class="p">,</span> <span class="n">npara</span><span class="p">,</span> <span class="n">log_posterior_nonflat_priors</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">data</span><span class="p">,))</span>
+    <span class="n">sampler_nfp</span><span class="o">.</span><span class="n">run_mcmc</span><span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">,</span> <span class="n">progress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>🚀 <strong>Tasks (B2)</strong>:</p>
+<p>Now, repeat the analysis from Part A, including making the trace plots and the corner plot.
+You can copy the code from Part A. In most cases you just need to replace <code class="docutils literal notranslate"><span class="pre">sampler</span></code> with <code class="docutils literal notranslate"><span class="pre">sampler_nfp</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Repeat the MCMC analysis with non-flat priors here</span>
+<span class="c1"># You can copy the code from Part A. Make sure you edit the copied code to `sampler_nfp` instead of `sampler`</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>📝 <strong>Questions (B2)</strong>:</p>
+<p>Briefly discuss what you observed with the non-flat priors. In particular, discuss the following:</p>
+<ul class="simple">
+<li><p>Is there any difference in the MCMC diagnostics such as the acceptance rates and autocorrelation time?</p></li>
+<li><p>Did the corner plot look different from the one with flat priors?</p></li>
+<li><p>Did the posterior distribution change significantly?</p></li>
+</ul>
+<p><em>// Add your answers to Part B2 here</em></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Submit your notebook</strong></p>
+<p>Follow these steps when you complete this lab and are ready to submit your work to Canvas:</p>
+<ol class="arabic simple">
+<li><p>Check that all your text answers, plots, and code are all properly displayed in this notebook.</p></li>
+<li><p>Run the cell below.</p></li>
+<li><p>Download the resulting HTML file <code class="docutils literal notranslate"><span class="pre">10.html</span></code> and then upload it to the corresponding assignment on Canvas.</p></li>
+</ol>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>jupyter<span class="w"> </span>nbconvert<span class="w"> </span>--to<span class="w"> </span>html<span class="w"> </span>--embed-images<span class="w"> </span><span class="m">10</span>.ipynb
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./labs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="09.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 9: Bayesian Analysis I</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-running-mcmc-with-emcee">A. Running MCMC with emcee</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-the-likelihood-function">A1. The likelihood function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a2-the-flat-prior-function">A2. The (flat) prior function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a3-initial-guesses">A3. Initial guesses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a4-running-the-mcmc">A4. Running the MCMC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a5-inspecting-the-mcmc-chains">A5. Inspecting the MCMC chains</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a6-a-corner-plot-of-the-posterior-distribution">A6. A corner plot of the posterior distribution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-choosing-priors">B. Choosing priors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-the-log-prior-functions">B1. The log-prior functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-re-running-the-mcmc-with-non-flat-priors">B2. Re-running the MCMC with non-flat priors</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yao-Yuan Mao (University of Utah)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Statistical and Computational Methods in Physics and Astronomy
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

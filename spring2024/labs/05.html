@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -444,12 +444,12 @@ See <a class="reference external" href="https://docs.scipy.org/doc/scipy/referen
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Common code needed for both B1 and B2</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">logsumexp</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.special</span><span class="w"> </span><span class="kn">import</span> <span class="n">logsumexp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 
-<span class="k">def</span> <span class="nf">run_one_game</span><span class="p">(</span><span class="n">n_flips</span><span class="p">,</span> <span class="n">p_heads</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">run_one_game</span><span class="p">(</span><span class="n">n_flips</span><span class="p">,</span> <span class="n">p_heads</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generates the result of a coin flip game with `n_flips`.</span>
 <span class="sd">    Heads are represented by 1 in the returned array, tails by 0.</span>
@@ -491,7 +491,7 @@ See <a class="reference external" href="https://docs.scipy.org/doc/scipy/referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e134be76950f20c2b372089f02192e76a56d884749657aa4f3247f50af03fd6b.png" src="../_images/e134be76950f20c2b372089f02192e76a56d884749657aa4f3247f50af03fd6b.png" />
+<img alt="../_images/97c3fe7a4f70d079bdbd160173fbd97d8e714f8e0ff05e99ba0deb7f74d333e5.png" src="../_images/97c3fe7a4f70d079bdbd160173fbd97d8e714f8e0ff05e99ba0deb7f74d333e5.png" />
 </div>
 </div>
 </section>
@@ -521,7 +521,7 @@ If the biased coin has a probability <span class="math notranslate nohighlight">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementation for B2 (You only need to edit the last line)</span>
 
-<span class="k">def</span> <span class="nf">calc_log_likelihood_ratio</span><span class="p">(</span><span class="n">n_flips</span><span class="p">,</span> <span class="n">n_heads</span><span class="p">,</span> <span class="n">p_biased</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calc_log_likelihood_ratio</span><span class="p">(</span><span class="n">n_flips</span><span class="p">,</span> <span class="n">n_heads</span><span class="p">,</span> <span class="n">p_biased</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the log of likelihood ratio (w)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -561,7 +561,7 @@ If the biased coin has a probability <span class="math notranslate nohighlight">
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/cc3b33834a16b96e8e2b42feb67033af042939329faa1d7177c12ad34274728a.png" src="../_images/cc3b33834a16b96e8e2b42feb67033af042939329faa1d7177c12ad34274728a.png" />
+<img alt="../_images/2d92d10b4744af8a18e97759581958669104ad96fc6da1493be22f22430d3a22.png" src="../_images/2d92d10b4744af8a18e97759581958669104ad96fc6da1493be22f22430d3a22.png" />
 </div>
 </div>
 </section>
