@@ -531,7 +531,7 @@ and also plot the histogram of the initial guesses for each parameter.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Initial guesses&#39;)
 </pre></div>
 </div>
-<img alt="../_images/342c9c831b81281f53d07c561199b892a541c125fb70c0fc1183a15aaceb99b9.png" src="../_images/342c9c831b81281f53d07c561199b892a541c125fb70c0fc1183a15aaceb99b9.png" />
+<img alt="../_images/06edfebce27ba84e52a9e11c7070906ee68ab977ad7ec504b1a14486fc9d9e85.png" src="../_images/06edfebce27ba84e52a9e11c7070906ee68ab977ad7ec504b1a14486fc9d9e85.png" />
 </div>
 </div>
 </section>
@@ -729,7 +729,7 @@ Briefly explain your prior choice for each parameter.</p></li>
     <span class="n">prior</span> <span class="o">=</span> <span class="n">log_prior_r_bg</span><span class="p">(</span><span class="n">r_bg</span><span class="p">)</span> <span class="o">+</span> <span class="n">log_prior_s</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="n">log_prior_t_start</span><span class="p">(</span><span class="n">t_start</span><span class="p">)</span> <span class="o">+</span> <span class="n">log_prior_t_duration</span><span class="p">(</span><span class="n">t_duration</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">prior</span><span class="p">):</span>
         <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
-    <span class="k">return</span>
+    <span class="k">return</span> <span class="n">prior</span>
 
 <span class="c1"># This is our log-posterior function with non-flat priors. You don&#39;t need to modify this function.</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">log_posterior_nonflat_priors</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
