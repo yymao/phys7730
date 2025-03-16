@@ -17,7 +17,7 @@ Any changes will be communicated to you in a timely fashion.
 | Week 08 | Feb 24, 26 | Bayesian Analysis III | ***5-min presentations*** |
 | Week 09 | Mar 03, 05 | Introduction to Machine Learning<br>[[Reading 11](readings/11)] [[Lab 11](labs/11)] | Supervised: Regression I<br>[[Reading 12](readings/12)] [[Lab 12](labs/12)] |
 |         | Mar ~~10~~, ~~12~~ | *Spring Break* | *Spring Break* |
-| Week 10 | Mar 17, 19 | Supervised: Regression II<br>[[Reading 13](readings/13)] | Supervised: Classification I<br>[[Reading 14](readings/14)] |
+| Week 10 | Mar 17, 19 | Supervised: Regression II<br>[[Reading 13](readings/13)] [[Lab 13](labs/13)] | Supervised: Classification I<br>[[Reading 14](readings/14)] |
 | Week 11 | Mar 24, 26 | Supervised: Classification II<br>[[Reading 15](readings/15)] | Supervised: Classification III<br>[[Reading 16](readings/16)] |
 | Week 12 | Mar 31, Apr 2 | ***Mock Exam*** | Unsupervised: Clustering  |
 | Week 13 | Apr 07, 09 | Unsupervised: Dimensionality Reduction | ML: Other Topics |
