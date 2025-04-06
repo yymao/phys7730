@@ -20,6 +20,6 @@ Any changes will be communicated to you in a timely fashion.
 | Week 10 | Mar 17, 19 | *Cancelled* | Supervised: Regression II<br>[[Reading 13](readings/13)] [[Lab 13](labs/13)] |
 | Week 11 | Mar 24, 26 | Supervised: Classification I<br>[[Reading 14](readings/14)] [[Lab 14](labs/14)] | Supervised: Classification II<br>[[Reading 15](readings/15)] [[Lab 15](labs/15)] |
 | Week 12 | Mar 31, Apr 2 | ***Mock Exam*** | Supervised: Classification III<br>[[Reading 16](readings/16)] [[Lab 16](labs/16)] |
-| Week 13 | Apr 07, 09 | Unsupervised: Clustering<br>[[Reading 17](readings/17)] [[Lab 17](labs/17)] | Unsupervised: Dimensionality Reduction<br>[[Reading 18](readings/18)] |
+| Week 13 | Apr 07, 09 | Unsupervised: Clustering<br>[[Reading 17](readings/17)] [[Lab 17](labs/17)] | Unsupervised: Dimensionality Reduction<br>[[Reading 18](readings/18)] [[Lab 18](labs/18)] |
 | Week 14 | Apr 14, 16 | ***Mock exam presentations I*** | ***Mock exam presentations II*** |
 | Week 15 | Apr 21, ~~23~~ | Other ML Topics & Course Review | *Reading Day* |
