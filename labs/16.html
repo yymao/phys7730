@@ -420,8 +420,12 @@ For each case, briefly (2-3 sentences) discuss your observations (e.g., Do they 
 <p>🚀 <strong>Tasks</strong>:</p>
 <p>We will follow the example in <a class="reference external" href="https://www.tensorflow.org/hub/tutorials/tf2_text_classification">this notebook</a>
 to do a text classification example using TensorFlow.</p>
-<p>You are encouraged to run the notebook on Google Colab (make sure you select “T4 GPU” runtime).
-However, running the notebook is not required to answer the following questions since the link above provides a notebook that has been ran already.</p>
+<p>You are encouraged to run the tutorial notebook on Google Colab. However, running the notebook is not required to answer the following questions since the link above provides a notebook that has been ran already.</p>
+<p>If you are running the tutorial notebook on Google Colab, you will need to change the runtime type to “T4 GPU”.
+In addition, you will need to add a line at the beginning of the notebook before you start running.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">env</span> <span class="n">TF_USE_LEGACY_KERAS</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
 <p>The example uses three layers in total: two hidden layers and one output layer.
 The first hidden layer is a pre-trained text embedding layer that projects input text into a 50-dimensional space.</p>
 <p>📝 <strong>Questions</strong>:</p>
