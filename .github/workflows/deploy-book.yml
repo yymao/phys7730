@@ -10,11 +10,11 @@ jobs:
     permissions:
       contents: write
     steps:
-    - uses: actions/checkout@v4
-    - uses: astral-sh/setup-uv@v5
+    - uses: actions/checkout@v7
+    - uses: astral-sh/setup-uv@v9
       with:
         enable-cache: true
-    - uses: actions/setup-python@v5
+    - uses: actions/setup-python@v7
       with:
         python-version: "3.13"
     - name: Install dependencies
@@ -23,13 +23,13 @@ jobs:
       run: uv run jupyter-book build --all .
     - name: Restore cached past semesters
       id: cache
-      uses: actions/cache/restore@v4
+      uses: actions/cache/restore@v6
       with:
         path: |
           _build/html/spring2024
         key: cache-past-semesters-
     - name: Check if any changes in past semesters
-      uses: dorny/paths-filter@v3
+      uses: dorny/paths-filter@v4
       id: changes
       with:
         filters: |
@@ -43,7 +43,7 @@ jobs:
         mv spring2024/_build/html _build/html/spring2024
     - name: Save past semesters
       if: ${{ (steps.changes.outputs.spring2024 == 'true') || (steps.cache.outputs.cache-hit == '') }}
-      uses: actions/cache/save@v4
+      uses: actions/cache/save@v6
       with:
         path: |
           _build/html/spring2024
